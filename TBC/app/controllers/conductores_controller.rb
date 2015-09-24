@@ -6,7 +6,6 @@ class ConductoresController < ApplicationController
   end
 
   def mostrar
-
   end
 
   def nuevo
@@ -55,7 +54,7 @@ class ConductoresController < ApplicationController
         format.html { redirect_to :conductores_index}
         format.json { render :index, status: :ok, location: @conductor }
       else
-        format.html { render :edit }
+        format.html { render :actualizar }
         format.json { render json: @conductor.errors, status: :unprocessable_entity }
       end
     end

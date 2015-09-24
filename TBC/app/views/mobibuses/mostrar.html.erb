@@ -1,2 +1,29 @@
-<h1>Mobibuses#mostrar</h1>
-<p>Find me in app/views/mobibuses/mostrar.html.erb</p>
+<h1>Mobibus</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Placa</th>
+    <th>Estado</th>
+    <th> Latitud</th>
+    <th> Longitud</th>
+    <th> Kilometros desde ultima revision</th>
+    <th> Id_Conductor</th>
+    <th>Id</th>
+    <th colspan="4"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+      <tr>
+        <td><%= @mobibus.placa %></td>
+        <td><%= @mobibus.estado %></td>
+        <td><%= @mobibus.latitud %></td>
+        <td><%= @mobibus.longitud%></td>
+        <td><%= @mobibus.kilometer_desde_revision %></td>
+        <td><%= @mobibus.id_conductor %></td>
+        <td><%= @mobibus.id %></td>
+
+      </tr>
+  </tbody>
+</table>

@@ -11,13 +11,13 @@ Rails.application.routes.draw do
 
   get 'mobibuses/crear'
 
-  get 'mobibuses/actualizar'
+  get 'mobibuses/:id/actualizar'   =>   'mobibuses#actualizar'
 
-  get 'mobibuses/destruir'
+  get 'mobibuses/:id/destruir'    =>   'mobibuses#destruir'
 
   get 'mobibuses/index'
 
-  get 'mobibuses/mostrar'
+  get 'mobibuses/:id'       =>         'mobibuses#mostrar'
 
   get 'conductores/index'
 
