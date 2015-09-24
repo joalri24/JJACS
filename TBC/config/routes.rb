@@ -11,17 +11,17 @@ Rails.application.routes.draw do
 
   get 'mobibuses/crear'
 
-  get 'mobibuses/:id/actualizar'   =>   'mobibuses#actualizar'
+  get 'mobibuses/:id/actualizar'    => 'mobibuses#actualizar'
 
-  get 'mobibuses/:id/destruir'    =>   'mobibuses#destruir'
+  get 'mobibuses/:id/destruir'      => 'mobibuses#destruir'
 
   get 'mobibuses/index'
 
-  get 'mobibuses/:id'       =>         'mobibuses#mostrar'
+  get 'mobibuses/:id'               => 'mobibuses#mostrar'
 
   get 'conductores/index'
 
-  get 'conductores/:id'          =>         'conductores#mostrar'
+  get 'conductores/:id'             => 'conductores#mostrar'
 
   get 'conductores/nuevo'
 
@@ -29,9 +29,9 @@ Rails.application.routes.draw do
 
   get  'conductores/crear'
 
-  get 'conductores/:id/actualizar'     =>   'conductores#actualizar'
+  get 'conductores/:id/actualizar'  => 'conductores#actualizar'
 
-  get 'conductores/:id/destruir'         =>   'conductores#destruir'
+  get 'conductores/:id/destruir'    => 'conductores#destruir'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

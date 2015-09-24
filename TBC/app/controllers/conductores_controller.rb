@@ -58,7 +58,7 @@ class ConductoresController < ApplicationController
         format.json { render json: @conductor.errors, status: :unprocessable_entity }
       end
     end
-    end
+  end
 
   def destruir
     @conductor.destroy
