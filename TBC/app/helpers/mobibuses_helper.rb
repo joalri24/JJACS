@@ -1,0 +1,2 @@
+module MobibusesHelper
+end
