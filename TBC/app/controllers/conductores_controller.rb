@@ -1,5 +1,5 @@
 class ConductoresController < ApplicationController
-  before_action :set_conductor, only: [:actualizar, :mostrar]
+  before_action :set_conductor, only: [:actualizar, :mostrar, :destruir]
 
   def index
     @conductores= Conductor.all
@@ -62,6 +62,11 @@ class ConductoresController < ApplicationController
     end
 
   def destruir
+    @conductor.destroy
+    respond_to do |format|
+      format.html { redirect_to :conductores_index}
+    end
+
   end
 
   def set_conductor
