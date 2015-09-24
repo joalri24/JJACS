@@ -2,7 +2,7 @@ Conductores:
 
 
 Mobibus:
-estado:string [Ocupado, Libre, Fuera de Servicio]
+estado:integer [Ocupado, Libre, Fuera de Servicio]
 latitud:decimal
 longitud:decimal
 id_conductor:integer
@@ -12,10 +12,10 @@ id_conductor:integer
 
 
 Tranvia:
-linea:string [A,B,C]
+linea:integer [A,B,C]
 latitud:decimal
 longitud:decimal
-estado:string [Funcionando, Fuera de Servicio]
+estado:integer [Funcionando, Fuera de Servicio]
 kilometros_desde_revision:float
 temperatura:float
 boton_panico:boolean
