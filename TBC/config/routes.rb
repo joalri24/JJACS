@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   get 'conductores/:id/actualizar'     =>   'conductores#actualizar'
 
-  get 'conductores/destruir'
+  get 'conductores/:id/destruir'         =>   'conductores#destruir'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
