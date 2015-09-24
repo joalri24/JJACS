@@ -7,6 +7,8 @@ latitud:decimal
 longitud:decimal
 id_conductor:integer
 kilometros_desde_revision:float
+placa:string
+id_conductor:integer
 
 
 Tranvia:
@@ -16,6 +18,15 @@ longitud:decimal
 estado:string [Funcionando, Fuera de Servicio]
 kilometros_desde_revision:float
 temperatura:float
-boton_panico:bool
+boton_panico:boolean
+numero_identificacion:integer
+id_conductor:integer
+
+
+Vcub
+numero_identificacion:integer
+prestada:boolean
+id_usuario_actual:integer
+
 
 
