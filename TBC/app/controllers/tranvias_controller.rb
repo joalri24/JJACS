@@ -1,5 +1,8 @@
 class TranviasController < ApplicationController
+  before_action :set_tranvia, only: [:actualizar, :mostrar, :destruir]
+
   def index
+    @tranvias = Tranvia.all
   end
 
   def crear
@@ -12,5 +15,9 @@ class TranviasController < ApplicationController
   end
 
   def destruir
+  end
+
+  def set_tranvia
+    @conductor= Conductor.find(params[:id])
   end
 end
