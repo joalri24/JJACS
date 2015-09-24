@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  estado: 1
+  latitud: 9.99
+  longitud: 9.99
+  id_conductor: 1
+  kilometer_desde_revision: 1.5
+  placa: MyString
+
+two:
+  estado: 1
+  latitud: 9.99
+  longitud: 9.99
+  id_conductor: 1
+  kilometer_desde_revision: 1.5
+  placa: MyString
