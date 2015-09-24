@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'tranvias/index'
+
+  get 'tranvias/crear'
+
+  get 'tranvias/actualizar'
+
+  get 'tranvias/mostrar'
+
+  get 'tranvias/destruir'
+
   get 'mobibuses/crear'
 
   get 'mobibuses/actualizar'

@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  linea: 1
+  latitud: 9.99
+  longitud: 9.99
+  estado: 1
+  kilometros_desde_revision: 1.5
+  temperatura: 1.5
+  boton_panico: false
+  numero_identificacion: 1
+  id_conductor: 1
+
+two:
+  linea: 1
+  latitud: 9.99
+  longitud: 9.99
+  estado: 1
+  kilometros_desde_revision: 1.5
+  temperatura: 1.5
+  boton_panico: false
+  numero_identificacion: 1
+  id_conductor: 1
