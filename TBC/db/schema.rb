@@ -11,12 +11,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150924165526) do
+ActiveRecord::Schema.define(version: 20150924194630) do
 
   create_table "conductors", force: true do |t|
     t.integer  "cedula"
     t.string   "nombre"
     t.float    "puntaje"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "mobibuses", force: true do |t|
+    t.integer  "estado"
+    t.decimal  "latitud"
+    t.decimal  "longitud"
+    t.integer  "id_conductor"
+    t.float    "kilometer_desde_revision"
+    t.string   "placa"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tranvia", force: true do |t|
+    t.integer  "linea"
+    t.decimal  "latitud"
+    t.decimal  "longitud"
+    t.integer  "estado"
+    t.float    "kilometros_desde_revision"
+    t.float    "temperatura"
+    t.boolean  "boton_panico"
+    t.integer  "numero_identificacion"
+    t.integer  "id_conductor"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
