@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   get  'conductores/crear'
 
-  get 'conductores/actualizar'
+  get 'conductores/:id/actualizar'     =>   'conductores#actualizar'
 
   get 'conductores/destruir'
 
