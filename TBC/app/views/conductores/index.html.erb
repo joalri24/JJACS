@@ -1,2 +1,27 @@
-<h1>Conductores#index</h1>
-<p>Find me in app/views/conductores/index.html.erb</p>
+<h1>Listing conductors</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Nombre</th>
+    <th>Cedula</th>
+    <th>Puntaje</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @conductores.each do |conductor| %>
+      <tr>
+        <td><%= conductor.nombre %></td>
+        <td><%= conductor.cedula %></td>
+        <td><%= conductor.puntaje %></td>
+        <td><%= conductor.id %></td>
+
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+

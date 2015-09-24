@@ -1,7 +1,8 @@
 class ConductoresController < ApplicationController
 
-  def index
 
+  def index
+  @conductores= Conductor.all
   end
 
   def mostrar
@@ -15,13 +16,14 @@ class ConductoresController < ApplicationController
   def editar
   end
 
+  # POST /conductores/crear
   def crear
-    @conductor = Conductor.new(conductor_params)
+    @conductor = Conductor.create(nombre: params[:nombre], cedula: params[:cedula], puntaje: 0.0)
 
     respond_to do |format|
       if @conductor.save
-        format.html { redirect_to @conductor, notice: 'Conductor was successfully created.' }
-        format.json { render :mostrar, status: :created, location: @conductor }
+        format.html { redirect_to :conductores_index}
+        format.json { render :index, status: :created, location: @conductor }
       else
         format.html { render :nuevo }
         format.json { render json: @conductor.errors, status: :unprocessable_entity }
@@ -36,5 +38,7 @@ class ConductoresController < ApplicationController
   def destruir
 
   end
+
+
 
 end
