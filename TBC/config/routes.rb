@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+  get 'conductores/index'
+
+  get 'conductores/mostrar'
+
+  get 'conductores/nuevo'
+
+  get 'conductores/editar'
+
+  get 'conductores/crear'
+
+  get 'conductores/actualizar'
+
+  get 'conductores/destruir'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
