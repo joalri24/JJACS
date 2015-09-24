@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'mobibuses/crear'
+
+  get 'mobibuses/actualizar'
+
+  get 'mobibuses/destruir'
+
+  get 'mobibuses/index'
+
+  get 'mobibuses/mostrar'
+
   get 'conductores/index'
 
   get 'conductores/:id'          =>         'conductores#mostrar'
