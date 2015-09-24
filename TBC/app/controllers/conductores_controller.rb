@@ -49,7 +49,7 @@ class ConductoresController < ApplicationController
         atributos["puntaje"] = params[:puntaje]
       end
 
-      #if @conductor.update(nombre: params[:nombre],cedula: params[:cedula], puntaje: params[:puntaje])
+      #if @conductor.update(nombre: params[:nombre],cedula: params[:cedula],  puntaje: params[:puntaje])
       if @conductor.update(atributos)
 
         format.html { redirect_to :conductores_index}
