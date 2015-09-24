@@ -3,15 +3,33 @@
 <table>
   <thead>
   <tr>
-    <th>nombre</th>
-    <th>Cedula</th>
-    <th>Puntaje</th>
-    <th>id</th>
+    <th>Id tranvia</th>
+    <th>Linea</th>
+    <th>Latitud</th>
+    <th>longitud</th>
+    <th>Estado</th>
+    <th>Kilometros desde ultima revision</th>
+    <th>Temperatura</th>
+    <th>Boton panico</th>
+    <th>Id conductor</th>
     <th colspan="4"></th>
   </tr>
   </thead>
 
   <tbody>
+  <% @tranvias.each do |tranvia| %>
+      <tr>
+        <td><%=tranvia.numero_identificacion %></td>
+        <td><%=tranvia.linea %></td>
+        <td><%=tranvia.latitud %></td>
+        <td><%=tranvia.longitud %></td>
+        <td><%=tranvia.estado %></td>
+        <td><%=tranvia.kilometros_desde_revision %></td>
+        <td><%=tranvia.temperatura %></td>
+        <td><%=tranvia.boton_panico %></td>
+        <td><%=tranvia.id_conductor %></td>
+      </tr>
+  <% end %>
   </tbody>
 </table>
 

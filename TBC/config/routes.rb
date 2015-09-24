@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   get 'tranvias/actualizar'
 
-  get 'tranvias/mostrar'
+  get 'tranvias/:id'                => 'tranvias#mostrar'
 
   get 'tranvias/destruir'
 
