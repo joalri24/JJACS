@@ -8,7 +8,6 @@ longitud:decimal
 id_conductor:integer
 kilometros_desde_revision:float
 placa:string
-id_conductor:integer
 
 
 Tranvia:
