@@ -1,3 +1,24 @@
-<h1>Conductores#mostrar</h1>
+<h1>Conductor</h1>
 
-<p>Find me in app/views/conductores/mostrar.html.erb</p>
+<table>
+  <thead>
+  <tr>
+    <th>Nombre</th>
+    <th>Cedula</th>
+    <th>Puntaje</th>
+    <th>id</th>
+    <th colspan="4"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <tr>
+    <td><%= @conductor.nombre %></td>
+    <td><%= @conductor.cedula %></td>
+    <td><%= @conductor.puntaje %></td>
+    <td><%= @conductor.id %></td>
+  </tr>
+  </tbody>
+</table>
+
+<br>

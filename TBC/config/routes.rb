@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'conductores/index'
 
-  get 'conductores/mostrar'
+  get 'conductores/:id'          =>         'conductores#mostrar'
 
   get 'conductores/nuevo'
 
