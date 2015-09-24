@@ -3,12 +3,107 @@
 <head>
   <title>TBC</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <!%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+<div id="wrapper"><!-- #wrapper -->
+
+  <header><!-- header -->
+    <h1><a href="#">Cowboy Up</a></h1>
+    <h2>Where the buffalo roam</h2>
+    <%= image_tag 'cowboyup.jpg', size: '940x200', alt: "Lagarto's a cowboy"  %>
+    <!--<img src="images/cowboyup.jpg" width="940" height="200" alt=""><!-- header image -->
+  </header><!-- end of header -->
+
+  <%= render :partial => 'shared/nav' %>
+
+  <section id="main"><!-- #main content and sidebar area -->
+    <section id="container"><!-- #container -->
+      <section id="content"><!-- #content -->
+
+        <%= yield %>
+
+      </section><!-- end of #content -->
+    </section><!-- end of #container -->
+
+    <aside id="sidebar"><!-- sidebar -->
+      <h3>Things To Do</h3>
+      <ul>
+        <li><a href="#">Play Games</a></li>
+        <li><a href="#">Chat With Friends</a></li>
+        <li><a href="#">Swap Stories</a></li>
+        <li><a href="#">Sell Stuff</a></li>
+        <li><a href="#">Buy Stuff</a></li>
+        <li><a href="#">Trade Stuff</a></li>
+      </ul>
+
+      <h3>Our Sponsors</h3>
+      <%= image_tag 'ad125.jpg', alt: '' %><%= image_tag 'ad125.jpg', alt: '' %><br>
+      <%= image_tag 'ad125.jpg', alt: '' %><%= image_tag 'ad125.jpg', alt: '' %><br><br>
+      <!--<img src="images/ad125.jpg" alt="" /> <img src="images/ad125.jpg" alt="" /><br />
+      <img src="images/ad125.jpg" alt="" /> <img src="images/ad125.jpg" alt="" /><br /><br /> -->
+
+      <h3>Connect With Us</h3>
+      <ul>
+        <li><a href="#">Twitter</a></li>
+        <li><a href="#">Facebook</a></li>
+      </ul>
+
+    </aside><!-- end of sidebar -->
+
+  </section><!-- end of #main content and sidebar-->
+
+  <footer>
+    <section id="footer-area">
+
+      <section id="footer-outer-block">
+        <aside id="first" class="footer-segment">
+          <h3>Blogroll</h3>
+          <ul>
+            <li><a href="#">one linkylink</a></li>
+            <li><a href="#">two linkylinks</a></li>
+            <li><a href="#">three linkylinks</a></li>
+            <li><a href="#">four linkylinks</a></li>
+            <li><a href="#">five linkylinks</a></li>
+          </ul>
+        </aside><!-- end of #first footer segment -->
+
+        <aside id="second" class="footer-segment">
+          <h3>Awesome Stuff</h3>
+          <ul>
+            <li><a href="#">one linkylink</a></li>
+            <li><a href="#">two linkylinks</a></li>
+            <li><a href="#">three linkylinks</a></li>
+            <li><a href="#">four linkylinks</a></li>
+            <li><a href="#">five linkylinks</a></li>
+          </ul>
+        </aside><!-- end of #second footer segment -->
+
+        <aside id="third" class="footer-segment">
+          <h3>Coolness</h3>
+          <ul>
+            <li><a href="#">one linkylink</a></li>
+            <li><a href="#">two linkylinks</a></li>
+            <li><a href="#">three linkylinks</a></li>
+            <li><a href="#">four linkylinks</a></li>
+            <li><a href="#">five linkylinks</a></li>
+          </ul>
+        </aside><!-- end of #third footer segment -->
+
+        <aside id="fourth" class="footer-segment">
+          <h3>Blahdyblah</h3>
+          <p>Integer nec odio. Acho que erraram. Praesent libero. PP is best pon. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum.</p>
+        </aside><!-- end of #fourth footer segment -->
+
+      </section><!-- end of #footer-outer-block -->
+
+    </section><!-- end of #footer-area -->
+  </footer>
+
+</div><!-- #wrapper -->
+<!-- Free template created by http://freehtml5templates.com -->
 
 </body>
 </html>
