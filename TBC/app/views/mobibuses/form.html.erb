@@ -1,0 +1,41 @@
+<%= form_for(@mobibus) do |f| %>
+    <% if @mobibus.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@mobibus.errors.count, "error") %> prohibited this conductor from being saved:</h2>
+
+          <ul>
+            <% @conductor.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :placa %><br>
+      <%= f.text_field :placa %>
+    </div>
+    <div class="field">
+  <%= f.label :estado %><br>
+  <%= f.number_field :estado %>
+</div>
+    <div class="field">
+      <%= f.label :latitud %><br>
+      <%= f.number_field :latitud %>
+    </div>
+    <div class="field">
+      <%= f.label :longitud %><br>
+      <%= f.number_field :longitud %>
+    </div>
+    <div class="field">
+      <%= f.label :id_conductor %><br>
+      <%= f.number_field :id_conductor %>
+    </div>
+    <div class="field">
+      <%= f.label :kilometros %><br>
+      <%= f.number_field :kilometros %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>

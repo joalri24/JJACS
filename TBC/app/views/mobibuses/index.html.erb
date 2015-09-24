@@ -7,7 +7,7 @@
     <th>Estado</th>
     <th> Latitud</th>
     <th> Longitud</th>
-    <th> Kilometros desde última revisión</th>
+    <th> Kilometros desde ultima revision</th>
     <th> Id_Conductor</th>
     <th>Id</th>
     <th colspan="4"></th>
@@ -15,7 +15,7 @@
   </thead>
 
   <tbody>
-  <% @mobibues.each do |mobibus| %>
+  <% @mobibuses.each do |mobibus| %>
       <tr>
         <td><%= mobibus.placa %></td>
         <td><%= mobibus.estado %></td>
@@ -23,7 +23,7 @@
         <td><%= mobibus.longitud%></td>
         <td><%= mobibus.kilometer_desde_revision %></td>
         <td><%= mobibus.id_conductor %></td>
-        <td><%= mobibus.index %></td>
+        <td><%= mobibus.id %></td>
 
       </tr>
   <% end %>

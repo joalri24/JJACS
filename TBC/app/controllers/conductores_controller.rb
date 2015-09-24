@@ -25,7 +25,7 @@ class ConductoresController < ApplicationController
         format.html { redirect_to :conductores_index}
         format.json { render :index, status: :created, location: @conductor }
       else
-        format.html { render :nuevo }
+        format.html { render :crear }
         format.json { render json: @conductor.errors, status: :unprocessable_entity }
       end
     end
