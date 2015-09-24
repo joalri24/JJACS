@@ -1,4 +1,6 @@
 class MobibusesController < ApplicationController
+
+
   def crear
   end
 
@@ -9,6 +11,7 @@ class MobibusesController < ApplicationController
   end
 
   def index
+    @mobibuses= Mobibus.all
   end
 
   def mostrar
