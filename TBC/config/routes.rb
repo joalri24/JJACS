@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
-  get 'tranvias/index'
+  get 'tranvias'                    => 'tranvias#index'
 
   get 'tranvias/crear'
 
-  get 'tranvias/actualizar'
+  get 'tranvias/:id/actualizar'     => 'tranvias#actualizar'
 
   get 'tranvias/:id'                => 'tranvias#mostrar'
 
-  get 'tranvias/destruir'
+  get 'tranvias/:id/destruir'       => 'tranvias#destruir'
 
   get 'mobibuses/crear'
 
