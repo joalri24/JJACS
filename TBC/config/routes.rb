@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'vcubs/index'
+
+  get 'vcubs/crear'
+
+  get 'vcubs/actualizar'
+
+  get 'vcubs/mostrar'
+
+  get 'vcubs/destruir'
+
   get 'tranvias'                    => 'tranvias#index'
 
   get 'tranvias/crear'
