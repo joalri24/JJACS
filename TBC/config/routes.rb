@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'vcubs/index'
+  get 'vcubs'                      => 'vcubs#index'
 
   get 'vcubs/crear'
 

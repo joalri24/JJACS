@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150924194630) do
+ActiveRecord::Schema.define(version: 20150925001117) do
 
   create_table "conductors", force: true do |t|
     t.integer  "cedula"
@@ -42,6 +42,14 @@ ActiveRecord::Schema.define(version: 20150924194630) do
     t.boolean  "boton_panico"
     t.integer  "numero_identificacion"
     t.integer  "id_conductor"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "vcubs", force: true do |t|
+    t.integer  "numero_identificacion"
+    t.boolean  "prestada"
+    t.integer  "id_usuario_actual"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
