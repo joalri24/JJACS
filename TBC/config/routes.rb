@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
-  get 'vcubs'                      => 'vcubs#index'
+  get 'vcubs'                       => 'vcubs#index'
 
   get 'vcubs/crear'
 
-  get 'vcubs/actualizar'
+  get 'vcubs/:id/actualizar'        => 'vcubs#actualizar'
 
   get 'vcubs/:id'                   => 'vcubs#mostrar'
 
@@ -35,9 +35,9 @@ Rails.application.routes.draw do
 
   get 'conductores'                 => 'conductores#index'
 
-  get 'conductores/:id'             => 'conductores#mostrar'
+  get 'conductores/crear'           => 'conductores#crear'
 
-  get 'conductores/crear'
+  get 'conductores/:id'             => 'conductores#mostrar'
 
   get 'conductores/:id/actualizar'  => 'conductores#actualizar'
 
