@@ -1,10 +1,11 @@
 class MobibusesController < ApplicationController
   before_action :set_mobibus, only: [:actualizar, :mostrar, :destruir]
+
   def crear
     @mobibus = Mobibus.create(estado:0, placa: params[:placa], longitud: 0.0, latitud: 0.0,id_conductor: 0,kilometer_desde_revision:0)
     respond_to do |format|
       if @mobibus.save
-        format.html { redirect_to :mobibuses_index}
+        format.html { redirect_to :mobibuses}
         format.json { render :index, status: :created, location: @mobibus }
       else
         format.html { render :crear }
@@ -45,7 +46,7 @@ class MobibusesController < ApplicationController
       #if @conductor.update(nombre: params[:nombre],cedula: params[:cedula],  puntaje: params[:puntaje])
       if @mobibus.update(atributos)
 
-        format.html { redirect_to :mobibuses_index}
+        format.html { redirect_to :mobibuses}
         format.json { render :index, status: :ok, location: @mobibus}
       else
         format.html { render :actualizar }
@@ -57,7 +58,7 @@ class MobibusesController < ApplicationController
   def destruir
     @mobibus.destroy
     respond_to do |format|
-      format.html { redirect_to :mobibuses_index}
+      format.html { redirect_to :mobibuses}
     end
   end
 
