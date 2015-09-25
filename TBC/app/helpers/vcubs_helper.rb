@@ -1,0 +1,2 @@
+module VcubsHelper
+end
