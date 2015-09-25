@@ -1,2 +1,22 @@
-<h1>Vcubs#mostrar</h1>
-<p>Find me in app/views/vcubs/mostrar.html.erb</p>
+<h1>Vcubs <%= " #{@vcub.numero_identificacion}" %></h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Id Vcub</th>
+    <th>Prestada</th>
+    <th>Usuario Actual</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+      <tr>
+        <td><%=@vcub.numero_identificacion %></td>
+        <td><%=@vcub.prestada %></td>
+        <td><%=@vcub.id_usuario_actual %></td>
+      </tr>
+  </tbody>
+</table>
+
+<br>

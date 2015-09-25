@@ -25,6 +25,10 @@ class VcubsController < ApplicationController
   end
 
   def destruir
+    @vcub.destroy
+    respond_to do |format|
+      format.html { redirect_to vcubs_path}
+    end
   end
 
   def set_vcub

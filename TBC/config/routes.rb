@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
+
   get 'vcubs'                      => 'vcubs#index'
 
   get 'vcubs/crear'
 
   get 'vcubs/actualizar'
 
-  get 'vcubs/mostrar'
+  get 'vcubs/:id'                   => 'vcubs#mostrar'
 
-  get 'vcubs/destruir'
+  get 'vcubs/:id/destruir'          => 'vcubs#destruir'
+
 
   get 'tranvias'                    => 'tranvias#index'
 
@@ -19,25 +21,23 @@ Rails.application.routes.draw do
 
   get 'tranvias/:id/destruir'       => 'tranvias#destruir'
 
+
   get 'mobibuses/crear'
 
   get 'mobibuses/:id/actualizar'    => 'mobibuses#actualizar'
 
   get 'mobibuses/:id/destruir'      => 'mobibuses#destruir'
 
-  get 'mobibuses/index'
+  get 'mobibuses'                   => 'mobibuses#index'
 
   get 'mobibuses/:id'               => 'mobibuses#mostrar'
 
-  get 'conductores/index'
+
+  get 'conductores'                 => 'conductores#index'
 
   get 'conductores/:id'             => 'conductores#mostrar'
 
-  get 'conductores/nuevo'
-
-  get 'conductores/editar'
-
-  get  'conductores/crear'
+  get 'conductores/crear'
 
   get 'conductores/:id/actualizar'  => 'conductores#actualizar'
 
@@ -47,7 +47,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   root 'conductores#crear'
+   root 'conductores#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
