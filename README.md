@@ -1,16 +1,15 @@
 # JJACS
 
-#Ejemplos de rutas
+##Ejemplos de rutas
 
-Conductores:
+###Conductores:
 
-GET conductores
+*GET conductores
 
-GET conductores/1
+*GET conductores/1
 
-POST conductores
-
-parametros {nombre: Big Mac, cedula: 1234}
+*POST conductores
+  *parametros {nombre: Big Mac, cedula: 1234}
 
 PUT conductores/1
 parametros {puntaje: 2.4}
