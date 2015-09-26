@@ -1,8 +1,8 @@
-# JJACS
+# JJACS: Ejemplos de rutas
 
-##Ejemplos de rutas
 
-###Conductores:
+
+##Conductores:
 
 ####GET conductores
 
@@ -13,15 +13,18 @@
 
 parametros {nombre: Big Mac, cedula: 1234}
 
+
+
 ####PUT conductores/1
 
 
 parametros {puntaje: 2.4}
 
+
+
 ####DELETE conductores/6
 
-
-Tranvias:
+##Tranvias:
 
 GET tranvias
 
