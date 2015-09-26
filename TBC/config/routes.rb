@@ -35,13 +35,13 @@ Rails.application.routes.draw do
 
   get 'conductores'                 => 'conductores#index'
 
-  get 'conductores/crear'           => 'conductores#crear'
+  post 'conductores'                => 'conductores#crear'
 
   get 'conductores/:id'             => 'conductores#mostrar'
 
-  get 'conductores/:id/actualizar'  => 'conductores#actualizar'
+  put 'conductores/:id'             => 'conductores#actualizar'
 
-  get 'conductores/:id/destruir'    => 'conductores#destruir'
+  delete 'conductores/:id'          => 'conductores#destruir'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

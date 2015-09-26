@@ -51,7 +51,7 @@ class ConductoresController < ApplicationController
       #if @conductor.update(nombre: params[:nombre],cedula: params[:cedula],  puntaje: params[:puntaje])
       if @conductor.update(atributos)
 
-        format.html { redirect_to :conductores}
+        format.html { redirect_to action: 'index', status: 303}
         format.json { render :index, status: :ok, location: @conductor }
       else
         format.html { render :actualizar }
@@ -63,7 +63,7 @@ class ConductoresController < ApplicationController
   def destruir
     @conductor.destroy
     respond_to do |format|
-      format.html { redirect_to :conductores}
+      format.html { redirect_to action: 'index', status: 303}
     end
 
   end
