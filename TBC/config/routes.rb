@@ -2,16 +2,13 @@ Rails.application.routes.draw do
 
   get 'vcubs'                       => 'vcubs#index'
 
-  #get 'vcubs/crear'
   post 'vcubs'                      => 'vcubs#crear'
 
-  #get 'vcubs/:id/actualizar'        => 'vcubs#actualizar'
   put 'vcubs/:id'                   => 'vcubs#actualizar'
 
   get 'vcubs/:id'                   => 'vcubs#mostrar'
 
-  #get 'vcubs/:id/destruir'          => 'vcubs#destruir'
-  delete 'vcubs/:id/destruir'       => 'vcubs#destruir'
+  delete 'vcubs/:id'                => 'vcubs#destruir'
 
 
   get 'tranvias'                    => 'tranvias#index'
@@ -21,7 +18,7 @@ Rails.application.routes.draw do
   put 'tranvias/:id/'                => 'tranvias#actualizar'
 
   get 'tranvias/:id'                => 'tranvias#mostrar'
-  
+
   delete 'tranvias/:id'             => 'tranvias#destruir'
 
 

@@ -36,7 +36,7 @@ class VcubsController < ApplicationController
 
       if @vcub.update(atributos)
 
-        format.html { redirect_to vcubs_path}
+        format.html { redirect_to action: 'index', status: 303}
         format.json { render :index, status: :ok, location: @vcub}
       else
         format.html { render :actualizar }
@@ -51,7 +51,7 @@ class VcubsController < ApplicationController
   def destruir
     @vcub.destroy
     respond_to do |format|
-      format.html { redirect_to vcubs_path}
+      format.html { redirect_to action: 'index', status: 303}
     end
   end
 
