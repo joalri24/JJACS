@@ -4,17 +4,21 @@
 
 ###Conductores:
 
-*GET conductores
+####GET conductores
 
-*GET conductores/1
+####GET conductores/1
 
-*POST conductores
-  *parametros {nombre: Big Mac, cedula: 1234}
+####POST conductores
 
-PUT conductores/1
+
+parametros {nombre: Big Mac, cedula: 1234}
+
+####PUT conductores/1
+
+
 parametros {puntaje: 2.4}
 
-DELETE conductores/6
+####DELETE conductores/6
 
 
 Tranvias:
