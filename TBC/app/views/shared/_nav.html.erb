@@ -1,17 +1,17 @@
 <nav><!-- top nav -->
   <div class="menu">
     <ul>
-      <li>Inicio<!%= nav_link_to 'Home','home',  page_home_path, 'current_page' %></li>
-      <li><a href="#">About</a>
+      <li><a href="#">Paginas</a>
         <ul>
-          <li>Pagina<!%= link_to 'Teach Lagarto', lagarto_teach_path %></li>
-          <li><a href="#">History</a></li>
-          <li><a href="">Vision</a></li>
+          <li><a href="#">Inicio</a></li>
+          <li><a href="#">Nosotros</a></li>
+          <li><a href="">Objetivos</a></li>
         </ul>
       </li>
-      <li>Products<!%= link_to 'Products', page_products_path %></li>
-      <li>Articles<!%= link_to 'Articles', page_articles_path %> </li>
-      <li>Contact us<!%= link_to 'Contact us', page_contact_us_path %></li>
+      <li><%= link_to 'Conductores',  conductores_path %></li>
+      <li><%= link_to 'Mobibuses',  mobibuses_path %></li>
+      <li><%= link_to 'Tranvias',  tranvias_path %></li>
+      <li><%= link_to 'Vcubs',  vcubs_path %></li>
     </ul>
   </div>
 </nav><!-- end of top nav -->
