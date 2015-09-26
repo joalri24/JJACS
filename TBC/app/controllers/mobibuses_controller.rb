@@ -39,14 +39,14 @@ class MobibusesController < ApplicationController
         atributos["id_conductor"] = params[:idConductor]
       end
 
-      if params[:kilometros] != nil
-        atributos["kilometer_desde_revision"] = params[:kilometros]
+      if params[:kilometer_desde_revision] != nil
+        atributos["kilometer_desde_revision"] = params[:kilometer_desde_revision]
       end
 
       #if @conductor.update(nombre: params[:nombre],cedula: params[:cedula],  puntaje: params[:puntaje])
       if @mobibus.update(atributos)
 
-        format.html { redirect_to :mobibuses}
+        format.html { redirect_to action: 'index', status: 303}
         format.json { render :index, status: :ok, location: @mobibus}
       else
         format.html { render :actualizar }
@@ -58,7 +58,7 @@ class MobibusesController < ApplicationController
   def destruir
     @mobibus.destroy
     respond_to do |format|
-      format.html { redirect_to :mobibuses}
+      format.html { redirect_to action: 'index', status: 303}
     end
   end
 

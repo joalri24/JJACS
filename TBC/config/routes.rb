@@ -22,15 +22,15 @@ Rails.application.routes.draw do
   delete 'tranvias/:id'             => 'tranvias#destruir'
 
 
-  get 'mobibuses/crear'
-
-  get 'mobibuses/:id/actualizar'    => 'mobibuses#actualizar'
-
-  get 'mobibuses/:id/destruir'      => 'mobibuses#destruir'
-
   get 'mobibuses'                   => 'mobibuses#index'
 
   get 'mobibuses/:id'               => 'mobibuses#mostrar'
+
+  post 'mobibuses'                  => 'mobibuses#crear'
+
+  put 'mobibuses/:id'               => 'mobibuses#actualizar'
+
+  delete 'mobibuses/:id'            => 'mobibuses#destruir'
 
 
   get 'conductores'                 => 'conductores#index'
