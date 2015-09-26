@@ -61,7 +61,7 @@ class TranviasController < ApplicationController
 
       if @tranvia.update(atributos)
 
-        format.html { redirect_to tranvias_path}
+        format.html { redirect_to action:'index', status: 303}
         format.json { render :index, status: :ok, location: @tranvia}
       else
         format.html { render :actualizar }
@@ -76,7 +76,7 @@ class TranviasController < ApplicationController
   def destruir
     @tranvia.destroy
     respond_to do |format|
-      format.html { redirect_to :tranvias}
+      format.html { redirect_to action:'index', status: 303}
     end
   end
 
