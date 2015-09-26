@@ -39,7 +39,8 @@ parametros {numero_identificacion: 100, linea: 1}
 
 parametros {latitud: 100, longitud: -12.5, estado: 1, kilometros_desde_revision: 10.5, temperatura: 15.7, boton_panico: true, id_conductor: 1  }
 
-#### tranvias/1
+
+#### DELETE tranvias/1
 
 
 ##Mobibuses:
@@ -57,8 +58,31 @@ parametros {placa: 100}
 ####PUT mobibuses/1
 
 
-parametros {latitud: 100, longitud: -12.5, estado: 1, id_conductor: 1, **kilometer_desde_revision**: 10.5, }
+parametros {latitud: 100, longitud: -12.5, estado: 1, id_conductor: 1, **kilometer**_desde_revision: 10.5, }
 
 ####DELETE mobibuses/1
+
+
+##Vcubs
+
+####GET vcubs
+
+####GET vcubs/1
+
+####POST vcubs
+
+
+parametros {numero_identificacion:100}
+
+####PUT vcubs/1
+
+
+parametros {prestada: true, id_usuario_actual: 100 }
+
+####DELETE vcubs/1
+
+
+
+
 
 
