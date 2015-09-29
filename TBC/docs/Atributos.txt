@@ -55,7 +55,7 @@ Cliente: (tiene muchas reservas, tiene muchos prestamos)
 nombre:string
 cedula:integer
 
-Estación(tiene muchas bi cicletas):
+Estación(tiene muchas bicicletas):
 Nombre:string
 Capacidad:integer
 
