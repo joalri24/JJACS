@@ -1,0 +1,30 @@
+Reservación una semana antes.
+Hay una lista de espera.
+  Si es liberado el usuario es informado.
+
+Vcubs:
+  El usuario pide una bicicleta y la devuelve en otra estación
+
+
+Reabastecer bicicletas en una estacion
+
+Tiempo de cada trayecto del mobibus.
+
+Emergencia del tranvia. Magnitud y enviar buses de repuesto.
+
+
+Centro de monitoreo:
+
+Posicion de todos los vehiculos
+Info conductores
+Reportes:
+  Tiempos promedio
+  Conductores más efectivos
+  Trayectos con más problemas.
+  Accidentes más comunes.
+  Todo lo demás que ayude a la empresa.
+
+
+
+
+Extra:
