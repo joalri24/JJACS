@@ -27,5 +27,44 @@ numero_identificacion:integer
 prestada:boolean
 id_usuario_actual:integer
 
+Reserva: (Tiene un cliente, tiene o no un mobibus, tiene trayecto )
+cliente_id:integer
+mobibus_id:integer
+fecha:datetime
+estado:integer {En espera, Asignada, Finalizada}
+direccion_origen:string
+direccio_destino:string
+
+Trayecto:
+direccion_origen:string
+direccion_destino:string
+duracion:float
+distacia:float (en kilometros)
+tipo[1: de 0-10km, 2:10-50, 3:50 en adelante](Depende de la distancia)
+
+Prestamo_vcub:
+cliente_id:integer
+vcub_id:integer
+fecha:datetime
+
+Cliente: (tiene muchas reservas, tiene muchos prestamos)
+nombre:string
+cedula:integer
+
+Estación(tiene muchas bicicletas):
+Nombre:string
+Capacidad:integer
+
+Emergencia(tiene un tranvia)
+Fecha:datetime
+Magnitud:integer[1-5 siendo 1 la más grave]
+latitud:decimal
+longitud:decimal
+tipo:[]
+
+Reporte
+tipo:[1:conductores, 2:tiempo promedio de trayectos, 3:Lineas con más problemas]
+fecha:datetime
+contenido:text
 
 

@@ -1,3 +1,15 @@
+
+Tasks:
+1. reservas mobibus
+2. prestamos vcub
+3.-estación--> reabastecer
+4. trayecto
+5. clientes
+6. conductores ---> dar promedio puntaje
+7. emergencia
+8. reporte
+
+
 Reservación una semana antes.
 Hay una lista de espera.
   Si es liberado el usuario es informado.
@@ -24,7 +36,5 @@ Reportes:
   Accidentes más comunes.
   Todo lo demás que ayude a la empresa.
 
-
-
-
 Extra:
+conductores tranvia
