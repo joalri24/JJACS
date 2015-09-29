@@ -5,7 +5,7 @@ nombre:string
 cedula:integer
 tipo:integer [1:tranvia,2: mobibus]
 
-Mobibus(t):
+Mobibus:
 estado:integer [Ocupado, Libre, Fuera de Servicio]
 latitud:decimal
 longitud:decimal
@@ -55,7 +55,7 @@ Cliente: (tiene muchas reservas, tiene muchos prestamos)
 nombre:string
 cedula:integer
 
-Estación(tiene muchas bicicletas):
+Estación(tiene muchas bi cicletas):
 Nombre:string
 Capacidad:integer
 
