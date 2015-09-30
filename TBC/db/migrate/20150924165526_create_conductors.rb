@@ -4,7 +4,6 @@ class CreateConductors < ActiveRecord::Migration
       t.integer :cedula
       t.string :nombre
       t.float :puntaje
-
       t.timestamps
     end
   end

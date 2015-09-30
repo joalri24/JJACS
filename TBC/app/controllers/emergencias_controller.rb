@@ -7,7 +7,9 @@ class EmergenciasController < ApplicationController
     fecha = Time.now
     @emergencia.update_attributes(tranvia_id: params[:tranvia_id], tipo: params[:tipo], magnitud: params[:magnitud], latitud:  params[:latitud], longitud:  params[:longitud], fecha: fecha )
     @emergencia.save
-    format.html { redirect_to action: 'mostrar'}
+    respond_to do |format|
+      format.html { redirect_to action:'mostrar', id:@emergencia.id , status: 200}
+    end
   end
 
   def mostrar

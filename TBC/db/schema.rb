@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150930000618) do
+ActiveRecord::Schema.define(version: 20150930014240) do
 
   create_table "conductors", force: true do |t|
     t.integer  "cedula"
@@ -19,7 +19,12 @@ ActiveRecord::Schema.define(version: 20150930000618) do
     t.float    "puntaje"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "mobibus_id"
+    t.integer  "tranvia_id"
   end
+
+  add_index "conductors", ["mobibus_id"], name: "index_conductors_on_mobibus_id"
+  add_index "conductors", ["tranvia_id"], name: "index_conductors_on_tranvia_id"
 
   create_table "emergencia", force: true do |t|
     t.integer  "tranvia_id"
