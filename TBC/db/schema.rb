@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150925001117) do
+ActiveRecord::Schema.define(version: 20150930000618) do
 
   create_table "conductors", force: true do |t|
     t.integer  "cedula"
@@ -20,6 +20,19 @@ ActiveRecord::Schema.define(version: 20150925001117) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "emergencia", force: true do |t|
+    t.integer  "tranvia_id"
+    t.datetime "fecha"
+    t.integer  "magnitud"
+    t.decimal  "latitud"
+    t.decimal  "longitud"
+    t.integer  "tipo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "emergencia", ["tranvia_id"], name: "index_emergencia_on_tranvia_id"
 
   create_table "mobibuses", force: true do |t|
     t.integer  "estado"
