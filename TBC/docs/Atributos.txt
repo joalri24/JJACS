@@ -36,10 +36,8 @@ direccion_origen:string
 direccio_destino:string
 
 Trayecto:
-direccion_origen:string
-direccion_destino:string
 duracion:float
-distacia:float (en kilometros)
+dinstacia:float (en kilometros)
 tipo[1: de 0-10km, 2:10-50, 3:50 en adelante](Depende de la distancia)
 
 Prestamo_vcub:

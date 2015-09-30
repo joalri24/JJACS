@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150930015832) do
+ActiveRecord::Schema.define(version: 20150930025406) do
+
+  create_table "clientes", force: true do |t|
+    t.string   "nombre"
+    t.integer  "cedula"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "conductors", force: true do |t|
     t.integer  "cedula"
@@ -39,6 +46,13 @@ ActiveRecord::Schema.define(version: 20150930015832) do
 
   add_index "emergencia", ["tranvia_id"], name: "index_emergencia_on_tranvia_id"
 
+  create_table "estacions", force: true do |t|
+    t.string   "nombre"
+    t.integer  "capacidad"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "mobibuses", force: true do |t|
     t.integer  "estado"
     t.decimal  "latitud"
@@ -48,6 +62,31 @@ ActiveRecord::Schema.define(version: 20150930015832) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "prestamos", force: true do |t|
+    t.integer  "vcub_id"
+    t.integer  "cliente_id"
+    t.datetime "fecha"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "prestamos", ["cliente_id"], name: "index_prestamos_on_cliente_id"
+  add_index "prestamos", ["vcub_id"], name: "index_prestamos_on_vcub_id"
+
+  create_table "reservas", force: true do |t|
+    t.datetime "fecha"
+    t.integer  "estado"
+    t.string   "direccion_origen"
+    t.string   "direccion_destino"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "cliente_id"
+    t.integer  "mobibus_id"
+  end
+
+  add_index "reservas", ["cliente_id"], name: "index_reservas_on_cliente_id"
+  add_index "reservas", ["mobibus_id"], name: "index_reservas_on_mobibus_id"
 
   create_table "tranvia", force: true do |t|
     t.integer  "linea"
@@ -62,12 +101,28 @@ ActiveRecord::Schema.define(version: 20150930015832) do
     t.datetime "updated_at"
   end
 
+  create_table "trayectos", force: true do |t|
+    t.integer  "reserva_id"
+    t.float    "distancia"
+    t.float    "duracion"
+    t.integer  "tipo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "trayectos", ["reserva_id"], name: "index_trayectos_on_reserva_id"
+
   create_table "vcubs", force: true do |t|
     t.integer  "numero_identificacion"
     t.boolean  "prestada"
     t.integer  "id_usuario_actual"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "cliente_id"
+    t.integer  "estacion_id"
   end
+
+  add_index "vcubs", ["cliente_id"], name: "index_vcubs_on_cliente_id"
+  add_index "vcubs", ["estacion_id"], name: "index_vcubs_on_estacion_id"
 
 end
