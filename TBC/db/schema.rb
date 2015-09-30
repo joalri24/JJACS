@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150930014240) do
+ActiveRecord::Schema.define(version: 20150930015832) do
 
   create_table "conductors", force: true do |t|
     t.integer  "cedula"
@@ -43,7 +43,6 @@ ActiveRecord::Schema.define(version: 20150930014240) do
     t.integer  "estado"
     t.decimal  "latitud"
     t.decimal  "longitud"
-    t.integer  "id_conductor"
     t.float    "kilometer_desde_revision"
     t.string   "placa"
     t.datetime "created_at"
@@ -59,7 +58,6 @@ ActiveRecord::Schema.define(version: 20150930014240) do
     t.float    "temperatura"
     t.boolean  "boton_panico"
     t.integer  "numero_identificacion"
-    t.integer  "id_conductor"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
