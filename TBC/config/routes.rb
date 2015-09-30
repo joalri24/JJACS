@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'emergencias/crear'
+
+  get 'emergencias/:id'             => 'emergencias#mostrar'
+
   get 'vcubs'                       => 'vcubs#index'
 
   post 'vcubs'                      => 'vcubs#crear'
@@ -21,6 +25,7 @@ Rails.application.routes.draw do
 
   delete 'tranvias/:id'             => 'tranvias#destruir'
 
+  get 'tranvias/:id/emergencia'     =>'tranvias#crear_emergencia'
 
   get 'mobibuses'                   => 'mobibuses#index'
 

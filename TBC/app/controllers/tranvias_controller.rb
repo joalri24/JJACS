@@ -1,5 +1,5 @@
 class TranviasController < ApplicationController
-  before_action :set_tranvia, only: [:actualizar, :mostrar, :destruir]
+  before_action :set_tranvia, only: [:actualizar, :mostrar, :destruir, :crear_emergencia]
 
   def index
     @tranvias = Tranvia.all
@@ -82,5 +82,11 @@ class TranviasController < ApplicationController
 
   def set_tranvia
     @tranvia= Tranvia.find(params[:id])
+  end
+
+
+  def crear_emergencia
+    @tranvia.update_attributes(boton_panico: true, estado:1)
+    redirect_to (emergencia_crear_path(tranvia_id: @tranvia.id, magnitud: 4, latitud: @tranvia.latitud, longitud:@tranvia.longitud,tipo:2))
   end
 end
