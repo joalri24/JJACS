@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
 
+  get 'estaciones/inicio'
+
+  get 'estaciones/index'
+
+  get 'estaciones/crear'
+
+  get 'estaciones/actualizar'
+
+  get 'estaciones/mostrar'
+
+  get 'estaciones/destruir'
+
   get 'emergencias/crear'
 
   get 'emergencias/:id'             => 'emergencias#mostrar'
