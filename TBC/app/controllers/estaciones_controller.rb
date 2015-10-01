@@ -1,4 +1,7 @@
 class EstacionesController < ApplicationController
+
+  before_action :set_tranvia, only: [:actualizar, :mostrar, :destruir]
+
   def inicio
   end
 
@@ -16,4 +19,9 @@ class EstacionesController < ApplicationController
 
   def destruir
   end
+
+  private
+    def set_tranvia
+      @estacion = Estacion.find(params[:id])
+    end
 end

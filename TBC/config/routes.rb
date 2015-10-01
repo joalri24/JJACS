@@ -2,19 +2,21 @@ Rails.application.routes.draw do
 
   get 'estaciones/inicio'
 
-  get 'estaciones/index'
+  get 'estaciones'                 => 'estaciones#index'
 
-  get 'estaciones/crear'
+  get 'estaciones/:id'             => 'estaciones#mostrar'
 
-  get 'estaciones/actualizar'
+  post 'estaciones'                => 'estaciones#crear'
 
-  get 'estaciones/mostrar'
+  put 'estaciones/:id'             => 'estaciones#actualizar'
 
-  get 'estaciones/destruir'
+  delete 'estaciones/:id'          => 'estaciones#destruir'
+
 
   get 'emergencias/crear'
 
   get 'emergencias/:id'             => 'emergencias#mostrar'
+
 
   get 'vcubs'                       => 'vcubs#index'
 
@@ -38,6 +40,7 @@ Rails.application.routes.draw do
   delete 'tranvias/:id'             => 'tranvias#destruir'
 
   get 'tranvias/:id/emergencia'     =>'tranvias#crear_emergencia'
+
 
   get 'mobibuses'                   => 'mobibuses#index'
 
