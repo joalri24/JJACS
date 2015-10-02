@@ -6,7 +6,7 @@ class EstacionesController < ApplicationController
   end
 
   def index
-    @estacion = Estacion.all
+    @estaciones = Estacion.all
   end
 
   def crear
