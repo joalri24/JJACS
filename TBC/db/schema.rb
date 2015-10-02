@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150930030301) do
+ActiveRecord::Schema.define(version: 20150930032918) do
 
   create_table "clientes", force: true do |t|
     t.string   "nombre"
@@ -73,6 +73,14 @@ ActiveRecord::Schema.define(version: 20150930030301) do
 
   add_index "prestamos", ["cliente_id"], name: "index_prestamos_on_cliente_id"
   add_index "prestamos", ["vcub_id"], name: "index_prestamos_on_vcub_id"
+
+  create_table "reportes", force: true do |t|
+    t.integer  "tipo"
+    t.datetime "fecha"
+    t.text     "contenido"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "reservas", force: true do |t|
     t.datetime "fecha"

@@ -1,0 +1,16 @@
+<h1>Bienvenido al mejor sistema de transportes! </h1>
+<p>Haz parte de la comunidad TBC! </p>
+
+<p><strong>Proporciona tus datos</strong></p>
+<%= form_tag '/clientes' do %>
+    <p>
+      Nombre:
+      <%= text_field_tag 'nombre' %>
+    </p>
+    <p>
+      Cedula:
+      <%= number_field_tag 'cedula' %>
+    </p>
+
+    <p><%= submit_tag 'Registrate'  %></p>
+<% end %>

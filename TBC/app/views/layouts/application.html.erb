@@ -13,7 +13,13 @@
 
   <header><!-- header -->
     <h1><a href="#">TBC</a></h1>
-    <h2>Transporte para ti y para mí</h2>
+
+
+    <ul>
+      <h2>Transporte para ti y para mí</h2>
+      <li><%= link_to 'Sign_in', clientes_signin_path %></li>
+      <li><%= link_to 'Registrarse',clientes_inicio_path %></li>
+    </ul>
     <%= image_tag 'cowboyup.jpg', size: '940x200', alt: "Lagarto's a cowboy"  %>
     <!--<img src="images/cowboyup.jpg" width="940" height="200" alt=""><!-- header image -->
   </header><!-- end of header -->

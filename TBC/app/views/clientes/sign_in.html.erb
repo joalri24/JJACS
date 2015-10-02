@@ -1,0 +1,16 @@
+<h1>Bienvenido al mejor sistema de transportes! </h1>
+<p>Ingresa al sistema</p>
+
+<p><strong>Proporciona tus datos</strong></p>
+<%= form_tag '/ing' do %>
+    <p>
+      Usuario:
+      <%= text_field_tag 'nombre' %>
+    </p>
+    <p>
+      Contrasena:
+      <%= number_field_tag 'cedula' %>
+    </p>
+
+    <p><%= submit_tag 'Inicia sesion'  %></p>
+<% end %>
