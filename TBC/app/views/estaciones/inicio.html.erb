@@ -1,12 +1,12 @@
 <h1>Estaciones</h1>
-<p>Esta es la página de estaciones. Desde aqui se pueden agregar nuevas estaciones y ver todas las ya existentes. </p>
+<p>Esta es la página de estaciones. Desde aquí se pueden agregar nuevas estaciones y ver todas las ya existentes. </p>
 
 <p><%= link_to 'Lista de estaciones', action: 'index', method: 'get' %></p>
 
 <hr>
 
 <p><strong>Crear una nueva estación </strong></p>
-<% form_tag '/estaciones' %>
+<%= form_tag '/estaciones' do %>
     <p>
       Nombre:
       <%= text_field_tag 'nombre' %>
@@ -16,4 +16,5 @@
       <%= number_field_tag 'capacidad', 4,  min: 4, max: 30 %>
     </p>
 
-<p><%= submit_tag 'Crear'  %></p>
+    <p><%= submit_tag 'Crear'  %></p>
+<% end %>
