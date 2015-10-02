@@ -2,7 +2,14 @@
 <p>Ingresa al sistema</p>
 
 <p><strong>Proporciona tus datos</strong></p>
-<%= form_tag '/ing' do %>
+
+<% if @mensaje.nil? %>
+
+<% else %>
+        <td><%= @mensaje %></td>
+<% end%>
+
+<%= form_tag({:controller => "clientes", :action => "ingreso_sesion"}, :method => "get") do %>
     <p>
       Usuario:
       <%= text_field_tag 'nombre' %>

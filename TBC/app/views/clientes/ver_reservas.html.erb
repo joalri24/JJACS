@@ -1,0 +1,24 @@
+<h1>Lista de clientes</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Id cliente</th>
+    <th>Nombre</th>
+    <th>Cedula</th>
+    <th colspan="9"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @clientes.each do |cliente| %>
+      <tr>
+        <td><%=cliente.id%></td>
+        <td><%=cliente.nombre %></td>
+        <td><%=cliente.cedula %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>

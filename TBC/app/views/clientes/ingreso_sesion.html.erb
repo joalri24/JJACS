@@ -1,0 +1,5 @@
+<h1> Hola </h1>
+<h1><%= @cliente.nombre %></h1>
+
+<p><%= link_to 'Crear reserva', action: 'crear_reserva', method: 'get', nombre: @cliente.nombre,cedula: @cliente.cedula  %></p>
+<p><%= link_to 'Ver reservas', action: 'ver_reservas', method: 'get', nombre: @cliente.nombre,cedula: @cliente.cedula  %></p>
