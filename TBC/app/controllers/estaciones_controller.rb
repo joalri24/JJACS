@@ -6,9 +6,11 @@ class EstacionesController < ApplicationController
   end
 
   def index
+    @estacion = Estacion.all
   end
 
   def crear
+    @estacion = Estacion.create(nombre: params[:nombre], capacidad: params[:capacidad])
   end
 
   def actualizar
