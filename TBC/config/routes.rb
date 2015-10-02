@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get 'estaciones'                 => 'estaciones#index'
 
-  get 'estaciones/:id'             => 'estaciones#mostrar'
+  get 'estaciones/:id'             => 'estaciones#mostrar' , as: :estacion
 
   post 'estaciones'                => 'estaciones#crear'
 

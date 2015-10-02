@@ -9,11 +9,19 @@
           <li><a href="">Objetivos</a></li>
         </ul>
       </li>
+
       <li><%= link_to 'Conductores',  conductores_path %></li>
       <li><%= link_to 'Mobibuses',  mobibuses_path %></li>
       <li><%= link_to 'Tranvías',  tranvias_path %></li>
       <li><%= link_to 'Vcubs',  vcubs_path %></li>
-      <li><%= link_to 'Estaciones',  estaciones_inicio_path %></li>
+
+      <li><%= link_to 'Estaciones',  estaciones_inicio_path %>
+        <ul>
+          <li><%= link_to 'Inicio', estaciones_inicio_path %></li>
+          <li><%= link_to 'Lista estaciones', estaciones_path %></li>
+
+        </ul>
+      </li>
     </ul>
   </div>
 </nav><!-- end of top nav -->
