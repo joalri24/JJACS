@@ -1,6 +1,7 @@
+#encoding: utf-8
 class EstacionesController < ApplicationController
 
-  before_action :set_tranvia, only: [:actualizar, :mostrar, :destruir]
+  before_action :set_estacion, only: [:actualizar, :mostrar, :destruir, :registrar]
 
   def inicio
   end
@@ -22,8 +23,23 @@ class EstacionesController < ApplicationController
   def destruir
   end
 
+  #Registra un vcub en la estación
+  def registrar
+    @mensaje = "Error, no se encontró un Vcub con id: #{params[:vcub_id]}"
+
+    if Vcub.exists?(params[:vcub_id])
+      @vcub = Vcub.find(params[:vcub_id])
+      @mensaje = " Vcub #{params[:vcub_id]} registrado exitósamente"
+      @vcub.estacion = @estacion
+      @vcub.prestada = false
+      @vcub.save
+
+    end
+
+  end
+
   private
-    def set_tranvia
+    def set_estacion
       @estacion = Estacion.find(params[:id])
     end
 end

@@ -28,8 +28,7 @@
 <hr>
 
 <p><strong>Recibir Vcub </strong></p>
-<!-- se debe cambiar la ruta -->
-<%= form_tag '/estaciones', method: 'get' do %>
+<%= form_tag "/estaciones/#{@estacion.id}/registrar", method: 'post' do %>
     <p>
       Id del vcub
       <%= number_field_tag 'vcub_id',0,  min: 0 %>
@@ -43,7 +42,7 @@
 
 <p><strong>Prestar Vcub</strong></p>
 <!-- Se debe cambiar la ruta-->
-<%= form_tag '/estaciones', method: 'get' do %>
+<%= form_tag '/estaciones', method: 'put' do %>
     <p>
       Id del vcub
       <%= number_field_tag 'vcub_id',0,  min: 0 %>

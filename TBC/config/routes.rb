@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   post 'estaciones'                => 'estaciones#crear'
 
+  post 'estaciones/:id/registrar'  => 'estaciones#registrar' , as: :registrar_vcub
+
   put 'estaciones/:id'             => 'estaciones#actualizar'
 
   delete 'estaciones/:id'          => 'estaciones#destruir'
@@ -24,7 +26,7 @@ Rails.application.routes.draw do
 
   put 'vcubs/:id'                   => 'vcubs#actualizar'
 
-  get 'vcubs/:id'                   => 'vcubs#mostrar'
+  get 'vcubs/:id'                   => 'vcubs#mostrar' , as: :vcub
 
   delete 'vcubs/:id'                => 'vcubs#destruir'
 
