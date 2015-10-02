@@ -1,2 +1,55 @@
-<h1>Estaciones#mostrar</h1>
-<p>Find me in app/views/estaciones/mostrar.html.erb</p>
+<% #encoding: utf-8%>
+<h1>Estación <%= @estacion.nombre %></h1>
+<p>Esta es la página de la estación donde se muestra su información básica.<br>
+  Desde acá se pueden registar devoluciones de bicicletas y hacer nuevos préstamos.</p>
+
+<table>
+  <thead>
+  <tr>
+    <th>Nombre</th>
+    <th>Bicicletas actuales</th>
+    <th>Capacidad máxima</th>
+    <th>id</th>
+    <th colspan="4"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <tr>
+    <td><%= @estacion.nombre %></td>
+    <td><%= 'N' %></td>
+    <td><%= @estacion.capacidad %></td>
+    <td><%= @estacion.id %></td>
+  </tr>
+  </tbody>
+</table>
+
+<br>
+<hr>
+
+<p><strong>Recibir Vcub </strong></p>
+<!-- se debe cambiar la ruta -->
+<%= form_tag '/estaciones', method: 'get' do %>
+    <p>
+      Id del vcub
+      <%= number_field_tag 'vcub_id',0,  min: 0 %>
+    </p>
+
+    <p><%= submit_tag 'Registrar' %></p>
+<% end %>
+<br>
+
+<hr>
+
+<p><strong>Prestar Vcub</strong></p>
+<!-- Se debe cambiar la ruta-->
+<%= form_tag '/estaciones', method: 'get' do %>
+    <p>
+      Id del vcub
+      <%= number_field_tag 'vcub_id',0,  min: 0 %>
+    </p>
+    <p>
+      Id del cliente
+      <%= number_field_tag 'cliente_id',0,  min: 0 %>
+    </p>
+<% end %>

@@ -15,7 +15,7 @@
   <tbody>
   <% @estaciones.each do |estacion| %>
       <tr>
-        <td><%= estacion.nombre %></td>
+        <td><%= link_to estacion.nombre, "/estaciones/#{estacion.id}",id: estacion.id %></td>
         <td><%= 'N' %></td>
         <td><%= estacion.capacidad %></td>
         <td><%= estacion.id %></td>
