@@ -1,3 +1,4 @@
+<% #encoding: utf-8%>
 <h1>Tranvia<%=" #{@tranvia.numero_identificacion}"%></h1>
 
 <br>
@@ -39,3 +40,5 @@
 </table>
 
 <br>
+<hr>
+<p><%= button_to '¡Reportar Emergecia!', reportar_emergencia_path(@tranvia.id), method: 'get' %></p>
