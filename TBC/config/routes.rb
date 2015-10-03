@@ -2,9 +2,26 @@ Rails.application.routes.draw do
 
 
 
+  get 'trayectos/crear'
+
+  get 'trayectos/index'
+
+  get 'trayectos/mostrar'
+
   get 'prestamos'                  =>'prestamos#index'
 
   get 'prestamos/:id'              =>'prestamos#mostrar' , as: :prestamo
+
+
+  post 'reservas/eliminar'
+
+  get'reservas/index_all'
+
+  get'reservas/inicio'
+
+  post'reservas/eliminar'
+
+  get 'reservas/asignar'             =>'reservas#asignar_reserva'
 
   get 'reservas/todas'             =>'reservas#index'
 
@@ -49,6 +66,7 @@ Rails.application.routes.draw do
 
   get 'emergencias/:id'             => 'emergencias#mostrar'
 
+  get 'emergencias'                 => 'emergencias#index'
 
   get 'vcubs'                       => 'vcubs#index'
 
@@ -74,6 +92,7 @@ Rails.application.routes.draw do
   post 'tranvias/:id/emergencia'     =>'tranvias#crear_emergencia', as: :reportar_emergencia
 
 
+  get 'mobibuses/inicio'
   get 'mobibuses'                   => 'mobibuses#index'
 
   get 'mobibuses/:id'               => 'mobibuses#mostrar'

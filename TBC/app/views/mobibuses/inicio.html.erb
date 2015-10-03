@@ -1,0 +1,26 @@
+<h1>Mobibuses</h1>
+<p>Esta es la pagina de mobibuses. Desde aqui se pueden agregar nuevos mobibus y ver todos las ya existentes. </p>
+
+<p><%= link_to 'Lista de mobibuses', action: 'index', method: 'get' %></p>
+
+<hr>
+
+<p><strong>Crear un nuevo mobibus </strong></p>
+<%= form_tag '/mobibuses' do %>
+
+    <p>
+      Placa:
+      <%= text_field_tag 'placa' %>
+    </p>
+
+    <p><%= submit_tag 'Crear'  %></p>
+<% end %>
+
+
+
+
+
+
+
+
+

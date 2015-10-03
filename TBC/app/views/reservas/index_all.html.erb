@@ -1,0 +1,40 @@
+<h1><%="Lista de  reservas"%></h1>
+
+<table>
+
+  <%= form_tag({:controller => "reservas", :action => "eliminar"}, :method => "post") do %>
+  <thead>
+  <tr>
+    <th> </th>
+    <th>Fecha</th>
+    <th>Direccion Origen</th>
+    <th>Direccion Destino</th>
+    <th>Estado </th>
+    <th>Mobibus asignado</th>
+    <th>Cliente</th>
+    <th>Id</th>
+
+  </tr>
+  </thead>
+
+  <tbody>
+
+
+  <% @reservas.each do |reserva| %>
+      <tr>
+        <td><%= check_box_tag 'reservas[]',reserva.id %></td>
+        <td><%=reserva.fecha%></td>
+        <td><%=reserva.direccion_origen %></td>
+        <td><%=reserva.direccion_destino %></td>
+        <td><%=reserva.estado %></td>
+        <td><%=reserva.mobibus_id %></td>
+        <td><%=reserva.cliente_id %></td>
+        <td><%=reserva.id %></td>
+      </tr>
+  <% end %>
+
+  </tbody>
+</table>
+      <p><%= submit_tag 'Eliminar'  %></p>
+  <% end %>
+<br>

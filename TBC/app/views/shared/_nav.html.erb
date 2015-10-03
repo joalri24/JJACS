@@ -6,18 +6,19 @@
         <ul>
           <li><a href="#">Inicio</a></li>
           <li><a href="#">Nosotros</a></li>
-          <li><%= link_to 'Lista emergencias', emergencias_path%></li>
+          <li><a href="">Objetivos</a></li>
         </ul>
       </li>
 
       <li><%= link_to 'Conductores',  conductores_path %></li>
-      <li><%= link_to 'Mobibuses',  mobibuses_path %></li>
-      <li><%= link_to 'Tranvías',  tranvias_path %></li>
-      <li><%= link_to 'Vcubs',  vcubs_path %>
-        <ul>
-          <li> <%= link_to 'Prestamos', prestamos_path %></li>
-        </ul>
+      <li><%= link_to 'Mobibuses',  mobibuses_path %>
+      <ul>
+        <li><%= link_to 'Inicio', mobibuses_inicio_path %></li>
+        <li><%= link_to 'Lista mobibuses', mobibuses_path %></li>
+      </ul>
       </li>
+      <li><%= link_to 'Tranvías',  tranvias_path %></li>
+      <li><%= link_to 'Vcubs',  vcubs_path %></li>
 
       <li><%= link_to 'Estaciones',  estaciones_inicio_path %>
         <ul>
@@ -26,6 +27,7 @@
 
         </ul>
       </li>
+      <li><%= link_to 'Reservas', reservas_inicio_path %></li>
     </ul>
   </div>
 </nav><!-- end of top nav -->
