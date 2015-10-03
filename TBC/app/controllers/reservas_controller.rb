@@ -16,8 +16,6 @@ class ReservasController < ApplicationController
   end
 
     def mostrar
-
-
     end
 
 
