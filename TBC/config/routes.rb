@@ -65,7 +65,7 @@ Rails.application.routes.draw do
 
   delete 'tranvias/:id'             => 'tranvias#destruir'
 
-  get 'tranvias/:id/emergencia'     =>'tranvias#crear_emergencia', as: :reportar_emergencia
+  post 'tranvias/:id/emergencia'     =>'tranvias#crear_emergencia', as: :reportar_emergencia
 
 
   get 'mobibuses'                   => 'mobibuses#index'
