@@ -28,7 +28,7 @@ class EstacionesController < ApplicationController
   def registrar
     @mensaje = "Error, no se encontró un Vcub con id: #{params[:vcub_id]}"
 
-    if Vcub.exists?(params[:vcub_id])
+    if EstacionesHelper.existe_vcub?(params[:vcub_id])
       @vcub = Vcub.find(params[:vcub_id])
       @mensaje = " Vcub #{params[:vcub_id]} registrado exitósamente"
       @vcub.estacion = @estacion
