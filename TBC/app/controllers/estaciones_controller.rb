@@ -53,6 +53,10 @@ class EstacionesController < ApplicationController
         @vcub.cliente = Cliente.find(params[:cliente_id])
         @mensaje = "Vcub #{params[:vcub_id]} prestada al cliente con id: #{params[:cliente_id]}"
         @vcub.save
+
+        #Crea el registro del préstamo
+        EstacionesHelper.registrar_prestamo(params[:vcub_id],params[:cliente_id])
+
       else
         @mensaje = "Error, no se encontró un cliente con id: #{params[:cliente_id]}"
       end

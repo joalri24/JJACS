@@ -16,6 +16,9 @@ module EstacionesHelper
     if resp
       resp = Vcub.find(vcub_id).estacion ==  estacion
     end
+  end
 
+  def self.registrar_prestamo(vcub_p, cliente_p)
+    Prestamo.create(vcub_id: vcub_p, cliente_id: cliente_p)
   end
 end
