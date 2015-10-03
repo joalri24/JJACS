@@ -5,3 +5,8 @@ Jose:
 Emergencia
 Prestamo
 Estacion
+
+Nuevas tareas:
+a) vistas-->Jose
+b) reportes-->Andrea
+c) bd-->Jose
