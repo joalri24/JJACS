@@ -3,7 +3,7 @@
 <table>
   <thead>
   <tr>
-    <th>Id tranvia</th>
+    <th>Placa</th>
     <th>Linea</th>
     <th>Latitud</th>
     <th>longitud</th>
@@ -35,7 +35,7 @@
             <td>N/A</td>
         <% end%>
 
-        <td><%=tranvia.id %></td>
+        <td><%=link_to tranvia.id, tranvia_path(tranvia.id) %></td>
       </tr>
   <% end %>
   </tbody>
