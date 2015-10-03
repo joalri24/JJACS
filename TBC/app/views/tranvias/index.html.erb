@@ -28,7 +28,13 @@
         <td><%=tranvia.kilometros_desde_revision %></td>
         <td><%=tranvia.temperatura %></td>
         <td><%=tranvia.boton_panico %></td>
-        <td><%=tranvia.id_conductor %></td>
+
+        <% if  tranvia.conductor != nil %>
+            <td><%=tranvia.conductor.nombre %></td>
+        <% else %>
+            <td>N/A</td>
+        <% end%>
+
         <td><%=tranvia.id %></td>
       </tr>
   <% end %>
