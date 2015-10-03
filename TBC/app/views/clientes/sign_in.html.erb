@@ -6,8 +6,9 @@
 <% if @mensaje.nil? %>
 
 <% else %>
-        <td><%= @mensaje %></td>
+    <td><%= @mensaje %></td>
 <% end%>
+
 
 <%= form_tag({:controller => "clientes", :action => "ingreso_sesion"}, :method => "get") do %>
     <p>

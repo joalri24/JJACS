@@ -1,16 +1,20 @@
 Rails.application.routes.draw do
 
-  get 'prestamos'                   =>'prestamos#index'
+  get 'prestamos'                  =>'prestamos#index'
 
-  get 'prestamos/:id'               =>'prestamos#mostrar' , as: :prestamo
+  get 'prestamos/:id'              =>'prestamos#mostrar' , as: :prestamo
+
+  get 'reservas/mostrar'
+
+  get 'reservas'                   =>'reservas#crear'
 
   get 'clientes/crear_reserva'     =>'clientes#crear_reserva'
 
-  get 'clientes/reservas'           => 'clientes#ver_reservas'
+  get 'clientes/reservas'          => 'clientes#ver_reservas'
 
   get 'clientes/inicio'
 
-  get 'clientes/ingreso'            =>'clientes#ingreso_sesion'
+  get 'clientes/ingreso'           =>'clientes#ingreso_sesion'
 
   get 'clientes/signin'            => 'clientes#sign_in'
 

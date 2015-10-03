@@ -1,0 +1,26 @@
+<% #encoding: utf-8%>
+<h1>Reserva</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Id </th>
+    <th>Fecha</th>
+    <th>Dirección Origen</th>
+    <th>Dirección Destino</th>
+    <th>Estado  </th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <tr>
+    <td><%= @reserva.id %></td>
+    <td><%= @reserva.fecha%></td>
+    <td><%= @reserva.direccion_origen%></td>
+    <td><%= @reserva.direccion_destino%></td>
+    <td><%= @reserva.estado%></td>
+  </tr>
+  </tbody>
+</table>
+
+<br>
