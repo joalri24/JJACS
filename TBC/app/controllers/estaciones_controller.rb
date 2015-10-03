@@ -18,6 +18,7 @@ class EstacionesController < ApplicationController
   end
 
   def mostrar
+    @numero_vcubs = @estacion.vcubs.size
   end
 
   def destruir

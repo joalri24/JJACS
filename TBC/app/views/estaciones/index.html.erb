@@ -5,10 +5,9 @@
   <thead>
   <tr>
     <th>Nombre</th>
-    <th>Bicicletas actuales</th>
     <th>Capacidad máxima</th>
     <th>id</th>
-    <th colspan="4"></th>
+    <th colspan="3"></th>
   </tr>
   </thead>
 
@@ -17,7 +16,6 @@
       <tr>
         <%#= link_to estacion.nombre, "/estaciones/#{estacion.id}",id: estacion.id %>
         <td><%= link_to estacion.nombre, estacion_path(estacion.id) %></td>
-        <td><%= 'N' %></td>
         <td><%= estacion.capacidad %></td>
         <td><%= estacion.id %></td>
 
