@@ -1,7 +1,6 @@
 class ReservasController < ApplicationController
 
   before_action :set_reserva, only: [:mostrar]
-
   def crear
     @hora= params[:hora].to_s
     @fecha = params[:fecha]
@@ -16,18 +15,16 @@ class ReservasController < ApplicationController
 
   end
 
-  def mostrar
+    def mostrar
 
 
-  end
+    end
 
 
   def set_reserva
 
     @reserva= Reserva.find(params[:id])
   end
-
-
 
 
 end
