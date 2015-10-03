@@ -1,6 +1,9 @@
 class EmergenciasController < ApplicationController
   before_action :set_emergencia, only: [:mostrar]
 
+  def index
+    @emergencias = Emergencia.all
+  end
 
   def crear
     @emergencia = Emergencia.new

@@ -4,9 +4,11 @@ Rails.application.routes.draw do
 
   get 'prestamos/:id'              =>'prestamos#mostrar' , as: :prestamo
 
+
   get 'reservas/mostrar'
 
   get 'reservas'                   =>'reservas#crear'
+
 
   get 'clientes/crear_reserva'     =>'clientes#crear_reserva'
 
@@ -21,6 +23,7 @@ Rails.application.routes.draw do
   post 'clientes'                  =>'clientes#crear'
 
   get 'clientes'                   => 'clientes#index'
+
 
   get 'estaciones/inicio'
 
@@ -38,6 +41,8 @@ Rails.application.routes.draw do
 
   delete 'estaciones/:id'          => 'estaciones#destruir'
 
+
+  get 'emergencias'                => 'emergencias#index', as: :emergencias
 
   get 'emergencias/crear'
 
