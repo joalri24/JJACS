@@ -13,6 +13,7 @@
     <th>Mobibus asignado</th>
     <th>Cliente</th>
     <th>Id</th>
+    <th>Trayecto</th>
 
   </tr>
   </thead>
@@ -30,6 +31,12 @@
         <td><%=reserva.mobibus_id %></td>
         <td><%=reserva.cliente_id %></td>
         <td><%=reserva.id %></td>
+        <% if reserva.estado ==0 %>
+             <td> <p>Aun no tiene un trayecto</p></td>
+        <%else %>
+            <td><p><%= link_to 'Ver trayecto',controller: 'trayectos',action: 'mostrar', method: 'get', id: reserva.id   %></p></td>
+
+            <%end%>
       </tr>
   <% end %>
 

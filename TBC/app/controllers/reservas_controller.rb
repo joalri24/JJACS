@@ -82,7 +82,10 @@ def asignar_reserva
       end
     end
   end
-  redirect_to action:'index', id: @reserva.cliente_id, status: 200
+  if @reserva.estado==0
+    redirect_to action:'index', id: @reserva.cliente_id, status: 200
+  end
+  redirect_to controller:'trayectos',action:'crear', id: @reserva.id, status: 200
 end
 
 

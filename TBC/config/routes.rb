@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get 'trayectos/crear'
 
-  get 'trayectos/index'
+  get 'trayectos'               =>'trayectos#index'
 
   get 'trayectos/mostrar'
 

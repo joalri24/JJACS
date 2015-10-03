@@ -1,2 +1,31 @@
-<h1>Trayectos#index</h1>
-<p>Find me in app/views/trayectos/index.html.erb</p>
+
+
+<h1><%="Lista de  trayectos"%></h1>
+
+<table>
+
+      <tr>
+        <th>Reserva id</th>
+        <th>Distancia</th>
+        <th>Tipo</th>
+
+      </tr>
+      </thead>
+
+      <tbody>
+
+
+      <% @trayectos.each do |trayecto| %>
+          <tr>
+            <td><%=trayecto.reserva_id%></td>
+            <td><%=trayecto.distancia %></td>
+            <td><%=trayecto.tipo%></td>
+
+            <%end%>
+          </tr>
+
+      </tbody>
+      </table>
+
+  <br>
+

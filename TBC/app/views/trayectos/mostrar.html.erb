@@ -1,2 +1,28 @@
-<h1>Trayectos#mostrar</h1>
-<p>Find me in app/views/trayectos/mostrar.html.erb</p>
+<h1><%="Trayecto"%></h1>
+
+<table>
+
+  <tr>
+    <th>Reserva id</th>
+    <th>Distancia</th>
+    <th>Tipo</th>
+
+  </tr>
+  </thead>
+
+  <tbody>
+
+
+
+      <tr>
+        <td><%=@trayecto.reserva_id%></td>
+        <td><%=@trayecto.distancia %></td>
+        <td><%=@trayecto.tipo%></td>
+
+
+  </tr>
+
+  </tbody>
+</table>
+
+<br>
