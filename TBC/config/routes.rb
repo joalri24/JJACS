@@ -61,7 +61,7 @@ Rails.application.routes.draw do
 
   put 'tranvias/:id/'                => 'tranvias#actualizar'
 
-  get 'tranvias/:id'                => 'tranvias#mostrar'
+  get 'tranvias/:id'                => 'tranvias#mostrar', as: :tranvia
 
   delete 'tranvias/:id'             => 'tranvias#destruir'
 
