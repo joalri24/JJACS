@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  get 'prestamos/index'
+  get 'prestamos'                   =>'prestamos#index'
 
-  get 'prestamos/mostrar'
+  get 'prestamos/:id'               =>'prestamos#mostrar' , as: :prestamo
 
   get 'clientes/crear_reserva'     =>'clientes#crear_reserva'
 
