@@ -24,6 +24,8 @@ Rails.application.routes.draw do
 
   post 'estaciones/:id/registrar'  => 'estaciones#registrar' , as: :registrar_vcub
 
+  post 'estaciones/:id/prestar'    => 'estaciones#prestar' , as: :prestar_vcub
+
   put 'estaciones/:id'             => 'estaciones#actualizar'
 
   delete 'estaciones/:id'          => 'estaciones#destruir'

@@ -16,7 +16,13 @@
       <tr>
         <td><%=@vcub.numero_identificacion %></td>
         <td><%=@vcub.prestada %></td>
-        <td><%=@vcub.cliente_id %></td>
+
+        <% if @vcub.cliente != nil %>
+            <td><%=@vcub.cliente.nombre %></td>
+        <% else %>
+            <td>N/A</td>
+        <% end %>
+
         <% if @vcub.estacion != nil %>
             <td><%=@vcub.estacion.nombre %></td>
         <% else %>

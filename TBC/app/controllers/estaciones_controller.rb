@@ -33,8 +33,29 @@ class EstacionesController < ApplicationController
       @mensaje = " Vcub #{params[:vcub_id]} registrado exitósamente"
       @vcub.estacion = @estacion
       @vcub.prestada = false
+      @vcub.cliente = nil
       @vcub.save
 
+    end
+
+  end
+
+  #Presta un vcub a un cliente. La bicicleta se desvincula de la estación
+  def prestar
+    @mensaje = "Error, no se encontró un Vcub con id: #{params[:vcub_id]}"
+
+    if EstacionesHelper.existe_vcub?(params[:vcub_id])
+      @vcub = Vcub.find(params[:vcub_id])
+
+      if EstacionesHelper.existe_cliente?(params[:cliente_id])
+        @vcub.estacion = nil
+        @vcub.prestada = true
+        @vcub.cliente = Cliente.find(params[:cliente_id])
+        @mensaje = "Vcub #{params[:vcub_id]} prestada al cliente con id: #{params[:cliente_id]}"
+        @vcub.save
+      else
+        @mensaje = "Error, no se encontró un cliente con id: #{params[:cliente_id]}"
+      end
     end
 
   end
