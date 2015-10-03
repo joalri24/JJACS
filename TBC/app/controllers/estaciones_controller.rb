@@ -1,7 +1,7 @@
 #encoding: utf-8
 class EstacionesController < ApplicationController
 
-  before_action :set_estacion, only: [:actualizar, :mostrar, :destruir, :registrar]
+  before_action :set_estacion, only: [:actualizar, :mostrar, :destruir, :registrar, :prestar]
 
   def inicio
   end
@@ -44,7 +44,7 @@ class EstacionesController < ApplicationController
   def prestar
     @mensaje = "Error, no se encontró un Vcub con id: #{params[:vcub_id]}"
 
-    if EstacionesHelper.existe_vcub?(params[:vcub_id])
+    if EstacionesHelper.existe_vcub_en_estacion?(params[:vcub_id], @estacion)
       @vcub = Vcub.find(params[:vcub_id])
 
       if EstacionesHelper.existe_cliente?(params[:cliente_id])
