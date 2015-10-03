@@ -19,6 +19,6 @@ module EstacionesHelper
   end
 
   def self.registrar_prestamo(vcub_p, cliente_p)
-    Prestamo.create(vcub_id: vcub_p, cliente_id: cliente_p)
+    Prestamo.create(vcub_id: vcub_p, cliente_id: cliente_p, fecha: Time.now)
   end
 end
