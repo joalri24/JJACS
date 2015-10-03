@@ -31,5 +31,34 @@ def crear_res
   end
 end
 
+def asignar_mobibus
+  @reserva= Reserva.find(params[:id_reserva])
+  @no_asignado=true
+  fecha=@reserva.fecha
+  @fecha1= (fecha + 5.hours).to_datetime
+  @fecha2= (fecha - 5.hours).to_datetime
+  @reservas_iguales=Reserva.where("fecha=?",@fecha1 .. @fecha2)
+  @mobibuses=Mobibus.all
 
+  if @reservas_iguales.length == @mobibuses.length
+     @reserva.updateAttribute(estado:1)
+  else
+    i=1
+    while no_asignado  && @mobibuses.length<i do
+      id_mobibus=@mobibuses.find(i).id
+
+      if @reservas_iguales.any?{|reserva| reserva.mobibus_id==id_mobibus}.nil?
+        no_asignado=true
+        @reserva.updateAttributes(estado:2, mobibud_id: id_mobibus)
+      else
+      i+=1
+      end
+    end
+  end
+  redirect_to action:'indes', id: @reserva.cliente_id, status: 200
 end
+
+
+    end
+
+
