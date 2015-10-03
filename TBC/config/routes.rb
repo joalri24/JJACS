@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'prestamos/index'
+
+  get 'prestamos/mostrar'
+
   get 'clientes/crear_reserva'     =>'clientes#crear_reserva'
 
   get 'clientes/reservas'           => 'clientes#ver_reservas'
