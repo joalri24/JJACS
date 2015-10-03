@@ -49,8 +49,7 @@ class ClientesController < ApplicationController
   end
 
 
-  def ver_reservas
-  end
+
 
   def sign_in
   end

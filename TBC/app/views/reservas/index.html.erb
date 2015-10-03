@@ -1,0 +1,26 @@
+<h1><%="Lista de sus reservas Sr(a) " +  @cliente.nombre%></h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Fecha</th>
+    <th>Direccion Origen</th>
+    <th>Direccion Destino</th>
+    <th>Estado  </th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @reservas.each do |reserva| %>
+      <tr>
+        <td><%=reserva.fecha%></td>
+        <td><%=reserva.direccion_origen %></td>
+        <td><%=reserva.direccion_destino %></td>
+        <td><%=reserva.estado %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+

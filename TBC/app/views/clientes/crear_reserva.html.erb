@@ -1,13 +1,13 @@
 <p><strong>Reserve su mobibus</strong></p>
 
-<%= form_tag({:controller => "reservas", :action => "crear"}, :method => "get", cliente_id: @cliente.id) do %>
+<%= form_tag({:controller => "reservas", :action => "crear"}, :method => "get") do %>
     <p>
       Fecha:
       <%= date_field_tag 'fecha' %>
     </p>
     <p>
       Hora:
-
+      <%= hidden_field_tag 'id', 3 %>
       <%=time_field_tag 'hora'%>
     </p>
     <p>

@@ -4,6 +4,12 @@ Rails.application.routes.draw do
 
   get 'prestamos/:id'              =>'prestamos#mostrar' , as: :prestamo
 
+<<<<<<< Updated upstream
+=======
+  get 'reservas/todas'             =>'reservas#index'
+
+  post 'reservas/crear'            =>'reservas#crear_res'
+>>>>>>> Stashed changes
 
   get 'reservas/mostrar'
 

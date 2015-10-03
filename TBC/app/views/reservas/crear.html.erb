@@ -1,1 +1,24 @@
-<%=@formatted_date%>
+<p><strong>Reserve su mobibus</strong></p>
+
+<%= form_tag({:controller => "reservas", :action => "crear_res"}, :method => "post") do %>
+    <p>
+      Fecha:
+      <%= date_field_tag 'fecha' %>
+    </p>
+    <p>
+      Hora:
+      <%=time_field_tag 'hora'%>
+      <%=hidden_field_tag 'id',@cliente.id%>
+    </p>
+    <p>
+      Direccion de origen
+    </p>
+    <%= text_field_tag 'direccion_origen' %>
+    <p>
+      Direccion de destino
+    </p>
+    <%= text_field_tag 'direccion_destino' %>
+
+
+    <p><%= submit_tag 'Inicia sesion'  %></p>
+<% end %>
