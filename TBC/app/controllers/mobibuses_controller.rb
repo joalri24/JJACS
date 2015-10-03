@@ -12,6 +12,7 @@ class MobibusesController < ApplicationController
         format.json { render json: @mobibus.errors, status: :unprocessable_entity }
       end
     end
+
   end
 
   def actualizar

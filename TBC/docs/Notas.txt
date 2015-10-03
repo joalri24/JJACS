@@ -2,7 +2,7 @@
 Tasks:
 1. reservas mobibus
 2. prestamos vcub
-3.-estación--> reabastecer
+3. estación--> reabastecer
 4. trayecto
 5. clientes
 6. conductores ---> dar promedio puntaje

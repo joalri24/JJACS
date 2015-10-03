@@ -1,26 +1,39 @@
-<h1><%="Lista de sus reservas Sr(a) " +  @cliente.nombre%></h1>
+<h1><%="Lista de sus reservas Sr(a)" + @cliente.nombre%></h1>
 
 <table>
-  <thead>
-  <tr>
-    <th>Fecha</th>
-    <th>Direccion Origen</th>
-    <th>Direccion Destino</th>
-    <th>Estado  </th>
-  </tr>
-  </thead>
 
-  <tbody>
-  <% @reservas.each do |reserva| %>
+  <%= form_tag({:controller => "reservas", :action => "eliminar"}, :method => "post") do %>
+      <thead>
       <tr>
-        <td><%=reserva.fecha%></td>
-        <td><%=reserva.direccion_origen %></td>
-        <td><%=reserva.direccion_destino %></td>
-        <td><%=reserva.estado %></td>
-      </tr>
-  <% end %>
-  </tbody>
-</table>
+        <th> </th>
+        <th>Fecha</th>
+        <th>Direccion Origen</th>
+        <th>Direccion Destino</th>
+        <th>Estado </th>
+        <th>Mobibus asignado</th>
 
-<br>
+      </tr>
+      </thead>
+      <tbody>
+      <% @reservas.each do |reserva| %>
+          <tr>
+            <td><%= check_box_tag 'reservas[]',reserva.id %></td>
+            <td><%=reserva.fecha%></td>
+            <td><%=reserva.direccion_origen %></td>
+            <td><%=reserva.direccion_destino %></td>
+            <td><%=reserva.estado %></td>
+            <% if  reserva.mobibus_id==0 %>
+                <td><%="No tiene un mobibus asignado"%></td>
+            <% else %>
+                <%@mobibus=Mobibus.find(reserva.mobibus_id)%>
+            <td><%=@mobibus.placa%></td>
+                <%end%>
+          </tr>
+      <% end %>
+
+      </tbody>
+      </table>
+      <p><%= submit_tag 'Cancelar'  %></p>
+  <% end %>
+  <br>
 
