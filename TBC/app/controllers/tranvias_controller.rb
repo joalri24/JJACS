@@ -3,10 +3,15 @@ class TranviasController < ApplicationController
 
   def index
     @tranvias = Tranvia.all
+    @conductores = Conductor.all
   end
 
   def crear
-    @tranvia = Tranvia.create(numero_identificacion: params[:numero_identificacion], linea: params[:linea], latitud: 0.0, longitud: 0.0, estado: 0, kilometros_desde_revision: 0.0, temperatura: 20.0, boton_panico: false, id_conductor: nil)
+
+    @num=  params[:numero_identificacion].to_i
+    @linea=  params[:linea].to_i
+
+    @tranvia = Tranvia.create(numero_identificacion: @num, linea: @linea , latitud: 0.0, longitud: 0.0, estado: -1, kilometros_desde_revision: 0.0, temperatura: 20.0, boton_panico: false)
 
     respond_to do |format|
       if @tranvia.save
@@ -14,8 +19,8 @@ class TranviasController < ApplicationController
         format.json { render :index, status: :created, location: @tranvia }
       else
         format.html { render :crear }
-        format.json { render json: @tranvia.errors, status: :unprocessable_entity }
-      end
+         format.json { render json: @tranvia.errors, status: :unprocessable_entity }
+     end
     end
   end
 

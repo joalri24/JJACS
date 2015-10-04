@@ -39,7 +39,7 @@
 
         Lo sentimos no hay tranvia para asignar
         <% else %>
-
+            <%= form_tag({ :action => "asignar_transporte"}, :method => "get") do %>
             <table>
               <thead>
               <tr>
@@ -61,8 +61,11 @@
                   </tbody>
                   </table>
                   <br>
+                  <%= hidden_field_tag 'tipo', "tranvia"%>
+                  <%= hidden_field_tag 'id_conductor',@conductor.id%>
                   <p><%= submit_tag 'Asignar'  %></p>
               <% end %>
+                <%end%>
 
         <%end%>
     <%end%>

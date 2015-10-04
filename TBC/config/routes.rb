@@ -86,6 +86,7 @@ Rails.application.routes.draw do
 
   delete 'vcubs/:id'                => 'vcubs#destruir'
 
+  get 'tranvias/inicio'              => 'tranvias#inicio'
 
   get 'tranvias'                    => 'tranvias#index'
 

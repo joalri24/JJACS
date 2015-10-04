@@ -1,0 +1,26 @@
+<h1>Tranvias</h1>
+<p>Esta es la pagina de mobibuses. Desde aqui se pueden agregar nuevos mobibus y ver todos las ya existentes. </p>
+
+
+
+<hr>
+
+<p><strong>Crear un nuevo tranvia </strong></p>
+<%= form_tag '/tranvias' do %>
+
+    <p>
+      Numero de identificacion:
+      <%= number_field_tag 'numero_identificacion' %>
+    </p>
+
+    <p>
+      Linea:
+      <br>
+     1 <%= radio_button_tag 'linea',1,checked:true %></td> <br>
+     2 <%= radio_button_tag  'linea',2 %></td> <br>
+      3 <%= radio_button_tag  'linea',2 %></td> <br>
+    </p>
+
+
+    <p><%= submit_tag 'Crear'  %></p>
+<% end %>
