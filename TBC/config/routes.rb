@@ -6,11 +6,19 @@ Rails.application.routes.draw do
 
   get 'trayectos'               =>'trayectos#index'
 
+  get 'trayectos/inicio'
+
+  get 'trayectos/actualizar'     =>'trayectos#actualizar'
+
+  get 'trayectos/actualizar_duracion'
+
   get 'trayectos/mostrar'
 
   get 'prestamos'                  =>'prestamos#index'
 
   get 'prestamos/:id'              =>'prestamos#mostrar' , as: :prestamo
+
+
 
 
   post 'reservas/eliminar'

@@ -41,4 +41,34 @@ class TrayectosController < ApplicationController
     return @distancia
   end
 
+  def actualizar
+    @trayecto = Trayecto.find(params[:id])
+    @reserva= Reserva.find(@trayecto.reserva_id)
+    @horaInicial= @reserva.fecha.strftime("%H:%M")
+  end
+
+  def actualizar_duracion
+    @trayecto = Trayecto.find(params[:id])
+    puts @trayecto.id
+    @reserva= Reserva.find(@trayecto.reserva_id)
+    @horaInicial=  @reserva.fecha.strftime("%H").to_f
+    @horaInicial1= @reserva.fecha.strftime("%M").to_f
+    @horaInicialum= @horaInicial1/60
+    @horaInicial2= @horaInicialum+@horaInicial
+
+    @hora= DateTime.parse(params[:hora])
+    @horaFinal=  @hora.strftime("%H").to_f
+    puts @horaFinal
+    @horaFinal1=  @hora.strftime("%M").to_f
+    @horaFinalum=@horaFinal1/60
+    puts @horaFinalum
+    @horaFinal2=@horaFinalum +@horaFinal
+
+    @duracion=@horaFinal2- @horaInicial2
+    puts @duracion
+    @trayecto.update_attributes(duracion: @duracion)
+    redirect_to  action:'index'
+
+  end
+
 end

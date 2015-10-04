@@ -19,7 +19,12 @@
       </li>
       <li><%= link_to 'Tranvías',  tranvias_path %></li>
       <li><%= link_to 'Vcubs',  vcubs_path %></li>
-      <li><%= link_to 'Trayectos', trayectos_path %></li>
+      <li><%= link_to 'Trayectos', trayectos_inicio_path %>
+      <ul>
+        <li><%= link_to 'Actualizar distancia', trayectos_actualizar_path %></li>
+        <li><%= link_to 'Lista de trayectos', trayectos_path %></li>
+      </ul>
+      </li>
       <li><%= link_to 'Estaciones',  estaciones_inicio_path %>
         <ul>
           <li><%= link_to 'Inicio', estaciones_inicio_path %></li>

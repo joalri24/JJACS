@@ -1,0 +1,15 @@
+
+<h1><%="Actualizar la duracion del trayecto" + @trayecto.id.to_s %></h1>
+
+
+  <%= form_tag({:controller => "trayectos", :action => "actualizar_duracion"}, :method => "get") do %>
+
+    <h1><%="Su trayecto inicio a las " + @horaInicial.to_s %></h1>
+    Hora de finalizacion:
+    <%=time_field_tag 'hora'%>
+
+    <%= hidden_field_tag 'id', @trayecto.id %>
+
+      <p><%= submit_tag 'Actualizar'  %></p>
+  <%end%>
+  <br>

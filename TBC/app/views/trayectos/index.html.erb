@@ -3,11 +3,13 @@
 <h1><%="Lista de  trayectos"%></h1>
 
 <table>
-
+  <%= form_tag({:controller => "trayectos", :action => "actualizar"}, :method => "get") do %>
       <tr>
+        <th>  </th>
         <th>Reserva id</th>
         <th>Distancia</th>
         <th>Tipo</th>
+        <th>Duracion</th>
 
       </tr>
       </thead>
@@ -17,15 +19,18 @@
 
       <% @trayectos.each do |trayecto| %>
           <tr>
+            <td><%= radio_button_tag 'id', trayecto.id %></td>
             <td><%=trayecto.reserva_id%></td>
             <td><%=trayecto.distancia %></td>
             <td><%=trayecto.tipo%></td>
+            <td><%=trayecto.duracion%></td>
 
             <%end%>
           </tr>
 
       </tbody>
       </table>
-
+      <p><%= submit_tag 'Actualizar duracion'  %></p>
+  <%end%>
   <br>
 
