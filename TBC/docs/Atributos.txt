@@ -2,7 +2,7 @@ Conductores:
 
 
 Mobibus:
-estado:integer [Ocupado, Libre, Fuera de Servicio]
+estado:integer [Ocupado:1, Libre:0, Fuera de Servicio, sinConductor:-1]
 latitud:decimal
 longitud:decimal
 id_conductor:integer
@@ -14,7 +14,7 @@ Tranvia:
 linea:integer [A,B,C]
 latitud:decimal
 longitud:decimal
-estado:integer [Funcionando, Fuera de Servicio]
+estado:integer [Funcionando:0, Fuera de Servicio, sinConductor:-1]
 kilometros_desde_revision:float
 temperatura:float
 boton_panico:boolean
@@ -31,13 +31,13 @@ Reserva: (Tiene un cliente, tiene o no un mobibus, tiene trayecto )
 cliente_id:integer
 mobibus_id:integer
 fecha:datetime
-estado:integer {En espera, Asignada, Finalizada}
+estado:integer {En espera:0, Asignada:2, Finalizada}
 direccion_origen:string
 direccio_destino:string
 
 Trayecto:
 duracion:float
-dinstacia:float (en kilometros)
+distancia:float (en kilometros)
 tipo[1: de 0-10km, 2:10-50, 3:50 en adelante](Depende de la distancia)
 
 Prestamo_vcub:

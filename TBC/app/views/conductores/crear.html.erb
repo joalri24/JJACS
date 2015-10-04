@@ -28,7 +28,7 @@
     <br>
         <%= hidden_field_tag 'tipo', "mobibus"%>
         <%= hidden_field_tag 'id_conductor',@conductor.id%>
-    <p><%= submit_tag 'Asignar'  %></p>
+    <p><%= submit_tag 'Asignar' %></p>
     <%end %>
     <%else if ( @tipo == "mobibus" && @mobibuses.length==0) %>
 

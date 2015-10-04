@@ -67,8 +67,34 @@ class TrayectosController < ApplicationController
     @duracion=@horaFinal2- @horaInicial2
     puts @duracion
     @trayecto.update_attributes(duracion: @duracion)
-    redirect_to  action:'index'
 
+
+    @id= @reserva.mobibus_id
+    @conductor= Conductor.where("mobibus_id = ?",@id)
+    @conductorReal= @conductor.first.id
+
+    @distancia= @trayecto.distancia
+    @duracion= @trayecto.duracion
+    @velocidad=(@distancia/@duracion).to_f
+    @puntaje=9,0
+    puts @velocidad
+    if(@velocidad>=35.0)
+      @puntaje=5.0
+    else if(@velocidad>=25.0 && @velocidad<35.0)
+           @puntaje=4.0
+         else if(@velocidad>=20.0 && @velocidad<25.0)
+                @puntaje=3.0
+              else if(@velocidad>=10.0 && @velocidad<20.0)
+                     @puntaje=4.0
+                   else
+                     @puntaje=1.0
+                   end
+              end
+         end
+
+    end
+
+    redirect_to  controller:'conductores' ,action:'calcular_puntaje', id:@conductorReal, puntaje:@puntaje
   end
 
 end

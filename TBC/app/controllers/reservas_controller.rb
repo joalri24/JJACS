@@ -25,9 +25,9 @@ class ReservasController < ApplicationController
      @reservas_espera=Reserva.where("estado=?" ,0)
      if @reservas_espera.length ==0
        puts @reservas_espera.length
+       puts reserva
+       @reserva=Reserva.find(reserva.to_i)
       @selected.each do |reserva|
-        puts reserva
-        @reserva=Reserva.find(reserva.to_i)
         @trayecto =Trayecto.where("reserva_id=?", @reserva.id)
         if !@trayecto.nil?
         @trayecto1= @trayecto.first
@@ -127,18 +127,22 @@ def asignar_reserva
   @fecha1= (fecha + 5.hours).to_datetime
   @fecha2= (fecha - 5.hours).to_datetime
   @reservas_iguales=Reserva.where("fecha=?" ,fecha)
-  @mobibuses=Mobibus.all
-
-  if @reservas_iguales.length-1 == @mobibuses.length
+  @mobibuses=Mobibus.where("estado !=?", -1)
+  @length= @reservas_iguales.length-1
+  if  @length= @mobibuses.length
      @reserva.update_attributes(estado:0)
 
   else if @reservas_iguales.length == 0
          id_mobibus=@mobibuses.first
          @reserva.update_attributes(estado:2, mobibus_id: id_mobibus)
        end
-    i=1
-    while @no_asignado  && @mobibuses.length>i-1 do
-      id_mobibus=@mobibuses.find(i).id
+    i=0
+    while @no_asignado  && @mobibuses.length>i do
+      puts @mobibuses.length
+      puts i
+      id_mobibus=@mobibuses.at(i).id
+      puts id_mobibus
+
       @res=@reservas_iguales.any?{|reserva| reserva.mobibus_id==id_mobibus}
       if @res==false
         @no_asignado=false

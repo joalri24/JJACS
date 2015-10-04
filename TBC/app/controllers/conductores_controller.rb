@@ -43,9 +43,21 @@ end
       @mobibus= Mobibus.find(@id)
       @mobibus.update_attributes(estado:0)
     end
-
+    redirect_to action: 'index', status: 303
   end
 
+
+  def calcular_puntaje
+
+    @puntaje= params[:puntaje]
+    @id= params[:id]
+    @conductor=Conductor.find(@id)
+    @puntajeFinal= @conductor.puntaje
+    @puntajeF=@puntajeFinal+ @puntaje.to_f
+    @conductor.update_attributes(puntaje:@puntajeF)
+    redirect_to controller:'trayectos', action:'index'
+
+  end
 
 
   def actualizar

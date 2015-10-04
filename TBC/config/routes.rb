@@ -114,6 +114,8 @@ Rails.application.routes.draw do
 
   get 'conductores/inicio'
 
+  get 'conductores/calcular_puntaje'
+
   get 'conductores/asignar_transporte'
 
 
