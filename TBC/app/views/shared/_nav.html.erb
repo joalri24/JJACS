@@ -10,7 +10,12 @@
         </ul>
       </li>
 
-      <li><%= link_to 'Conductores',  conductores_path %></li>
+      <li><%= link_to 'Conductores' %>
+      <ul>
+      <li><%= link_to 'Inicio', conductores_inicio_path %></li>
+      <li><%= link_to 'Lista conductores', conductores_path %></li>
+      </ul>
+      </li>
       <li><%= link_to 'Mobibuses',  mobibuses_path %>
       <ul>
         <li><%= link_to 'Inicio', mobibuses_inicio_path %></li>
@@ -19,11 +24,7 @@
       </li>
       <li><%= link_to 'Tranvías',  tranvias_path %></li>
       <li><%= link_to 'Vcubs',  vcubs_path %></li>
-      <li><%= link_to 'Trayectos', trayectos_inicio_path %>
-      <ul>
-        <li><%= link_to 'Actualizar distancia', trayectos_actualizar_path %></li>
-        <li><%= link_to 'Lista de trayectos', trayectos_path %></li>
-      </ul>
+      <li><%= link_to 'Trayectos', trayectos_path %>
       </li>
       <li><%= link_to 'Estaciones',  estaciones_inicio_path %>
         <ul>

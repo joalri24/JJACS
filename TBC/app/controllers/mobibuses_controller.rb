@@ -2,7 +2,7 @@ class MobibusesController < ApplicationController
   before_action :set_mobibus, only: [:actualizar, :mostrar, :destruir]
 
   def crear
-    @mobibus = Mobibus.create(estado:0, placa: params[:placa], longitud: 0.0, latitud: 0.0,kilometer_desde_revision:0)
+    @mobibus = Mobibus.create(estado:-1, placa: params[:placa], longitud: 0.0, latitud: 0.0,kilometer_desde_revision:0)
     respond_to do |format|
       if @mobibus.save
         format.html { redirect_to :mobibuses}

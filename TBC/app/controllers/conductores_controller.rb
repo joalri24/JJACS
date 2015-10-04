@@ -18,18 +18,35 @@ class ConductoresController < ApplicationController
   # POST /conductores/crear
   def crear
     @conductor = Conductor.create(nombre: params[:nombre], cedula: params[:cedula], puntaje: 0.0)
+    @conductor.save
+    @tipo= params[:tipo]
+    if @tipo=="tranvia"
+      @tranvias=Tranvia.where("estado= ?",-1)
+      @conductor.update_attributes(mobibus_id:0)
+    else
+      @mobibuses= Mobibus.where("estado= ?",-1)
+      @conductor.update_attributes(tranvia_id:0)
+    end
+end
 
-    respond_to do |format|
-      if @conductor.save
-        format.html { redirect_to :conductores}
-        format.json { render :index, status: :created, location: @conductor }
-      else
-        format.html { render :crear }
-        format.json { render json: @conductor.errors, status: :unprocessable_entity }
-      end
+  def asignar_transporte
+    @id= params[:id]
+    @tipo = params[:tipo]
+    @id_conductor=params[:id_conductor]
+    @conductor= Conductor.find(@id_conductor)
+    if @tipo=="tranvia"
+      @conductor.update_attributes(tranvia_id:@id)
+      @tranvia= Tranvia.find(@id)
+      @tranvia.update_attributes(estado:0)
+    else
+      @conductor.update_attributes(mobibus_id:@id)
+      @mobibus= Mobibus.find(@id)
+      @mobibus.update_attributes(estado:0)
     end
 
   end
+
+
 
   def actualizar
 

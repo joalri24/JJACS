@@ -1,0 +1,26 @@
+<h1>Conductores</h1>
+<p>Esta es la pagina de mobibuses. Desde aqui se pueden agregar nuevos mobibus y ver todos las ya existentes. </p>
+
+<p><%= link_to 'Lista de conductores', action: 'index', method: 'get' %></p>
+
+<hr>
+
+<p><strong>Agregar un nuevo conductor </strong></p>
+<%= form_tag '/conductores' do %>
+
+    <p>
+      Nombre:
+      <%= text_field_tag 'cedula' %>
+    </p>
+    <p>
+      Cedula:
+      <%= number_field_tag 'cedula' %>
+    </p>
+    <p>Asignar: </p>
+    <p>Tranvia </p>
+    <%= radio_button_tag 'tipo','tranvia',checked:true %></td>
+    </br>
+    <p>Mobibus</p>
+    <%= radio_button_tag  'tipo', 'mobibus' %></td>
+    <p><%= submit_tag 'Crear'  %></p>
+<% end %>

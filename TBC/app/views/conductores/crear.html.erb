@@ -1,6 +1,75 @@
-<h1>New conductor</h1>
+<h1><%="Asigne el " + @tipo + " correspondiente"%></h1>
 
-<%= render 'form' %>
+<%if ( @tipo == "mobibus" && @mobibuses.length!=0)%>
+    <%= form_tag({ :action => "asignar_transporte"}, :method => "get") do %>
+    <table>
+      <thead>
+      <tr>
+        <th> </th>
+        <th>Placa</th>
+        <th>Id</th>
+      </tr>
+      </thead>
 
-<%= link_to 'Back', conductores_path %>
+      <tbody>
+      <% @mobibuses.each do |mobibus| %>
+          <tr>
+            <td><%= radio_button_tag 'id', mobibus.id %></td>
+            <td><%= mobibus.placa %></td>
+            <td><%= mobibus.id %></td>
+
+          </tr>
+      <% end %>
+
+
+
+</tbody>
+</table>
+    <br>
+        <%= hidden_field_tag 'tipo', "mobibus"%>
+        <%= hidden_field_tag 'id_conductor',@conductor.id%>
+    <p><%= submit_tag 'Asignar'  %></p>
+    <%end %>
+    <%else if ( @tipo == "mobibus" && @mobibuses.length==0) %>
+
+        Lo sentimos no hay mobibus para asignar
+
+
+    <% else if ( @tipo == "tranvia" && @tranvias.length==0) %>
+
+        Lo sentimos no hay tranvia para asignar
+        <% else %>
+
+            <table>
+              <thead>
+              <tr>
+                <th> </th>
+                <th>Numero de identificacion</th>
+                <th>Linea</th>
+
+              </tr>
+              </thead>
+
+              <tbody>
+              <% @tranvias.each do |tranvia| %>
+                  <tr>
+                    <td><%= radio_button_tag 'id',tranvia.id %></td>
+                    <td><%= tranvia.numero_identificacion %></td>
+                    <td><%= tranvia.linea%></td>
+                  </tr>
+
+                  </tbody>
+                  </table>
+                  <br>
+                  <p><%= submit_tag 'Asignar'  %></p>
+              <% end %>
+
+        <%end%>
+    <%end%>
+
+
+    <%end%>
+</br>
+
+<br>
 

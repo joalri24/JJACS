@@ -111,6 +111,10 @@ Rails.application.routes.draw do
 
   delete 'mobibuses/:id'            => 'mobibuses#destruir'
 
+  get 'conductores/inicio'
+
+  get 'conductores/asignar_transporte'
+
 
   get 'conductores'                 => 'conductores#index'
 
