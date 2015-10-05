@@ -134,14 +134,37 @@ module ReportesHelper
         end
 
       end
-      @contenido+= "La linea 1 ha tenido " + @linea1.to_s + " accidentes #" + "La linea 2 ha tenido " + @linea2.to_s + " accidentes #" + "La linea 3 ha tenido " + @linea3.to_s + " accidentes ##"
+      @contenido+= "La linea 1 ha tenido " + @linea1.to_s + " accidente(s) #" + "La linea 2 ha tenido " + @linea2.to_s + " accidente(s) #" + "La linea 3 ha tenido " + @linea3.to_s + " accidente(s) ##"
 
     end
     resp=@contenido
   end
 
   def self.accidentes_comunes()
-         puts "accidente"
+    @contenido=""
+    @tipo1=0
+    @tipo2=0
+    @tipo3=0
+    @emergencias= Emergencia.all
+    if(@emergencias.length==0)
+      @contenido+="Aun no hemos tenido ningun problema ##"
+    else
+      @emergencias.each do |emergencia|
+        @tipo=emergencia.tipo
+        if @tipo==1
+          @tipo1+=1
+        else  if @tipo==2
+                @tipo2+=1
+              else
+                @tipo3+=1
+              end
+        end
+
+      end
+      @contenido+= "Ha habido  " + @tipo1.to_s + " accidente(s) tipo 1 #" + "Ha habido  " + @tipo2.to_s + " accidente(s) tipo 2 #"+ "Ha habido  " + @tipo3.to_s + " accidente(s) tipo 3 ##"
+
+    end
+    resp=@contenido
   end
 
 
