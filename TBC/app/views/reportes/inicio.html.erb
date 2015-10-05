@@ -1,7 +1,26 @@
 <h1>Reportes</h1>
 <p>Esta es la pagina de reportes. Desde aqui puede crear el reporte que desee. </p>
 
-<!--<p><#%= link_to 'Buscar reportes', action: 'index', method: 'get' %></p>-->
+
+
+<p><strong> Ver reporte </strong></p>
+<%= form_tag '/reportes/mostrar' do %>
+
+
+    <p>Tipo: </p>
+    <p> Tiempos promedio</p>
+    <%= radio_button_tag 'tipo','1',checked:true %></td>
+    </br>
+    <p>Conductores mas efectivos</p>
+    <%= radio_button_tag  'tipo', '2' %></td>
+    <p>Lineas con mas problemas</p>
+    <%= radio_button_tag  'tipo', '3' %></td>
+    <p>Accidentes mas comunes</p>
+    <%= radio_button_tag  'tipo', '4' %></td>
+    <p><%= submit_tag 'Ver'  %></p>
+
+<% end %>
+
 
 <hr>
 

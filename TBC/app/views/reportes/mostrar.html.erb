@@ -1,0 +1,24 @@
+<h1><%="Reporte de tipo: "+ @tipo %> </h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Fecha</th>
+    <th> Contenido</th>
+    <th>Id</th>
+
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @reportes.each do |reporte| %>
+      <tr>
+        <td><%= reporte.fecha %></td>
+        <td><%= reporte.contenido %></td>
+        <td><%= reporte.id %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>

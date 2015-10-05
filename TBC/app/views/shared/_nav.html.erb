@@ -32,7 +32,14 @@
         </ul>
       </li>
       <li><%= link_to 'Reservas', reservas_inicio_path %></li>
-      <li><%= link_to 'Reportes',reportes_path %></li>
+      <li><%= link_to 'Reportes' %>
+      <ul>
+        <li><%= link_to 'Inicio', reportes_path %></li>
+        <li><%= link_to 'Lista reportes', reportes_index_path %></li>
+      </ul>
+      </li>
+
+
     </ul>
 
   </div>

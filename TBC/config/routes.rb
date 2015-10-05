@@ -3,6 +3,9 @@ Rails.application.routes.draw do
 
 
 
+  post 'reportes/mostrar'
+
+  get 'reportes/ver_reporte'
 
   get 'reportes'              => 'reportes#inicio'
 
