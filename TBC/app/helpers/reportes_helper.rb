@@ -1,3 +1,4 @@
+
 module ReportesHelper
 
 
@@ -118,7 +119,7 @@ module ReportesHelper
      @linea3=0
      @emergencias= Emergencia.all
     if(@emergencias.length==0)
-      @contenido+="Aun no hemos tenido ningún problema ##"
+      @contenido+="Aun no hemos tenido ningun problema ##"
     else
       @emergencias.each do |emergencia|
         @id=emergencia.tranvia_id
