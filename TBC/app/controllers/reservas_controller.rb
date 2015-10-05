@@ -29,7 +29,7 @@ class ReservasController < ApplicationController
        @reserva=Reserva.find(reserva.to_i)
       @selected.each do |reserva|
         @trayecto =Trayecto.where("reserva_id=?", @reserva.id)
-        if !@trayecto.nil?
+        if (@trayecto.length!=0)
         @trayecto1= @trayecto.first
         @trayecto1.destroy
         end
@@ -129,6 +129,7 @@ def asignar_reserva
   @reservas_iguales=Reserva.where("fecha=?" ,fecha)
   @mobibuses=Mobibus.where("estado !=?", -1)
   @length= @reservas_iguales.length-1
+  puts @length
   if  @length= @mobibuses.length
      @reserva.update_attributes(estado:0)
 
