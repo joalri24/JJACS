@@ -2,6 +2,14 @@ Rails.application.routes.draw do
 
 
 
+
+
+  get 'reportes'              => 'reportes#inicio'
+
+  post 'reportes'                => 'reportes#crear'
+
+  get 'reportes/index'
+
   get 'trayectos/crear'
 
   get 'trayectos'               =>'trayectos#index'

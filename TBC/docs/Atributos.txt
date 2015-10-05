@@ -61,7 +61,7 @@ longitud:decimal
 tipo:[]
 
 Reporte
-tipo:[1:conductores, 2:tiempo promedio de trayectos, 3:Lineas con más problemas]
+tipo:[1:conductores, 2:tiempo promedio de trayectos, 3:Lineas con más problemas, 4:accidentes + comunes]
 fecha:datetime
 contenido:text
 
