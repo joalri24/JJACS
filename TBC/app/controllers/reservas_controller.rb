@@ -37,7 +37,7 @@ class ReservasController < ApplicationController
 
       end
        respond_to do |format|
-         format.html { redirect_to action: 'index_all', status: 303}
+         format.html { redirect_to action: 'index_all'}
      end
      else
        puts @reservas_espera.length
@@ -55,7 +55,7 @@ class ReservasController < ApplicationController
       if @reservas_espera.length==0
         puts "aqui"
         @trayecto =Trayecto.where("reserva_id=?", @reserva.id)
-        if !@trayecto.nil?
+        if @trayecto.length!=0
           @trayecto1= @trayecto.first
           @trayecto1.destroy
         end
@@ -65,10 +65,10 @@ class ReservasController < ApplicationController
      fecha= @reserva.fecha
       puts fecha
      @reservaA=@reservas_espera.where("fecha= ?",fecha)
-     if (!@reservaA.nil? && @reserva.mobibus_id!=0)
+     if (@reservaA.length!=0 && @reserva.mobibus_id!=0)
          mobibus_id=@reserva.mobibus_id
          @trayecto =Trayecto.where("reserva_id=?", @reserva.id)
-         if !@trayecto.nil?
+         if @trayecto.length!=0
            @trayecto1= @trayecto.first
            @trayecto1.destroy
          end
@@ -84,7 +84,7 @@ class ReservasController < ApplicationController
            end
      else
        @trayecto =Trayecto.where("reserva_id=?", @reserva.id)
-       if !@trayecto.nil?
+       if @trayecto.length!=0
          @trayecto1= @trayecto.first
          @trayecto1.destroy
        end
@@ -93,7 +93,7 @@ class ReservasController < ApplicationController
       end
       end
     respond_to do |format|
-      format.html { redirect_to action: 'index_all', status: 303}
+      format.html { redirect_to action: 'index_all'}
  end
 
 
@@ -116,7 +116,7 @@ def crear_res
   @reserva =Reserva.create(estado:0, direccion_origen: params[:direccion_origen], direccion_destino: params[:direccion_destino], cliente_id:params[:id], mobibus_id:0, fecha: @formatted_date)
   @reserva.save
   respond_to do |format|
-    format.html { redirect_to action:'mostrar', id: @reserva.id, status: 200}
+    format.html { redirect_to action:'mostrar', id: @reserva.id}
   end
 end
 
@@ -127,16 +127,18 @@ def asignar_reserva
   @fecha1= (fecha + 5.hours).to_datetime
   @fecha2= (fecha - 5.hours).to_datetime
   @reservas_iguales=Reserva.where("fecha=?" ,fecha)
-  @mobibuses=Mobibus.where("estado !=?", -1)
+  @mobibuses=Mobibus.where("estado != ?", -1)
   @length= @reservas_iguales.length-1
-  puts @length
-  if  @length= @mobibuses.length
+
+  if  @length== @mobibuses.length
      @reserva.update_attributes(estado:0)
 
   else if @reservas_iguales.length == 0
+
          id_mobibus=@mobibuses.first
          @reserva.update_attributes(estado:2, mobibus_id: id_mobibus)
-       end
+       else
+
     i=0
     while @no_asignado  && @mobibuses.length>i do
       puts @mobibuses.length
@@ -155,13 +157,14 @@ def asignar_reserva
     if @no_asignado
 
     end
+       end
   end
   puts @reserva.estado
   if (@reserva.estado==0)
 
-    redirect_to action:'index', id: @reserva.cliente_id, status: 200
+    redirect_to action:'index', id: @reserva.cliente_id
   else
-  redirect_to controller:'trayectos',action:'crear', id: @reserva.id, status: 200
+  redirect_to controller:'trayectos',action:'crear', id: @reserva.id
     end
 end
 

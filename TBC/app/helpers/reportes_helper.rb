@@ -92,31 +92,51 @@ module ReportesHelper
                if (@trayectos.length==0)
                else
                   @cantidadDeTrayectos = @trayectos.length
-                  puts @cantidadDeTrayectos
                   @puntaje= conductor.puntaje
-                  puts @puntaje
                   @promedio = @puntaje/@cantidadDeTrayectos
-                  puts @promedio
-                  puts conductor.nombre
-                 @contenido += "El conductor" + conductor.nombre + "tiene un puntaje de" + @promedio
+                 @contenido += "El conductor " + conductor.nombre + " tiene un puntaje de " + @promedio.to_s + "#"
                end
             end
           end
           end
     end
 
-    if @contenido=""
+    if @contenido==""
       @contenido+= "Aun no se han realizado trayectos"
+    else
+      @contenido+="#"
     end
-    puts @contenido
+
+    resp=@contenido
 
     end
-
-
-
 
   def self.lineas_problemas()
-    puts "linea"
+     @contenido=""
+     @linea1=0
+     @linea2=0
+     @linea3=0
+     @emergencias= Emergencia.all
+    if(@emergencias.length==0)
+      @contenido+="Aun no hemos tenido ningún problema ##"
+    else
+      @emergencias.each do |emergencia|
+        @id=emergencia.tranvia_id
+        @linea=Tranvia.find(@id).linea
+        if @linea==1
+          @linea1+=1
+        else  if @linea==2
+                @linea2+=1
+                else
+          @linea3+=1
+        end
+        end
+
+      end
+      @contenido+= "La linea 1 ha tenido " + @linea1.to_s + " accidentes #" + "La linea 2 ha tenido " + @linea2.to_s + " accidentes #" + "La linea 3 ha tenido " + @linea3.to_s + " accidentes ##"
+
+    end
+    resp=@contenido
   end
 
   def self.accidentes_comunes()
