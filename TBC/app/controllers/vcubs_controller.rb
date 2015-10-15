@@ -6,7 +6,7 @@ class VcubsController < ApplicationController
   end
 
   def crear
-    @vcub = Vcub.create(numero_identificacion: params[:numero_identificacion], prestada: false, id_usuario_actual: nil)
+    @vcub = Vcub.create(numero_identificacion: params[:numero_identificacion], prestada: false, cliente_id: nil)
     respond_to do |format|
       if @vcub.save
         format.html { redirect_to vcubs_path}
@@ -22,8 +22,8 @@ class VcubsController < ApplicationController
     respond_to do |format|
       atributos = Hash.new
 
-      if params[:numero_identificacion] != nil
-        atributos['numero_identificacion'] = params[:numero_identificacion]
+      if params[:cliente_id] != nil
+        atributos['cliente_id'] = params[:cliente_id]
       end
 
       if params[:prestada] != nil
