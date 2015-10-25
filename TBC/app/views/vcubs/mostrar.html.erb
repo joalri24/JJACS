@@ -17,8 +17,8 @@
         <td><%=@vcub.numero_identificacion %></td>
         <td><%=@vcub.prestada %></td>
 
-        <% if @vcub.cliente != nil %>
-            <td><%=@vcub.cliente.nombre %></td>
+        <% if @vcub.user != nil %>
+            <td><%=@vcub.user.email %></td>
         <% else %>
             <td>N/A</td>
         <% end %>

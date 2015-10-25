@@ -2,6 +2,7 @@
 class EstacionesController < ApplicationController
 
   before_action :set_estacion, only: [:actualizar, :mostrar, :destruir, :registrar, :prestar]
+  before_action :authenticate_user!
 
   def inicio
   end
@@ -33,7 +34,7 @@ class EstacionesController < ApplicationController
       @mensaje = " Vcub #{params[:vcub_id]} registrado exitósamente"
       @vcub.estacion = @estacion
       @vcub.prestada = false
-      @vcub.cliente = nil
+      @vcub.user = nil
       @vcub.save
 
     end
@@ -47,10 +48,10 @@ class EstacionesController < ApplicationController
     if EstacionesHelper.existe_vcub_en_estacion?(params[:vcub_id], @estacion)
       @vcub = Vcub.find(params[:vcub_id])
 
-      if EstacionesHelper.existe_cliente?(params[:cliente_id])
+      if EstacionesHelper.existe_usuario?(params[:cliente_id])
         @vcub.estacion = nil
         @vcub.prestada = true
-        @vcub.cliente = Cliente.find(params[:cliente_id])
+        @vcub.user = User.find(params[:cliente_id])
         @mensaje = "Vcub #{params[:vcub_id]} prestada al cliente con id: #{params[:cliente_id]}"
         @vcub.save
 

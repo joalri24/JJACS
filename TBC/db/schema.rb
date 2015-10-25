@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150930032918) do
+ActiveRecord::Schema.define(version: 20151025040021) do
 
   create_table "clientes", force: true do |t|
     t.string   "nombre"
@@ -69,9 +69,11 @@ ActiveRecord::Schema.define(version: 20150930032918) do
     t.datetime "fecha"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   add_index "prestamos", ["cliente_id"], name: "index_prestamos_on_cliente_id"
+  add_index "prestamos", ["user_id"], name: "index_prestamos_on_user_id"
   add_index "prestamos", ["vcub_id"], name: "index_prestamos_on_vcub_id"
 
   create_table "reportes", force: true do |t|
@@ -120,6 +122,24 @@ ActiveRecord::Schema.define(version: 20150930032918) do
 
   add_index "trayectos", ["reserva_id"], name: "index_trayectos_on_reserva_id"
 
+  create_table "users", force: true do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
   create_table "vcubs", force: true do |t|
     t.integer  "numero_identificacion"
     t.boolean  "prestada"
@@ -127,9 +147,11 @@ ActiveRecord::Schema.define(version: 20150930032918) do
     t.datetime "updated_at"
     t.integer  "cliente_id"
     t.integer  "estacion_id"
+    t.integer  "user_id"
   end
 
   add_index "vcubs", ["cliente_id"], name: "index_vcubs_on_cliente_id"
   add_index "vcubs", ["estacion_id"], name: "index_vcubs_on_estacion_id"
+  add_index "vcubs", ["user_id"], name: "index_vcubs_on_user_id"
 
 end

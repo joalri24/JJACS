@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
 
 
+  devise_for :users
   post 'reportes/mostrar'
 
   get 'reportes/ver_reporte'

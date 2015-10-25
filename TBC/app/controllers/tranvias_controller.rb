@@ -1,5 +1,6 @@
 class TranviasController < ApplicationController
   before_action :set_tranvia, only: [:actualizar, :mostrar, :destruir, :crear_emergencia]
+  before_action :authenticate_user!
 
   def index
     @tranvias = Tranvia.all
