@@ -3,6 +3,8 @@ class EstacionesController < ApplicationController
 
   before_action :set_estacion, only: [:actualizar, :mostrar, :destruir, :registrar, :prestar]
   before_action :authenticate_user!
+  before_action :autenticar_con_privilegios
+
 
   def inicio
   end
@@ -68,5 +70,13 @@ class EstacionesController < ApplicationController
   private
     def set_estacion
       @estacion = Estacion.find(params[:id])
+    end
+
+    #Si el usuario no es un admin, le cierra la sesión y lo devuelve al home
+    def autenticar_con_privilegios
+      unless current_user.admin?
+        sign_out current_user
+        redirect_to root_path
+      end
     end
 end

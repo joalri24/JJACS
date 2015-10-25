@@ -59,5 +59,10 @@
 </nav><!-- end of top nav -->
 
 <% if user_signed_in? %>
-    <p>Conectado cómo <%=  current_user.email %></p>
+    <p>
+      Conectado cómo <i><%=  current_user.email %></i>
+      <% if current_user.admin? %>
+        con privilegios de Administrador
+      <% end %>
+    </p>
 <% end %>
