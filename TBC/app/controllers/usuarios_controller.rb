@@ -1,4 +1,5 @@
 class UsuariosController < ApplicationController
+  before_action :set_usuario,  only: [:actualizar, :mostrar]
   before_action :authenticate_user!
   before_action :autenticar_con_privilegios
 
@@ -9,10 +10,13 @@ class UsuariosController < ApplicationController
   def mostrar
   end
 
-  def modificar
+  def actualizar
+    @user.update_attribute(:admin,params[:admin])
+    @user.update_attribute(:empleado_vcub,params[:empleado_vcub])
   end
 
-  def actualizar
+  def set_usuario
+    @user=User.find(params[:id])
   end
 
   #Si el usuario no es un admin, le cierra la sesión y lo devuelve al home

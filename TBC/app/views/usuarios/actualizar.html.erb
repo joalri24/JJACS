@@ -1,0 +1,7 @@
+<% #encoding: utf-8%>
+<h1>Permisos modificados</h1>
+
+<p>El usuarios <%= @user.email %> tiene ahora los siguiente permisos:</p>
+<br>
+<p>Admin: <%= @user.admin? %></p>
+<p>Empleado Vcub: <%= @user.empleado_vcub? %></p>
