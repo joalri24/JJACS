@@ -3,6 +3,10 @@ Rails.application.routes.draw do
 
 
 
+  get 'paginas/home'
+
+  get 'pagina/home'
+
   devise_for :users
   post 'reportes/mostrar'
 
@@ -88,6 +92,8 @@ Rails.application.routes.draw do
 
   get 'emergencias'                 => 'emergencias#index'
 
+  get 'vcubs/inicio'                => 'vcubs#inicio'
+
   get 'vcubs'                       => 'vcubs#index'
 
   post 'vcubs'                      => 'vcubs#crear'
@@ -145,7 +151,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'conductores#index'
+  root 'paginas#home'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

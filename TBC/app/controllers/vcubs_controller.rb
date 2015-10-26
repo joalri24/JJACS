@@ -5,6 +5,9 @@ class VcubsController < ApplicationController
     @vcubs=Vcub.all
   end
 
+  def inicio
+  end
+
   def crear
     @vcub = Vcub.create(numero_identificacion: params[:numero_identificacion], prestada: false, cliente_id: nil)
     respond_to do |format|
