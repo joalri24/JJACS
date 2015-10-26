@@ -74,7 +74,7 @@ class EstacionesController < ApplicationController
 
     #Si el usuario no es un admin, le cierra la sesión y lo devuelve al home
     def autenticar_con_privilegios
-      unless current_user.admin?
+      unless current_user.admin? || current_user.empleado_vcub?
         sign_out current_user
         redirect_to root_path, notice: 'El usuario no tiene los permisos necesarios.'
       end

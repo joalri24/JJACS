@@ -57,6 +57,21 @@
                   <li><%= link_to 'Prestamos Vcubs', prestamos_path %></li>
                 </ul>
               </li>
+          <%elsif current_user.empleado_vcub? %>
+              <li><%= link_to 'Vcubs',   vcubs_inicio_path%>
+                <ul>
+                  <li><%= link_to 'Inicio', vcubs_inicio_path %></li>
+                  <li><%= link_to 'Lista de Vcubs', vcubs_path %></li>
+                </ul>
+              </li>
+
+              <li><%= link_to 'Estaciones Vcub',  estaciones_inicio_path %>
+                <ul>
+                  <li><%= link_to 'Inicio', estaciones_inicio_path %></li>
+                  <li><%= link_to 'Lista estaciones', estaciones_path %></li>
+                </ul>
+              </li>
+
           <% end %>
           <!-- Fin pestañas ezclusivas de admin-->
 
@@ -71,9 +86,12 @@
 
 <% if user_signed_in? %>
     <p>
-      Conectado cómo <i><%=  current_user.email %></i>
+      Conectado cómo <i><%=  current_user.email %>.</i>
       <% if current_user.admin? %>
-        con privilegios de Administrador
+        Privilegios de Administrador.
+      <% end %>
+      <% if current_user.empleado_vcub? %>
+          Privilegios de Empleado Vcubs
       <% end %>
     </p>
 <% end %>
