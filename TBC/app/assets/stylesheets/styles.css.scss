@@ -82,6 +82,7 @@ color:#9F3B19;
 a:hover {
 color: #333;
 }
+
 	
 p {
 margin-bottom: 18px;
@@ -170,6 +171,21 @@ color: #edab57;
 /* nav 1-level dropdowns */
 nav .menu li ul { 
 display: none; 
+}
+
+nav .menu input[type=submit]{
+  color:#edbd7f;
+  background: #333;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 0 20px;
+  line-height: 38px;
+}
+
+nav .menu input[type=submit]:hover{
+
+  color: #edab57;
 }
 
 nav .menu ul li a {
