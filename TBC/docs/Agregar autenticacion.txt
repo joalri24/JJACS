@@ -1,0 +1,129 @@
+---------------------------------------------------------------------------------------------------------------------------------------------
+Cambios para agregar autenticación.
+
+1. Archivo: gemfile
+  Agregar la línea: gem 'devise'
+
+2. Correr: bundle install
+
+3. Ejecutar la línea:
+  rails generate devise:install
+
+  3.5: Seguir las recomendaciones: definir una página root y agregar los notice y alerts en la vista application layout. 
+   <p class="notice"><%= notice %></p>
+   <p class="alert"><%= alert %></p>
+
+4. Ejecutar la línea:
+  rails generate devise User
+
+5. Correr:  rake db:migrate
+
+
+6. Archivo: estaciones_controller
+
+	* agregar la línea: before_action :authenticate_user!
+
+	* action inicio
+	  - Cambiar ' @vcub.cliente = nil ' por ' @vcub.user = nil '
+	
+	* action prestar
+	  - Cambiar 'if EstacionesHelper.existe_cliente?(params[:cliente_id])' por 'if EstacionesHelper.existe_usuario?(params[:cliente_id])'
+      - Cambiar '@vcub.cliente = Cliente.find(params[:cliente_id])' por '@vcub.user = User.find(params[:cliente_id])'
+
+7. Archivo: estaciones_helper.rb
+
+      * Agregar la acción: 
+         #El self. se pone para que pueda ser leido desde el controlador
+         def self.existe_usuario?(id)
+           resp = User.exists?(id)
+         end
+
+      * action self.registrar_prestamo
+        - cambiar 'Prestamo.create(vcub_id: vcub_p, cliente_id: cliente_p, fecha: Time.now)' por 'Prestamo.create(vcub_id: vcub_p, cliente_id: nil, fecha: Time.now, user_id: cliente_p)'
+
+8. Archivo: tranvias_controller.rb
+	* Agregar la línea: before_action :authenticate_user!
+
+9. Archivo (Model): prestamo.rb
+  * Agregar 'belongs_to :user'
+
+10. Archivo (Model): vcub.rb
+  * Agregar 'belongs_to :user'
+
+11. Archivo _nav.html.erb
+  - Agregar:
+        
+    <% if user_signed_in? %>
+      <li>
+        <%= button_to('Logout', destroy_user_session_path, method: 'delete') %>        
+      </li>
+        <% else %>
+      <li>
+        <%= link_to('Login', new_user_session_path)  %>  
+      </li>
+    <% end %>
+
+  - Agregar al final:
+
+    <% if user_signed_in? %>
+      <p>Conectado cómo <%=  current_user.email %></p>
+    <% end %>
+
+12. Archivo: vcubs/index.html.erb
+  * Cambiar '<td><%=vcub.cliente_id %></td>' por '<td><%=vcub.user_id %></td>'
+
+13. Archivo: vcubs/mostrar.html.erb
+  * Cambiar 
+    <% if @vcub.cliente != nil %>
+      <td><%=@vcub.cliente.nombre %></td>  
+
+      por
+
+    <% if @vcub.user != nil %>
+      <td><%=@vcub.user.email %></td>
+
+14. Archivo: models/user.rb
+
+  * Agregar: 
+  has_one :vcub
+  has_many :prestamos  
+
+15. Generar nueva migración (agregar_usuarios_vcub) con el siguiente contenido
+  
+  def change
+    change_table :vcubs do |t|
+      t.belongs_to :user, index: true
+    end
+  end
+
+16. Generar nueva migración (agregar_usuario_prestamo) con el siguiente contenido
+  def change
+    change_table :prestamos do |t|
+      t.belongs_to :user, index: true
+    end
+  end
+
+17. Correr:  rake db:migrate
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+Cambios para agregar rol de autenticación.
+
+
+1. Generar nueva migración (add_admin_to_users.rb) con el siguiente contenido:
+  def change
+      add_column :users, :admin, :boolean, default: false
+  end
+
+2. Archivo estaciones_controller.rb
+  * Agregar la línea: before_action :autenticar_con_privilegios
+
+  * Agregar el método 
+   #Si el usuario no es un admin, le cierra la sesión y lo devuelve al home
+    def autenticar_con_privilegios
+      unless current_user.admin?
+        sign_out current_user
+        redirect_to root_path
+      end
+    end
+
+
