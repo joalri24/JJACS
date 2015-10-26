@@ -18,7 +18,7 @@
         <%#= link_to estacion.nombre, estacion_path(estacion.id) %>
         <td><%= prestamo.id %> </td>
         <td><%= prestamo.vcub.id %></td>
-        <td><%= prestamo.cliente.nombre %></td>
+        <td><%= prestamo.user.email %></td>
         <td><%= prestamo.fecha %></td>
       </tr>
   <% end %>

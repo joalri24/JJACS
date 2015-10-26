@@ -76,7 +76,7 @@ class EstacionesController < ApplicationController
     def autenticar_con_privilegios
       unless current_user.admin?
         sign_out current_user
-        redirect_to root_path
+        redirect_to root_path, notice: 'El usuario no tiene los permisos necesarios.'
       end
     end
 end

@@ -1,4 +1,7 @@
 <% #encoding: utf-8%>
 <h1>Transportes TBC</h1>
-<p>Bienvenido a transportes TBC, esta es la página de inicio. Por favor iniciar sesión para acceder a los distintos servicios.
-  Si aún no tiene cuenta por favor haga click <%= link_to 'aquí', new_user_registration_path %>  para crear una. </p>
+<p> Bienvenido a transportes TBC, esta es la página de inicio.
+    <% if !user_signed_in? %>
+        Por favor iniciar sesión para acceder a los distintos servicios. Si aún no tiene cuenta por favor haga click <%= link_to 'aquí', new_user_registration_path %>  para crear una.
+    <% end %>
+</p>

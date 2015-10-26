@@ -1,1 +1,17 @@
-Inicio de VCUB
+<% #encoding: utf-8 %>
+<h1>Vcubs</h1>
+<p>Esta es la página de Vcubs. Desde aquí se pueden agregar nuevas bicicletas y ver todas las ya existentes. </p>
+
+<p><%= link_to 'Lista de Vcubs', action: 'index', method: 'get' %></p>
+
+<hr>
+
+<p><strong>Crear una nueva bicicleta </strong></p>
+<%= form_tag '/vcubs' do %>
+    <p>
+      Número de identificación
+      <%= text_field_tag 'numero_identificacion' %>
+    </p>
+
+    <p><%= submit_tag 'Crear'  %></p>
+<% end %>

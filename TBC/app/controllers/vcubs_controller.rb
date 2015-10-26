@@ -1,5 +1,7 @@
 class VcubsController < ApplicationController
   before_action :set_vcub,  only: [:actualizar, :mostrar, :destruir]
+  before_action :authenticate_user!
+  before_action :autenticar_con_privilegios
 
   def index
     @vcubs=Vcub.all
@@ -60,5 +62,13 @@ class VcubsController < ApplicationController
 
   def set_vcub
     @vcub=Vcub.find(params[:id])
+  end
+
+  #Si el usuario no es un admin, le cierra la sesión y lo devuelve al home
+  def autenticar_con_privilegios
+    unless current_user.admin?
+      sign_out current_user
+      redirect_to root_path, notice: 'El usuario no tiene los permisos necesarios.'
+    end
   end
 end
