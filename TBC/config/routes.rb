@@ -3,6 +3,12 @@ Rails.application.routes.draw do
 
 
 
+  get 'usuarios'                    => 'usuarios#index'
+
+  get 'usuarios/:id'                => 'usuarios#mostrar' , as: :user
+
+  put 'vcubs/:id'                   => 'usuarios#actualizar'
+
   get 'paginas/home'
 
   get 'pagina/home'

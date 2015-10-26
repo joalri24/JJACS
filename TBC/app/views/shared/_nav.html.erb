@@ -55,8 +55,10 @@
                   <li><%= link_to 'Reservas', reservas_inicio_path %></li>
                   <li><%= link_to 'Emergencias', emergencias_path %></li>
                   <li><%= link_to 'Prestamos Vcubs', prestamos_path %></li>
+                  <li><%= link_to 'Permisos', usuarios_path %></li>
                 </ul>
               </li>
+
           <%elsif current_user.empleado_vcub? %>
               <li><%= link_to 'Vcubs',   vcubs_inicio_path%>
                 <ul>

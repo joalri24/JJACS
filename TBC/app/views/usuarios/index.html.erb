@@ -1,0 +1,28 @@
+<% #encoding: utf-8%>
+<h1>Lista de Usuarios</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Id</th>
+    <th>Email</th>
+    <th>¿Admin?</th>
+    <th>¿Empleado Vcub?</th>
+    <th colspan="10"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @users.each do |user| %>
+      <tr>
+        <td><%= link_to user.id, user_path(user.id) %></td>
+        <td><%=user.email %></td>
+        <td><%=user.admin? %></td>
+        <td><%=user.empleado_vcub? %></td>
+
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
