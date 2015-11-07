@@ -27,8 +27,7 @@
         <td><%=@tranvia.kilometros_desde_revision %></td>
         <td><%=@tranvia.temperatura %></td>
         <td><%=@tranvia.boton_panico %></td>
-
-        <% @conductores1= Conductor.where("tranvia_id = ?",@tranvia.id)%>
+        <% @conductores1= User.where("tranvia_id = ?",@tranvia.id)%>
         <% if  @conductores1.first != nil %>
             <td><%=@conductores1.first.id %></td>
         <% else %>
