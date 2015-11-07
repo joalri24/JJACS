@@ -8,6 +8,7 @@
     <th>Email</th>
     <th>Admin</th>
     <th>Empleado Vcub</th>
+    <th>Conductor</th>
     <th colspan="4"></th>
   </tr>
   </thead>
@@ -25,6 +26,11 @@
             <td><%= check_box_tag 'empleado_vcub','true',true %></td>
         <%else%>
             <td><%= check_box_tag 'empleado_vcub','true',false %></td>
+        <% end %>
+        <% if @user.conductor? %>
+            <td><%= check_box_tag 'conductor','true',true %></td>
+        <%else%>
+            <td><%= check_box_tag 'conductor','true',false %></td>
         <% end %>
       </tr>
   </tbody>
