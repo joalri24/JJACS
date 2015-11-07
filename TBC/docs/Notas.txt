@@ -1,4 +1,14 @@
 
+
+Falta:
+Verificar que la reserva se realizó solo con una semana de anticipación
+Notificar al usuario
+Definir un rango de horas
+reabastecer
+
+
+
+
 Tasks:
 1. reservas mobibus
 2. prestamos vcub
