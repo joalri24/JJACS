@@ -3,4 +3,8 @@ class Mobibus < ActiveRecord::Base
   has_many :reservas
 
 
+
+  #----------------
+ has_one :user
+
 end

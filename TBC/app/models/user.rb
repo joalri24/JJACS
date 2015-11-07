@@ -5,6 +5,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   #---------
+  belongs_to :tranvia
+  belongs_to :mobibus
   has_one :vcub
   has_many :prestamos
+  has_many :reservas
 end
