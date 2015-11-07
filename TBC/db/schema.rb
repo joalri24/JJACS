@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151026031905) do
+ActiveRecord::Schema.define(version: 20151107220343) do
 
   create_table "clientes", force: true do |t|
     t.string   "nombre"
@@ -137,10 +137,17 @@ ActiveRecord::Schema.define(version: 20151026031905) do
     t.datetime "updated_at",                             null: false
     t.boolean  "admin",                  default: false
     t.boolean  "empleado_vcub",          default: false
+    t.float    "puntaje",                default: 0.0
+    t.boolean  "conductor",              default: false
+    t.boolean  "cliente",                default: false
+    t.integer  "mobibus_id"
+    t.integer  "tranvia_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["mobibus_id"], name: "index_users_on_mobibus_id"
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["tranvia_id"], name: "index_users_on_tranvia_id"
 
   create_table "vcubs", force: true do |t|
     t.integer  "numero_identificacion"

@@ -145,7 +145,7 @@ Rails.application.routes.draw do
 
   get 'conductores'                 => 'conductores#index'
 
-  post 'conductores'                => 'conductores#crear'
+  post 'conductores'                => 'conductores#asignar_transportes1'
 
   get 'conductores/:id'             => 'conductores#mostrar'
 

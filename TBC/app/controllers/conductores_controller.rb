@@ -2,7 +2,7 @@ class ConductoresController < ApplicationController
   before_action :set_conductor, only: [:actualizar, :mostrar, :destruir]
 
   def index
-    @conductores= Conductor.all
+    @conductores= User.where("conductor=?", true)
   end
 
   def mostrar
@@ -16,10 +16,11 @@ class ConductoresController < ApplicationController
   end
 
   # POST /conductores/crear
-  def crear
-    @conductor = Conductor.create(nombre: params[:nombre], cedula: params[:cedula], puntaje: 0.0)
-    @conductor.save
-    @tipo= params[:tipo]
+  def asignar_transportes1
+    @tipo = params[:tipo]
+    @id_conductor=params[:conductores]
+    @id_real= @id_conductor.first
+    @conductor= User.find(@id_real)
     if @tipo=="tranvia"
       @tranvias=Tranvia.where("estado= ?",-1)
       @conductor.update_attributes(mobibus_id:0)
@@ -30,10 +31,10 @@ class ConductoresController < ApplicationController
 end
 
   def asignar_transporte
-    @id= params[:id]
     @tipo = params[:tipo]
+    @id= params[:id]
     @id_conductor=params[:id_conductor]
-    @conductor= Conductor.find(@id_conductor)
+    @conductor= User.find(@id_conductor)
     if @tipo=="tranvia"
       @conductor.update_attributes(tranvia_id:@id)
       @tranvia= Tranvia.find(@id)

@@ -5,22 +5,12 @@
 
 <hr>
 
-<p><strong>Agregar un nuevo conductor </strong></p>
 <%= form_tag '/conductores' do %>
-
-    <p>
-      Nombre:
-      <%= text_field_tag 'nombre' %>
-    </p>
-    <p>
-      Cedula:
-      <%= number_field_tag 'cedula' %>
-    </p>
     <p>Asignar: </p>
     <p>Tranvia </p>
     <%= radio_button_tag 'tipo','tranvia',checked:true %>
     <br>
     <p>Mobibus</p>
     <%= radio_button_tag  'tipo', 'mobibus' %>
-    <p><%= submit_tag 'Crear'  %></p>
+    <p><%= submit_tag 'Asignar_transporte'  %></p>
 <% end %>

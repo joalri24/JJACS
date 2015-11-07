@@ -7,11 +7,8 @@
           <!-- Agregar aquí las pestañas que puede ver un cliente -->
 
           <% if current_user.admin? %>
-              <li><%= link_to 'Conductores', conductores_inicio_path  %>
-                <ul>
-                  <li><%= link_to 'Inicio', conductores_inicio_path %></li>
-                  <li><%= link_to 'Lista conductores', conductores_path %></li>
-                </ul>
+              <li><%= link_to 'Conductores', conductores_path  %>
+
               </li>
 
               <li><%= link_to 'Mobibuses',  mobibuses_inicio_path %>

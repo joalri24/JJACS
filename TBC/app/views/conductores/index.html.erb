@@ -1,12 +1,13 @@
 <h1>Lista de conductores</h1>
 
 <table>
+  <%= form_tag({:controller => "conductores", :action => "asignar_transportes1"}, :method => "post") do %>
   <thead>
   <tr>
-    <th>Nombre</th>
-    <th>Cedula</th>
+    <th> </th>
+    <th>Id </th>
+    <th>Email</th>
     <th>Puntaje</th>
-    <th>Id</th>
     <th>Mobibus</th>
     <th>Tranvia</th>
     <th colspan="4"></th>
@@ -16,16 +17,24 @@
   <tbody>
   <% @conductores.each do |conductor| %>
       <tr>
-        <td><%= conductor.nombre %></td>
-        <td><%= conductor.cedula %></td>
+        <td><%= radio_button_tag 'conductores[]',conductor.id %></td>
+        <td><%= conductor.id%></td>
+        <td><%= conductor.email %></td>
         <td><%= conductor.puntaje %></td>
-        <td><%= conductor.id %></td>
         <td><%= conductor.mobibus_id %></td>
         <td><%= conductor.tranvia_id %></td>
       </tr>
   <% end %>
   </tbody>
 </table>
+<%= form_tag '/conductores' do %>
+    <p>Asignar: </p>
+    <p>Tranvia </p>
+    <%= radio_button_tag 'tipo','tranvia',checked:true %>
+    <br>
+    <p>Mobibus</p>
+    <%= radio_button_tag  'tipo', 'mobibus', checked: false %>
+    <p><%= submit_tag 'Asignar transporte'  %></p>
 
-<br>
-
+      <% end %>
+<%end %>
