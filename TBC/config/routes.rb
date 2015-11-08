@@ -53,13 +53,13 @@ Rails.application.routes.draw do
 
   get 'reservas/asignar'             =>'reservas#asignar_reserva'
 
-  get 'reservas/todas'             =>'reservas#index'
+  get 'reservas/todas'             =>'reservas#index',as: :reservas
 
   post 'reservas/crear'            =>'reservas#crear_res'
 
   get 'reservas/mostrar'
 
-  get 'reservas'                   =>'reservas#crear'
+  get 'reservas'                   =>'reservas#crear', as: :reserva
 
   get 'clientes/crear_reserva'     =>'clientes#crear_reserva'
 

@@ -71,7 +71,7 @@ module ReportesHelper
   end
 
   def self.conductores()
-    @conductores= Conductor.where("mobibus_id != ? ",0)
+    @conductores= User.where("mobibus_id != ? ",0)
     @contenido= ""
     if(@conductores.length==0)
       @contenido+= "No hay conductores que manejen mobibuses"

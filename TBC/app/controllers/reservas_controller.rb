@@ -3,16 +3,17 @@ class ReservasController < ApplicationController
   before_action :set_reserva, only: [:mostrar,]
 
 
+
   def crear
-    @cliente=Cliente.find(params[:id])
+    @cliente=User.find(current_user.id)
   end
 
     def mostrar
     end
 
   def index
-    @reservas= Reserva.where("cliente_id= ? ", params[:id])
-    @cliente=Cliente.find(params[:id])
+    @reservas= Reserva.where("cliente_id= ? ", current_user.id)
+    @cliente=User.find(current_user.id)
   end
 
   def index_all
@@ -24,11 +25,8 @@ class ReservasController < ApplicationController
      @selected= params[:reservas]
      @reservas_espera=Reserva.where("estado=?" ,0)
      if @reservas_espera.length ==0
-       puts @reservas_espera.length
-       puts reserva
-       @reserva=Reserva.find(reserva.to_i)
       @selected.each do |reserva|
-        @trayecto =Trayecto.where("reserva_id=?", @reserva.id)
+        @trayecto =Trayecto.where("reserva_id=?", reserva.id)
         if (@trayecto.length!=0)
         @trayecto1= @trayecto.first
         @trayecto1.destroy
@@ -40,7 +38,6 @@ class ReservasController < ApplicationController
          format.html { redirect_to action: 'index_all'}
      end
      else
-       puts @reservas_espera.length
        asignar_a_espera(@selected)
      end
      end
@@ -48,7 +45,6 @@ class ReservasController < ApplicationController
  def asignar_a_espera(selected)
     i=0
     @reservas_espera=Reserva.where("estado=?" ,0)
-    puts @reservas_espera.length
     selected.each do |reserva|
       @reservas_espera=Reserva.where("estado=?" ,0)
       @reserva=Reserva.find(reserva.to_i)
@@ -115,9 +111,9 @@ def crear_res
   @formatted_date = date.strftime('%b %d %Y %H:%M:%S')
   @reserva =Reserva.create(estado:0, direccion_origen: params[:direccion_origen], direccion_destino: params[:direccion_destino], cliente_id:params[:id], mobibus_id:0, fecha: @formatted_date)
   @reserva.save
-  respond_to do |format|
-    format.html { redirect_to action:'mostrar', id: @reserva.id}
-  end
+
+   redirect_to action:'mostrar', id: @reserva.id, status: 301
+
 end
 
 def asignar_reserva

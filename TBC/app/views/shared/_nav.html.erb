@@ -70,6 +70,14 @@
                   <li><%= link_to 'Lista estaciones', estaciones_path %></li>
                 </ul>
               </li>
+          <%elsif current_user.cliente? %>
+              <li><%= link_to 'Reservas',  reservas_path %>
+                <ul>
+                  <li><%= link_to 'Crear reserva', reserva_path %></li>
+                  <li><%= link_to 'Lista de reservas', reservas_path %></li>
+                </ul>
+              </li>
+
 
           <% end %>
           <!-- Fin pestañas ezclusivas de admin-->

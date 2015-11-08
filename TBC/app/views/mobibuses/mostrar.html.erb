@@ -22,7 +22,7 @@
         <td><%= @mobibus.longitud%></td>
         <td><%= @mobibus.kilometer_desde_revision %></td>
         <td><%= @mobibus.id %></td>
-        <% @conductores1= User.where("tranvia_id = ?",@tranvia.id)%>
+        <% @conductores1= User.where("mobibus_id = ?",@mobibus.id)%>
         <% if  @conductores1.first != nil %>
             <td><%=@conductores1.first.id %></td>
         <% else %>
