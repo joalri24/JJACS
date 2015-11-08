@@ -1,5 +1,6 @@
 class TranviasController < ApplicationController
   before_action :set_tranvia, only: [:actualizar, :mostrar, :destruir, :crear_emergencia]
+  # noinspection RailsParamDefResolve
   before_action :authenticate_user!
   before_action :autenticar_con_privilegios
 

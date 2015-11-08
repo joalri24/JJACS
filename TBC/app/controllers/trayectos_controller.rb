@@ -73,7 +73,7 @@ class TrayectosController < ApplicationController
 
     @id= @reserva.mobibus_id
     @conductor= Conductor.where("mobibus_id = ?",@id)
-    @conductorReal= @conductor.first.id
+    @conductor_real= @conductor.first.id
 
     @distancia= @trayecto.distancia
     @duracion= @trayecto.duracion
@@ -99,7 +99,8 @@ class TrayectosController < ApplicationController
 
     end
 
-    redirect_to  controller:'conductores' ,action:'calcular_puntaje', id:@conductorReal, puntaje:@puntaje
+    # noinspection RailsParamDefResolve
+    redirect_to  controller:'conductores' ,action:'calcular_puntaje', id:@conductor_real, puntaje:@puntaje
   end
 
 end

@@ -90,11 +90,11 @@ module ReportesHelper
 
               @trayectos= Trayecto.where("reserva_id= ? AND duracion != ?",@id_reserva,0)
               puts @trayectos.length
-               if (@trayectos.length==0)
+               if @trayectos.length==0
                else
-                  @cantidadDeTrayectos = @trayectos.length
+                  @cantidad_trayectos = @trayectos.length
                   @puntaje= conductor.puntaje
-                  @promedio = @puntaje/@cantidadDeTrayectos
+                  @promedio = @puntaje/@cantidad_trayectos
                  @contenido += "El conductor " + conductor.nombre + " tiene un puntaje de " + @promedio.to_s + "#"
                end
             end

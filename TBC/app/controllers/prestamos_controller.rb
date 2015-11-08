@@ -1,6 +1,7 @@
 class PrestamosController < ApplicationController
 
   before_action :set_prestamo, only: [:mostrar]
+  # noinspection RailsParamDefResolve
   before_action :authenticate_user!
   before_action :autenticar_con_privilegios
                                       

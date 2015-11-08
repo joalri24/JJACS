@@ -47,15 +47,15 @@ end
     redirect_to action: 'index', status: 303
   end
 
-
+  #TODO Diferencia entre puntaje_final y puntaje_f
   def calcular_puntaje
 
     @puntaje= params[:puntaje]
     @id= params[:id]
     @conductor=Conductor.find(@id)
-    @puntajeFinal= @conductor.puntaje
-    @puntajeF=@puntajeFinal+ @puntaje.to_f
-    @conductor.update_attributes(puntaje:@puntajeF)
+    @puntaje_final= @conductor.puntaje
+    @puntaje_f=@puntaje_final+ @puntaje.to_f
+    @conductor.update_attributes(puntaje:@puntaje_f)
     redirect_to controller:'trayectos', action:'index'
 
   end

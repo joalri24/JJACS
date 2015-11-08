@@ -1,5 +1,5 @@
 class ClientesController < ApplicationController
-  before_action :set_cliente, only: [:ingreso_sesion,:sign_in, :crear_reserva, :ver_reserva]
+  before_action :set_cliente, only: [:ingreso_sesion,:sign_in, :crear_reserva]
 
   def crear
     @cliente = Cliente.create(cedula: params[:cedula],nombre: params[:nombre])

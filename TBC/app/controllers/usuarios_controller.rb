@@ -1,5 +1,6 @@
 class UsuariosController < ApplicationController
   before_action :set_usuario,  only: [:actualizar, :mostrar]
+  # noinspection RailsParamDefResolve
   before_action :authenticate_user!
   before_action :autenticar_con_privilegios
 

@@ -1,5 +1,6 @@
 class EmergenciasController < ApplicationController
   before_action :set_emergencia, only: [:mostrar]
+  # noinspection RailsParamDefResolve
   before_action :authenticate_user!
   before_action :autenticar_con_privilegios
 

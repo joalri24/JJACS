@@ -1,5 +1,6 @@
 class VcubsController < ApplicationController
   before_action :set_vcub,  only: [:actualizar, :mostrar, :destruir]
+  # noinspection RailsParamDefResolve
   before_action :authenticate_user!
   before_action :autenticar_con_privilegios
 
