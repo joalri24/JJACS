@@ -1,6 +1,6 @@
 <h1><%="Asigne el " + @tipo + " correspondiente"%></h1>
 
-<%if ( @tipo == "mobibus" && @mobibuses.length!=0)%>
+<%if  @tipo == "mobibus" && @mobibuses.length!=0 %>
     <%= form_tag({ :action => "asignar_transporte"}, :method => "get") do %>
     <table>
       <thead>
@@ -30,12 +30,12 @@
         <%= hidden_field_tag 'id_conductor',@conductor.id%>
     <p><%= submit_tag 'Asignar' %></p>
     <%end %>
-    <%else if ( @tipo == "mobibus" && @mobibuses.length==0) %>
+    <%else if  @tipo == "mobibus" && @mobibuses.length==0 %>
 
         Lo sentimos no hay mobibus para asignar
 
 
-    <% else if ( @tipo == "tranvia" && @tranvias.length==0) %>
+    <% else if @tipo == "tranvia" && @tranvias.length==0 %>
 
         Lo sentimos no hay tranvia para asignar
         <% else %>

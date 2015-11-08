@@ -30,6 +30,7 @@
                     <td><%="No tiene un mobibus asignado"%></td>
                     <%end%>
                 <%else%>
+                <%#TODO El find se debe hacer desde el controlador, no desde la vista.%>
                 <%@mobibus=Mobibus.find(reserva.mobibus_id)%>
             <td><%=@mobibus.placa%></td>
                 <%end%>

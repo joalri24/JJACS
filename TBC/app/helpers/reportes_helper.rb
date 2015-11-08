@@ -112,13 +112,14 @@ module ReportesHelper
 
     end
 
+  # noinspection RailsChecklist05
   def self.lineas_problemas()
      @contenido=""
      @linea1=0
      @linea2=0
      @linea3=0
      @emergencias= Emergencia.all
-    if(@emergencias.length==0)
+    if @emergencias.length ==0
       @contenido+="Aun no hemos tenido ningun problema ##"
     else
       @emergencias.each do |emergencia|
