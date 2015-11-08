@@ -1,10 +1,10 @@
 
 
 Falta:
-Verificar que la reserva se realizó solo con una semana de anticipación
-Notificar al usuario
-Definir un rango de horas
-reabastecer
+ Verificar que la reserva se realizó solo con una semana de anticipación
+ Notificar al usuario
+ Definir un rango de horas
+ reabastecer
 
 
 

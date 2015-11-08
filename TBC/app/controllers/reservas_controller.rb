@@ -20,48 +20,50 @@ class ReservasController < ApplicationController
     @reservas= Reserva.all
   end
 
-
+##método que elimina la reserva, pero antes verifica si existen reservas en espera de tal manera que si alguna de las reservas a eliminar coincide con la fecha u hora de
+  ## de las reservas en espera éstas sean asignadas.
   def eliminar
      @selected= params[:reservas]
      @reservas_espera=Reserva.where("estado=?" ,0)
      if @reservas_espera.length ==0
       @selected.each do |reserva|
-        @trayecto =Trayecto.where("reserva_id=?", reserva.id)
+        @trayec= Trayecto.all
+        puts @trayec.first
+        @trayecto =Trayecto.where("reserva_id=?", reserva)
         if (@trayecto.length!=0)
         @trayecto1= @trayecto.first
         @trayecto1.destroy
         end
+        @reserva= Reserva.find(reserva)
         @reserva.destroy
 
       end
        respond_to do |format|
-         format.html { redirect_to action: 'index_all'}
+         format.html { redirect_to action: 'index'}
      end
      else
        asignar_a_espera(@selected)
      end
      end
-
+## se encarga de asignar el mobibus de una reserva que va a eliminarse a una reserva en espera en el caso en el que coincidan las fechas
+  ## elimina las reservas que no pudieron eliminarse por poder coincidir con alguna de las de espera
  def asignar_a_espera(selected)
     i=0
     @reservas_espera=Reserva.where("estado=?" ,0)
     selected.each do |reserva|
-      @reservas_espera=Reserva.where("estado=?" ,0)
       @reserva=Reserva.find(reserva.to_i)
       if @reservas_espera.length==0
-        puts "aqui"
         @trayecto =Trayecto.where("reserva_id=?", @reserva.id)
         if @trayecto.length!=0
           @trayecto1= @trayecto.first
           @trayecto1.destroy
         end
             @reserva.destroy
-
       else
      fecha= @reserva.fecha
-      puts fecha
      @reservaA=@reservas_espera.where("fecha= ?",fecha)
-     if (@reservaA.length!=0 && @reserva.mobibus_id!=0)
+     ## si hay reservas en espera con esa fecha y la reserva a eliminar no está en espera##
+     if (@reservaA.length!=0 && @reserva.mobibus_id!=0 && @reserva.estado!=0)
          mobibus_id=@reserva.mobibus_id
          @trayecto =Trayecto.where("reserva_id=?", @reserva.id)
          if @trayecto.length!=0
@@ -69,15 +71,11 @@ class ReservasController < ApplicationController
            @trayecto1.destroy
          end
          @reserva.destroy
-         #puede ser la misma #
          @reservaCambiar=@reservaA.first
-         if !@reservaCambiar.nil?
-         puts @reservaCambiar.id
          @reservaCambiar.update_attributes(mobibus_id:mobibus_id, estado:2)
+         ##crea el trayecto##
          ReservasHelper.crear(@reservaCambiar.id)
-         puts @reservaCambiar.mobibus_id
-         else
-           end
+       ##no me sirve para asignar mobibus#
      else
        @trayecto =Trayecto.where("reserva_id=?", @reserva.id)
        if @trayecto.length!=0
@@ -89,7 +87,7 @@ class ReservasController < ApplicationController
       end
       end
     respond_to do |format|
-      format.html { redirect_to action: 'index_all'}
+      format.html { redirect_to action: 'index'}
  end
 
 
@@ -163,8 +161,6 @@ def asignar_reserva
   redirect_to controller:'trayectos',action:'crear', id: @reserva.id
     end
 end
-
-
     end
 
 
