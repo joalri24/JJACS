@@ -28,7 +28,16 @@
         <td><%=reserva.direccion_origen %></td>
         <td><%=reserva.direccion_destino %></td>
         <td><%=reserva.estado %></td>
-        <td><%=reserva.mobibus_id %></td>
+        <% if  reserva.mobibus_id==0  %>
+            <% if  reserva.estado ==5 || reserva.estado ==6%>
+                <td><%="No se logro asignar un mobibus a su reserva. Lo sentimos"%></td>
+            <% else %>
+                <td><%="No tiene un mobibus asignado"%></td>
+            <%end%>
+        <%else%>
+            <%@mobibus=Mobibus.find(reserva.mobibus_id)%>
+            <td><%=@mobibus.placa%></td>
+        <%end%>
         <td><%=reserva.cliente_id %></td>
         <td><%=reserva.id %></td>
         <% if reserva.estado == 0 %>

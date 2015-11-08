@@ -7,6 +7,11 @@
           <!-- Agregar aquí las pestañas que puede ver un cliente -->
 
           <% if current_user.admin? %>
+              <% @reservas_sin_atencion= Reserva.where("estado=?",5) %>
+              <%if @reservas_sin_atencion.length!=0 %>
+                  <li><%= link_to 'Notificar usuario', reservas_path %>
+                  </li>
+                  <%end%>
               <li><%= link_to 'Conductores', conductores_path  %>
 
               </li>
@@ -57,6 +62,7 @@
               </li>
 
           <%elsif current_user.empleado_vcub? %>
+
               <li><%= link_to 'Vcubs',   vcubs_inicio_path%>
                 <ul>
                   <li><%= link_to 'Inicio', vcubs_inicio_path %></li>
@@ -77,9 +83,7 @@
                   <li><%= link_to 'Lista de reservas', reservas_path %></li>
                 </ul>
               </li>
-
-
-          <% end %>
+            <%end%>
           <!-- Fin pestañas ezclusivas de admin-->
 
           <li><%= button_to('Salir', destroy_user_session_path, method: 'delete') %></li>

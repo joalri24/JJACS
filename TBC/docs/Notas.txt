@@ -1,7 +1,15 @@
 
 
+Yo ya hice una cosa para notificar: no el método
+Funciona de la siguiente manera : hay dos lugares en los que se debe modificar
+Entonces si la reserva se puede procesar eso se da en asignar_a_espera en el controlador de reservas ahí está comentado en el sitipo en el que se debe llamar al método de notificar
+adicionalmente hice un método que lo que hace es ver si hay reservas que no se atienden la idea es que si hay reservas así al ingresar como admin sale un pestaña que dice
+notificar usuario(cada vez que se entra  a reservas se refresca el método) y la idea sería que al darle click ahí notifique al usuario en tal caso se debe cambiar el estado de la reserva que se notifica a 6
+
+la verificación de una semana antes solo lo devuelve a la misma pagina no sé si eso te parezca bien ?
+
 Falta:
- Verificar que la reserva se realizó solo con una semana de anticipación
+
  Notificar al usuario
  Definir un rango de horas
  reabastecer

@@ -12,12 +12,32 @@ class ReservasController < ApplicationController
     end
 
   def index
+    reserva_sin_atencion
     @reservas= Reserva.where("cliente_id= ? ", current_user.id)
     @cliente=User.find(current_user.id)
   end
 
   def index_all
+    reserva_sin_atencion
     @reservas= Reserva.all
+  end
+
+  ##verifica si alguna de las reservas definitivamente ya no puede atenderse debido a que es la noche anterior y no se le ha asignado un mobibus##
+
+  def reserva_sin_atencion
+    @reservas_espera=Reserva.where("estado=?" ,0)
+     if @reservas_espera.length!=0
+       fechaActual1= Date.today
+
+       @reservas_espera.each do |reserva|
+         @fecha= reserva.fecha.to_date
+         puts @fecha
+         puts fechaActual1-1
+         if @fecha== (fechaActual1+1)
+           reserva.update_attributes(estado:5)
+         end
+       end
+       end
   end
 
 ##método que elimina la reserva, pero antes verifica si existen reservas en espera de tal manera que si alguna de las reservas a eliminar coincide con la fecha u hora de
@@ -61,8 +81,10 @@ class ReservasController < ApplicationController
             @reserva.destroy
       else
      fecha= @reserva.fecha
-     @reservaA=@reservas_espera.where("fecha= ?",fecha)
-     ## si hay reservas en espera con esa fecha y la reserva a eliminar no está en espera##
+     @fecha1= (fecha + 3.hours).to_datetime
+     @fecha2= (fecha - 3.hours).to_datetime
+     @reservaA=@reservas_espera.where(fecha: @fecha2..@fecha1)
+     ## si hay reservas en espera con esa fecha y la reserva a eliminar no esta en espera##
      if (@reservaA.length!=0 && @reserva.mobibus_id!=0 && @reserva.estado!=0)
          mobibus_id=@reserva.mobibus_id
          @trayecto =Trayecto.where("reserva_id=?", @reserva.id)
@@ -75,6 +97,7 @@ class ReservasController < ApplicationController
          @reservaCambiar.update_attributes(mobibus_id:mobibus_id, estado:2)
          ##crea el trayecto##
          ReservasHelper.crear(@reservaCambiar.id)
+       ## debe llamarse al método notificar cliente ##
        ##no me sirve para asignar mobibus#
      else
        @trayecto =Trayecto.where("reserva_id=?", @reserva.id)
@@ -104,13 +127,17 @@ class ReservasController < ApplicationController
 def crear_res
   @hora= params[:hora].to_s
   @fecha = params[:fecha]
+  @aceptable = Date.today + 6
+  if(@fecha.to_date> @aceptable )
   @fechaf= @fecha + " " +@hora
   date = DateTime.parse(@fechaf)
   @formatted_date = date.strftime('%b %d %Y %H:%M:%S')
   @reserva =Reserva.create(estado:0, direccion_origen: params[:direccion_origen], direccion_destino: params[:direccion_destino], cliente_id:params[:id], mobibus_id:0, fecha: @formatted_date)
   @reserva.save
-
    redirect_to action:'mostrar', id: @reserva.id, status: 301
+  else
+    redirect_to action:'crear'
+    end
 
 end
 
@@ -118,9 +145,9 @@ def asignar_reserva
   @reserva= Reserva.find(params[:id_reserva])
   @no_asignado=true
   fecha=@reserva.fecha
-  @fecha1= (fecha + 5.hours).to_datetime
-  @fecha2= (fecha - 5.hours).to_datetime
-  @reservas_iguales=Reserva.where("fecha=?" ,fecha)
+  @fecha1= (fecha + 3.hours).to_datetime
+  @fecha2= (fecha - 3.hours).to_datetime
+  @reservas_iguales=Reserva.where(fecha: @fecha2..@fecha1)
   @mobibuses=Mobibus.where("estado != ?", -1)
   @length= @reservas_iguales.length-1
 
