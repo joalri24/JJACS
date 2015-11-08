@@ -7,11 +7,11 @@ adicionalmente hice un método que lo que hace es ver si hay reservas que no se a
 notificar usuario(cada vez que se entra  a reservas se refresca el método) y la idea sería que al darle click ahí notifique al usuario en tal caso se debe cambiar el estado de la reserva que se notifica a 6
 
 la verificación de una semana antes solo lo devuelve a la misma pagina no sé si eso te parezca bien ?
+ya hace un rango de horas :)
 
 Falta:
 
  Notificar al usuario
- Definir un rango de horas
  reabastecer
 
 
