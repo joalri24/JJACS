@@ -4,7 +4,7 @@
 
   <%= form_tag({:controller => "trayectos", :action => "actualizar_duracion"}, :method => "get") do %>
 
-    <h1><%="Su trayecto inicio a las " + @horaInicial.to_s %></h1>
+    <h1><%="Su trayecto inicio a las " + @hora_inicial.to_s %></h1>
     Hora de finalizacion:
     <%=time_field_tag 'hora'%>
 

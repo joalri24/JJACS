@@ -29,42 +29,44 @@ class TrayectosController < ApplicationController
       @tipo=1
     else if  distancia>9 && distancia<=49
            @tipo=2
-    else
-    @tipo=3
+        else
+          @tipo=3
+        end
+      @tipo
     end
-     return @tipo
-    end
-    end
+  end
 
   def asignar_distancia
     @distancia= rand(0..200).to_f
-    return @distancia
   end
 
   def actualizar
     @trayecto = Trayecto.find(params[:id])
     @reserva= Reserva.find(@trayecto.reserva_id)
-    @horaInicial= @reserva.fecha.strftime("%H:%M")
+    @hora_inicial= @reserva.fecha.strftime("%H:%M")
   end
 
+  #TODO Utilizar helpers para no sobrecargar el controlador.
+  #TODO Renombrar variables(o almenos comentar la diferencia entre hora_inicial y hora_inicial1)
+  #TODO borrar puts
   def actualizar_duracion
     @trayecto = Trayecto.find(params[:id])
     puts @trayecto.id
     @reserva= Reserva.find(@trayecto.reserva_id)
-    @horaInicial=  @reserva.fecha.strftime("%H").to_f
-    @horaInicial1= @reserva.fecha.strftime("%M").to_f
-    @horaInicialum= @horaInicial1/60
-    @horaInicial2= @horaInicialum+@horaInicial
+    @hora_inicial=  @reserva.fecha.strftime("%H").to_f
+    @hora_inicial1= @reserva.fecha.strftime("%M").to_f
+    @hora_inicial_um= @hora_inicial1/60
+    @hora_inicial2= @hora_inicial_um+@hora_inicial
 
     @hora= DateTime.parse(params[:hora])
-    @horaFinal=  @hora.strftime("%H").to_f
-    puts @horaFinal
-    @horaFinal1=  @hora.strftime("%M").to_f
-    @horaFinalum=@horaFinal1/60
-    puts @horaFinalum
-    @horaFinal2=@horaFinalum +@horaFinal
+    @hora_final=  @hora.strftime("%H").to_f
+    puts @hora_final
+    @hora_final1=  @hora.strftime("%M").to_f
+    @hora_final_um=@hora_final1/60
+    puts @hora_final_um
+    @hora_final2=@hora_final_um +@hora_final
 
-    @duracion=@horaFinal2- @horaInicial2
+    @duracion=@hora_final2- @hora_inicial2
     puts @duracion
     @trayecto.update_attributes(duracion: @duracion)
 
@@ -77,14 +79,17 @@ class TrayectosController < ApplicationController
     @duracion= @trayecto.duracion
     @velocidad=(@distancia/@duracion).to_f
     @puntaje=9,0
+
     puts @velocidad
-    if(@velocidad>=35.0)
+
+    # TODO esto se puede escribir como un método aparte en un helper
+    if @velocidad >= 35.0
       @puntaje=5.0
-    else if(@velocidad>=25.0 && @velocidad<35.0)
+    else if @velocidad >=25.0 && @velocidad < 35.0
            @puntaje=4.0
-         else if(@velocidad>=20.0 && @velocidad<25.0)
+         else if @velocidad >= 20.0 && @velocidad < 25.0
                 @puntaje=3.0
-              else if(@velocidad>=10.0 && @velocidad<20.0)
+              else if @velocidad >= 10.0 && @velocidad < 20.0
                      @puntaje=4.0
                    else
                      @puntaje=1.0
