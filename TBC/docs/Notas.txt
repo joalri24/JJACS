@@ -15,6 +15,14 @@ Falta:
  reabastecer
 
 
+ Para autenticación:
+
+ Usuario: Crear reservas-ver reservas--> hecho
+ Empleado vcub: gestión de prestamos-podríamos hacer lo de gestión de emergencias en la proxima
+ Conductor: ver reservas asignadas a su mobibus para actualizar trayecto-reportar emergencias
+ Admin: gestión de reservas-transportes-reportes-notificar usuario
+
+
 
 
 Tasks:
