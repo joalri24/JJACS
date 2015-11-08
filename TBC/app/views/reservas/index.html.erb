@@ -1,8 +1,9 @@
-<h1><%="Lista de sus reservas Sr(a)" + @cliente.email%></h1>
+<% #encoding: utf-8%>
+<h1><%='Lista de sus reservas Sr(a)' + @cliente.email%></h1>
 
 <table>
 
-  <%= form_tag({:controller => "reservas", :action => "eliminar"}, :method => "post") do %>
+  <%= form_tag({:controller => 'reservas', :action => 'eliminar'}, :method => 'post') do %>
       <thead>
       <tr>
         <th> </th>
@@ -25,9 +26,9 @@
             <td><%=reserva.estado %></td>
             <% if  reserva.mobibus_id==0 %>
                 <% if reserva.estado ==5 || reserva.estado ==6 %>
-                <td><%="No se logro asignar un mobibus a su reserva. Lo sentimos"%></td>
+                <td><%="No se logró asignar un mobibus a su reserva. Lo sentimos"%></td>
                     <% else %>
-                    <td><%="No tiene un mobibus asignado"%></td>
+                    <td><%='No tiene un mobibus asignado'%></td>
                     <%end%>
                 <%else%>
                 <%#TODO El find se debe hacer desde el controlador, no desde la vista.%>

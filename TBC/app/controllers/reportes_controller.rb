@@ -7,7 +7,7 @@ class ReportesController < ApplicationController
   def  crear
 
     @fecha= Time.now
-    @contenido ="nada"
+    @contenido ='nada'
     @reporte = Reporte.create(tipo: params[:tipo], fecha:@fecha, contenido: @contenido)
     @contenido= ReportesHelper.distinguir_tipo(params[:tipo])
 

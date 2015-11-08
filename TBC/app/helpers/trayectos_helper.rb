@@ -13,13 +13,13 @@ module TrayectosHelper
    @puntaje=9,0
    puts @velocidad
 
-    if(@velocidad>=35.0)
+    if @velocidad>=35.0
       @puntaje=5.0
-      else if(@velocidad>=25.0 && @velocidad<35.0)
+      else if @velocidad>=25.0 && @velocidad<35.0
              @puntaje=4.0
-           else if(@velocidad>=20.0 && @velocidad<25.0)
+           else if @velocidad>=20.0 && @velocidad<25.0
                   @puntaje=3.0
-                else if(@velocidad>=10.0 && @velocidad<20.0)
+                else if @velocidad>=10.0 && @velocidad<20.0
                        @puntaje=4.0
                      else
                        @puntaje=1.0

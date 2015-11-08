@@ -2,7 +2,7 @@ class ConductoresController < ApplicationController
   before_action :set_conductor, only: [:actualizar, :mostrar, :destruir]
 
   def index
-    @conductores= User.where("conductor=?", true)
+    @conductores= User.where('conductor=?', true)
   end
 
   def mostrar
@@ -21,7 +21,7 @@ class ConductoresController < ApplicationController
     @id_conductor=params[:conductores]
     @id_real= @id_conductor.first
     @conductor= User.find(@id_real)
-    if @tipo=="tranvia"
+    if @tipo=='tranvia'
       @tranvias=Tranvia.where("estado= ?",-1)
       @conductor.update_attributes(mobibus_id:0)
     else

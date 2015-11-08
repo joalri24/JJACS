@@ -1,3 +1,4 @@
+<% #encoding: utf-8%>
 <h1>Mobibus</h1>
 
 <table>
@@ -22,6 +23,7 @@
         <td><%= @mobibus.longitud%></td>
         <td><%= @mobibus.kilometer_desde_revision %></td>
         <td><%= @mobibus.id %></td>
+        <%#TODO User.where debería estar en el controlador, no en la vista. %>
         <% @conductores1= User.where("mobibus_id = ?",@mobibus.id)%>
         <% if  @conductores1.first != nil %>
             <td><%=@conductores1.first.id %></td>

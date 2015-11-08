@@ -1,7 +1,7 @@
 <%= form_for(@mobibus) do |f| %>
     <% if @mobibus.errors.any? %>
         <div id="error_explanation">
-          <h2><%= pluralize(@mobibus.errors.count, "error") %> prohibited this conductor from being saved:</h2>
+          <h2><%= pluralize(@mobibus.errors.count, 'error') %> prohibited this conductor from being saved:</h2>
 
           <ul>
             <% @conductor.errors.full_messages.each do |message| %>

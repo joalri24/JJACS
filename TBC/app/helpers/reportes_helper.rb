@@ -4,25 +4,25 @@ module ReportesHelper
 
   def self.distinguir_tipo(tipo)
 
-    if(tipo=="1")
-      tiempos_promedio()
-      else if (tipo=="2")
-             conductores()
-      else if(tipo=="3")
-             lineas_problemas()
+    if tipo== '1'
+      tiempos_promedio
+      else if tipo== '2'
+             conductores
+      else if tipo=='3'
+             lineas_problemas
            else
-             accidentes_comunes()
+             accidentes_comunes
            end
            end
     end
   end
 
-  def self.tiempos_promedio()
-    @contenido=""
+  def self.tiempos_promedio
+    @contenido=''
         @trayectos1= Trayecto.where("tipo = ? AND duracion != ?", 1, 0.0)
 
-         if(@trayectos1.length == 0)
-           @contenido+="No hay trayectos tipo 1 realizados # "
+         if @trayectos1.length == 0
+           @contenido+='No hay trayectos tipo 1 realizados # '
 
          else
            @cantidad=@trayectos1.length
@@ -36,7 +36,7 @@ module ReportesHelper
            end
 
            @trayectos2= Trayecto.where("tipo = ? AND duracion != ?", 2, 0.0)
-           if(@trayectos2.length == 0)
+           if @trayectos2.length == 0
              @contenido+="No hay trayectos tipo 2 realizados # "
 
            else
@@ -51,7 +51,7 @@ module ReportesHelper
              end
 
              @trayectos3= Trayecto.where("tipo = ? AND duracion != ?", 3, 0.0)
-             if(@trayectos3.length == 0)
+             if @trayectos3.length == 0
                @contenido+="No hay trayectos tipo 3 realizados ## "
 
              else
@@ -70,10 +70,10 @@ module ReportesHelper
 
   end
 
-  def self.conductores()
+  def self.conductores
     @conductores= User.where("mobibus_id != ? ",0)
     @contenido= ""
-    if(@conductores.length==0)
+    if @conductores.length==0
       @contenido+= "No hay conductores que manejen mobibuses"
     else
            puts @conductores.length
@@ -82,7 +82,7 @@ module ReportesHelper
             puts @id_mobibus
             @reservas = Reserva.where("mobibus_id= ?",@id_mobibus)
             puts @reservas.length
-            if(@reservas.length==0)
+            if @reservas.length==0
 
             else
               @reservas.each do |reserva|
@@ -113,7 +113,7 @@ module ReportesHelper
     end
 
   # noinspection RailsChecklist05
-  def self.lineas_problemas()
+  def self.lineas_problemas
      @contenido=""
      @linea1=0
      @linea2=0
@@ -141,13 +141,13 @@ module ReportesHelper
     resp=@contenido
   end
 
-  def self.accidentes_comunes()
+  def self.accidentes_comunes
     @contenido=""
     @tipo1=0
     @tipo2=0
     @tipo3=0
     @emergencias= Emergencia.all
-    if(@emergencias.length==0)
+    if @emergencias.length==0
       @contenido+="Aun no hemos tenido ningun problema ##"
     else
       @emergencias.each do |emergencia|

@@ -24,27 +24,27 @@ class MobibusesController < ApplicationController
       atributos = Hash.new
 
       if params[:placa] != nil
-        atributos["placa"] = params[:placa]
+        atributos['placa'] = params[:placa]
       end
 
       if params[:latitud] != nil
-        atributos["latitud"] = params[:latitud]
+        atributos['latitud'] = params[:latitud]
       end
 
       if params[:longitud] != nil
-        atributos["longitud"] = params[:longitud]
+        atributos['longitud'] = params[:longitud]
       end
 
       if params[:estado] != nil
-        atributos["estado"] = params[:estado]
+        atributos['estado'] = params[:estado]
       end
 
       if params[:id_conductor] != nil
-        atributos["id_conductor"] = params[:idConductor]
+        atributos['id_conductor'] = params[:idConductor]
       end
 
       if params[:kilometer_desde_revision] != nil
-        atributos["kilometer_desde_revision"] = params[:kilometer_desde_revision]
+        atributos['kilometer_desde_revision'] = params[:kilometer_desde_revision]
       end
 
       #if @conductor.update(nombre: params[:nombre],cedula: params[:cedula],  puntaje: params[:puntaje])
