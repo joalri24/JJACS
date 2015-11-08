@@ -12,7 +12,6 @@ display: block;
 }
 
 body {
-line-height: 1;
 background: #9F3B19;
 font-family: Verdana, Arial, Helvetica, sans-serif;
 color: #666;
@@ -117,7 +116,7 @@ header>h1 a {
 color: #9F3B19;
 font-weight: bold;
 text-decoration: none;
-text-shadow: 0px 3px 3px #949494;
+text-shadow: 0 3px 3px #949494;
 }
 
 header>h2 {
@@ -127,7 +126,7 @@ float: right;
 font-style: italic;
 font-size: 16px;
 margin: 14px 0 18px 0;
-text-shadow: 0px 2px 3px #ddd;
+text-shadow: 0 2px 3px #ddd;
 }
 
 /* nav */
@@ -273,7 +272,7 @@ margin-bottom: 0;
 color: #333;
 margin: 0 0 20px 0;
 line-height: 1.5em;
-text-shadow: 0px 2px 3px #ddd;
+text-shadow: 0 2px 3px #ddd;
 }
 
 .alignleft,
@@ -309,7 +308,7 @@ margin-bottom: 12px;
 aside h3 {
 font-size: 18px;
 line-height: 1.5em;
-text-shadow: 0px 2px 3px #ddd;
+text-shadow: 0 2px 3px #ddd;
 }
 
 aside ul {
