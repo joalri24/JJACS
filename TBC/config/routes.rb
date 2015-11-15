@@ -1,19 +1,21 @@
 Rails.application.routes.draw do
 
 
-
-
   get 'usuarios'                    => 'usuarios#index'
 
   get 'usuarios/:id'                => 'usuarios#mostrar' , as: :user
 
   put 'usuarios/:id'                  => 'usuarios#actualizar'
 
+
   get 'paginas/home'
 
   get 'pagina/home'
 
+
   devise_for :users
+
+
   post 'reportes/mostrar'
 
   get 'reportes/ver_reporte'
@@ -23,6 +25,8 @@ Rails.application.routes.draw do
   post 'reportes'                => 'reportes#crear'
 
   get 'reportes/index'
+
+
 
   get 'trayectos/crear'
 
@@ -36,10 +40,11 @@ Rails.application.routes.draw do
 
   get 'trayectos/mostrar'
 
+
+
   get 'prestamos'                  =>'prestamos#index'
 
   get 'prestamos/:id'              =>'prestamos#mostrar' , as: :prestamo
-
 
 
 
@@ -61,6 +66,8 @@ Rails.application.routes.draw do
 
   get 'reservas'                   =>'reservas#crear', as: :reserva
 
+
+
   get 'clientes/crear_reserva'     =>'clientes#crear_reserva'
 
   get 'clientes/reservas'          => 'clientes#ver_reservas'
@@ -74,6 +81,8 @@ Rails.application.routes.draw do
   post 'clientes'                  =>'clientes#crear'
 
   get 'clientes'                   => 'clientes#index'
+
+
 
   get 'estaciones/inicio'
 
@@ -92,11 +101,14 @@ Rails.application.routes.draw do
   delete 'estaciones/:id'          => 'estaciones#destruir'
 
 
+
   get 'emergencias/crear'
 
   get 'emergencias/:id'             => 'emergencias#mostrar'
 
   get 'emergencias'                 => 'emergencias#index'
+
+
 
   get 'vcubs/inicio'                => 'vcubs#inicio'
 
@@ -109,6 +121,8 @@ Rails.application.routes.draw do
   get 'vcubs/:id'                   => 'vcubs#mostrar' , as: :vcub
 
   delete 'vcubs/:id'                => 'vcubs#destruir'
+
+
 
   get 'tranvias/inicio'              => 'tranvias#inicio'
 
@@ -126,9 +140,10 @@ Rails.application.routes.draw do
 
 
   get 'mobibuses/inicio'
+
   get 'mobibuses'                   => 'mobibuses#index'
 
-  get 'mobibuses/:id'               => 'mobibuses#mostrar'
+  get 'mobibuses/:id'               => 'mobibuses#mostrar', as: :mobibus
 
   post 'mobibuses'                  => 'mobibuses#crear'
 
@@ -136,12 +151,13 @@ Rails.application.routes.draw do
 
   delete 'mobibuses/:id'            => 'mobibuses#destruir'
 
+
+
   get 'conductores/inicio'
 
   get 'conductores/calcular_puntaje'
 
   get 'conductores/asignar_transporte'
-
 
   get 'conductores'                 => 'conductores#index'
 

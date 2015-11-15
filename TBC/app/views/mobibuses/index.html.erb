@@ -3,32 +3,25 @@
 <table>
   <thead>
   <tr>
+    <th>Id</th>
     <th>Placa</th>
     <th>Estado</th>
     <th> Latitud</th>
     <th> Longitud</th>
     <th> Kilometros desde ultima revision</th>
-    <th>Id conductor</th>
-    <th>Id</th>
-    <th colspan="5"></th>
+    <th colspan="6"></th>
   </tr>
   </thead>
 
   <tbody>
   <% @mobibuses.each do |mobibus| %>
       <tr>
+        <td><%= link_to mobibus.id, mobibus_path(mobibus.id) %></td>
         <td><%= mobibus.placa %></td>
         <td><%= mobibus.estado %></td>
         <td><%= mobibus.latitud %></td>
         <td><%= mobibus.longitud%></td>
         <td><%= mobibus.kilometer_desde_revision %></td>
-        <td><%= mobibus.id %></td>
-        <% @conductores1= User.where("mobibus_id = ?",mobibus.id)%>
-        <% if  @conductores1.first != nil %>
-            <td><%=@conductores1.first.id %></td>
-        <% else %>
-            <td>N/A</td>
-        <% end%>
       </tr>
   <% end %>
   </tbody>

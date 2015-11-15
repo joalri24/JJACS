@@ -68,6 +68,10 @@ class MobibusesController < ApplicationController
 
   def index
     @mobibuses= Mobibus.all
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @mobibuses }
+    end
   end
 
   def mostrar
