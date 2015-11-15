@@ -3,6 +3,7 @@
 <table>
   <thead>
   <tr>
+    <th>Id </th>
     <th>Placa</th>
     <th>Linea</th>
     <th>Latitud</th>
@@ -11,14 +12,13 @@
     <th>Kilometros desde ultima revision</th>
     <th>Temperatura</th>
     <th>Boton panico</th>
-    <th>Id conductor</th>
-    <th>Id </th>
   </tr>
   </thead>
 
   <tbody>
   <% @tranvias.each do |tranvia| %>
       <tr>
+        <td><%=link_to tranvia.id, tranvia_path(tranvia.id) %></td>
         <td><%=tranvia.numero_identificacion %></td>
         <td><%=tranvia.linea %></td>
         <td><%=tranvia.latitud %></td>
@@ -27,14 +27,6 @@
         <td><%=tranvia.kilometros_desde_revision %></td>
         <td><%=tranvia.temperatura %></td>
         <td><%=tranvia.boton_panico %></td>
-        <% @conductores1= User.where("tranvia_id = ?",tranvia.id)%>
-        <% if  @conductores1.first != nil %>
-            <td><%=@conductores1.first.id %></td>
-        <% else %>
-            <td>N/A</td>
-        <% end%>
-
-        <td><%=link_to tranvia.id, tranvia_path(tranvia.id) %></td>
       </tr>
   <% end %>
   </tbody>

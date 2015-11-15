@@ -15,12 +15,11 @@ class ConductoresController < ApplicationController
   def editar
   end
 
-  # POST /conductores/crear
+  # POST /conductores
   def asignar_transportes1
     @tipo = params[:tipo]
-    @id_conductor=params[:conductores]
-    @id_real= @id_conductor.first
-    @conductor= User.find(@id_real)
+    @id_conductor=params[:conductor]
+    @conductor= User.find(@id_conductor)
     if @tipo=='tranvia'
       @tranvias=Tranvia.where("estado= ?",-1)
       @conductor.update_attributes(mobibus_id:0)

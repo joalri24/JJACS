@@ -13,7 +13,7 @@
     <th>Kilometros desde ultima revision</th>
     <th>Temperatura</th>
     <th>Boton panico</th>
-    <th>Id conductor</th>
+    <th>Conductor</th>
   </tr>
   </thead>
 
@@ -27,11 +27,10 @@
         <td><%=@tranvia.kilometros_desde_revision %></td>
         <td><%=@tranvia.temperatura %></td>
         <td><%=@tranvia.boton_panico %></td>
-        <% @conductores1= User.where("tranvia_id = ?",@tranvia.id)%>
-        <% if  @conductores1.first != nil %>
-            <td><%=@conductores1.first.id %></td>
-        <% else %>
+        <% if  @conductor == nil %>
             <td>N/A</td>
+        <% else %>
+            <td><%=@conductor.email %></td>
         <% end%>
       </tr>
 

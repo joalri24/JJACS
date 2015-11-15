@@ -17,7 +17,7 @@
   <tbody>
   <% @conductores.each do |conductor| %>
       <tr>
-        <td><%= radio_button_tag 'conductores[]',conductor.id %></td>
+        <td><%= radio_button_tag 'conductor',conductor.id %></td>
         <td><%= conductor.id%></td>
         <td><%= conductor.email %></td>
         <td><%= conductor.puntaje %></td>

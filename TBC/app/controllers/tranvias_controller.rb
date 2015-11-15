@@ -6,7 +6,6 @@ class TranviasController < ApplicationController
 
   def index
     @tranvias = Tranvia.all
-    @conductores = Conductor.all
   end
 
   def crear
@@ -79,6 +78,8 @@ class TranviasController < ApplicationController
   end
 
   def mostrar
+    # take(int) devuelve un número determinado de resultados. Sin parámetros devuelve un solo resultado.
+    @conductor= User.where("tranvia_id = ?",@tranvia.id).take
   end
 
   def destruir
