@@ -6,6 +6,10 @@ class TranviasController < ApplicationController
 
   def index
     @tranvias = Tranvia.all
+    respond_to do |format|
+      format.html #index.html.erb
+      format.json{render json: @tranvias}
+    end
   end
 
   def crear
@@ -18,7 +22,7 @@ class TranviasController < ApplicationController
     respond_to do |format|
       if @tranvia.save
         format.html { redirect_to tranvias_path}
-        format.json { render :index, status: :created, location: @tranvia }
+        format.json { render json: @tranvia }
       else
         format.html { render :crear }
          format.json { render json: @tranvia.errors, status: :unprocessable_entity }
@@ -69,7 +73,7 @@ class TranviasController < ApplicationController
       if @tranvia.update(atributos)
 
         format.html { redirect_to action:'index', status: 303}
-        format.json { render :index, status: :ok, location: @tranvia}
+        format.json { render json: @tranvia}
       else
         format.html { render :actualizar }
         format.json { render json: @tranvia.errors, status: :unprocessable_entity }
@@ -80,12 +84,18 @@ class TranviasController < ApplicationController
   def mostrar
     # take(int) devuelve un número determinado de resultados. Sin parámetros devuelve un solo resultado.
     @conductor= User.where("tranvia_id = ?",@tranvia.id).take
+
+    respond_to do |format|
+      format.html #mostrar.html.erb
+      format.json{render json: @tranvia}
+    end
   end
 
   def destruir
     @tranvia.destroy
     respond_to do |format|
       format.html { redirect_to action:'index', status: 303}
+      format.json { render json: @tranvia }
     end
   end
 

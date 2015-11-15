@@ -6,6 +6,10 @@ class VcubsController < ApplicationController
 
   def index
     @vcubs=Vcub.all
+    respond_to do |format|
+      format.html #index.html.erb
+      format.json { render json: @vcubs}
+    end
   end
 
   def inicio
@@ -16,7 +20,7 @@ class VcubsController < ApplicationController
     respond_to do |format|
       if @vcub.save
         format.html { redirect_to vcubs_path}
-        format.json { render :index, status: :created, location: @vcub }
+        format.json { render json: @vcub }
       else
         format.html { render :crear }
         format.json { render json: @vcub.errors, status: :unprocessable_entity }
@@ -43,7 +47,7 @@ class VcubsController < ApplicationController
       if @vcub.update(atributos)
 
         format.html { redirect_to action: 'index', status: 303}
-        format.json { render :index, status: :ok, location: @vcub}
+        format.json { render json: @vcub}
       else
         format.html { render :actualizar }
         format.json { render json: @vcub.errors, status: :unprocessable_entity }
@@ -52,12 +56,17 @@ class VcubsController < ApplicationController
   end
 
   def mostrar
+    respond_to do |format|
+      format.html #mostrar.html.erb
+      format.json { render json: @vcub}
+    end
   end
 
   def destruir
     @vcub.destroy
     respond_to do |format|
       format.html { redirect_to action: 'index', status: 303}
+      format.json { render json: @vcub}
     end
   end
 

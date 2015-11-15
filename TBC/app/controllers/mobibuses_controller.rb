@@ -10,7 +10,7 @@ class MobibusesController < ApplicationController
     respond_to do |format|
       if @mobibus.save
         format.html { redirect_to :mobibuses}
-        format.json { render :index, status: :created, location: @mobibus }
+        format.json { render json: @mobibus }
       else
         format.html { render :crear }
         format.json { render json: @mobibus.errors, status: :unprocessable_entity }
@@ -52,7 +52,7 @@ class MobibusesController < ApplicationController
       if @mobibus.update(atributos)
 
         format.html { redirect_to action: 'index', status: 303}
-        format.json { render :index, status: :ok, location: @mobibus}
+        format.json { render json: @mobibus}
       else
         format.html { render :actualizar }
         format.json { render json: @mobibus.errors, status: :unprocessable_entity }
@@ -64,6 +64,7 @@ class MobibusesController < ApplicationController
     @mobibus.destroy
     respond_to do |format|
       format.html { redirect_to action: 'index', status: 303}
+      format.json { render json: @mobibus}
     end
   end
 
@@ -78,6 +79,11 @@ class MobibusesController < ApplicationController
   def mostrar
     # take(int) devuelve un número determinado de resultados. Sin parámetros devuelve un solo resultado.
     @conductor= User.where("mobibus_id = ?",@mobibus.id).take
+
+    respond_to do |format|
+      format.html # mostrar.html.erb
+      format.json { render json: @mobibus }
+    end
   end
 
 

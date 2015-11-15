@@ -6,9 +6,17 @@ class UsuariosController < ApplicationController
 
   def index
     @users = User.all
+    respond_to do |format|
+      format.html #index.html.erb
+      format.json {render json: @users}
+    end
   end
 
   def mostrar
+    respond_to do |format|
+      format.html #mostrar.html.erb
+      format.json {render json: @user}
+    end
   end
 
   def actualizar
