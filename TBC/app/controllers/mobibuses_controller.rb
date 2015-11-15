@@ -1,3 +1,4 @@
+#encoding: utf-8
 class MobibusesController < ApplicationController
   before_action :set_mobibus, only: [:actualizar, :mostrar, :destruir]
   # noinspection RailsParamDefResolve
@@ -75,6 +76,8 @@ class MobibusesController < ApplicationController
   end
 
   def mostrar
+    # take(int) devuelve un número determinado de resultados. Sin parámetros devuelve un solo resultado.
+    @conductor= User.where("mobibus_id = ?",@mobibus.id).take
   end
 
 
@@ -83,7 +86,7 @@ class MobibusesController < ApplicationController
     @mobibus= Mobibus.find(params[:id])
   end
   
-  #Si el usuario no es un admin, le cierra la sesi�n y lo devuelve al home
+  #Si el usuario no es un admin, le cierra la sesión y lo devuelve al home
   def autenticar_con_privilegios
     unless current_user.admin?
       sign_out current_user

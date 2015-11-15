@@ -4,31 +4,29 @@
 <table>
   <thead>
   <tr>
+    <th>Id</th>
     <th>Placa</th>
     <th>Estado</th>
-    <th> Latitud</th>
-    <th> Longitud</th>
-    <th> Kilometros desde ultima revision</th>
-    <th>Id</th>
-    <th>Id conductor</th>
-    <th colspan="4"></th>
+    <th>Latitud</th>
+    <th>Longitud</th>
+    <th>Kilómetros desde última revisión</th>
+    <th>Conductor</th>
+    <th colspan="7"></th>
   </tr>
   </thead>
 
   <tbody>
       <tr>
+        <td><%= @mobibus.id %></td>
         <td><%= @mobibus.placa %></td>
         <td><%= @mobibus.estado %></td>
         <td><%= @mobibus.latitud %></td>
         <td><%= @mobibus.longitud%></td>
         <td><%= @mobibus.kilometer_desde_revision %></td>
-        <td><%= @mobibus.id %></td>
-        <%#TODO User.where debería estar en el controlador, no en la vista. %>
-        <% @conductores1= User.where("mobibus_id = ?",@mobibus.id)%>
-        <% if  @conductores1.first != nil %>
-            <td><%=@conductores1.first.id %></td>
-        <% else %>
+        <% if  @conductor == nil %>
             <td>N/A</td>
+        <% else %>
+            <td><%=@conductor.email %></td>
         <% end%>
       </tr>
   </tbody>
