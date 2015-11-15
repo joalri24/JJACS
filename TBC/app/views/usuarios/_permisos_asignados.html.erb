@@ -1,0 +1,18 @@
+<p>El usuarios <%= @user.email %> tiene ahora los siguiente permisos:</p>
+<br>
+
+<% if @user.admin? %>
+ <p>Administrador.</p>
+<% end%>
+
+<% if @user.empleado_vcub? %>
+    <p>Empleado Vcub.</p>
+<% end%>
+
+<% if @user.conductor? %>
+    <p>Conductor.</p>
+<% end%>
+
+<% if @user.cliente? %>
+    <p>Cliente.</p>
+<% end%>

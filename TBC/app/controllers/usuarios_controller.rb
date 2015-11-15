@@ -14,22 +14,10 @@ class UsuariosController < ApplicationController
   def actualizar
     atributos = Hash.new
 
-    if params[:admin] != nil
-      atributos['admin'] = params[:admin]
-    end
-
-    if params[:empleado_vcub] != nil
-      atributos['empleado_vcub'] = params[:empleado_vcub]
-    end
-
-    if params[:conductor] != nil
-      atributos['conductor'] = params[:conductor]
-    end
-
-    if params[:cliente] != nil
-      atributos['cliente'] = params[:cliente]
-    end
-
+    atributos['admin'] = params[:admin]
+    atributos['empleado_vcub'] = params[:empleado_vcub]
+    atributos['conductor'] = params[:conductor]
+    atributos['cliente'] = params[:cliente]
 
     if @user.update(atributos)
     end

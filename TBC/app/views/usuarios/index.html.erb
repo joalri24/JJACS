@@ -19,10 +19,10 @@
       <tr>
         <td><%= link_to user.id, user_path(user.id) %></td>
         <td><%=user.email %></td>
-        <td><%=user.admin? %></td>
-        <td><%=user.empleado_vcub? %></td>
-        <td><%=user.conductor? %></td>
-        <td><%=user.cliente? %></td>
+        <td><%= check_box_tag 'admin','true',user.admin?, disabled: true %></td>
+        <td><%=check_box_tag 'empleado_vcub','true',user.empleado_vcub?, disabled: true %></td>
+        <td><%=check_box_tag 'conductor','true',user.conductor?, disabled: true %></td>
+        <td><%=check_box_tag 'cliente','true',user.cliente?, disabled: true %></td>
       </tr>
   <% end %>
   </tbody>

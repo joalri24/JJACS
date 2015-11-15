@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+
   get 'usuarios'                    => 'usuarios#index'
 
   get 'usuarios/:id'                => 'usuarios#mostrar' , as: :user
@@ -25,7 +26,6 @@ Rails.application.routes.draw do
   post 'reportes'                => 'reportes#crear'
 
   get 'reportes/index'
-
 
 
   get 'trayectos/crear'
@@ -140,7 +140,6 @@ Rails.application.routes.draw do
 
 
   get 'mobibuses/inicio'
-
   get 'mobibuses'                   => 'mobibuses#index'
 
   get 'mobibuses/:id'               => 'mobibuses#mostrar', as: :mobibus
@@ -158,6 +157,7 @@ Rails.application.routes.draw do
   get 'conductores/calcular_puntaje'
 
   get 'conductores/asignar_transporte'
+
 
   get 'conductores'                 => 'conductores#index'
 
