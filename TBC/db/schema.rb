@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151115172746) do
+ActiveRecord::Schema.define(version: 20151115175334) do
 
   create_table "clientes", force: true do |t|
     t.string   "nombre"
@@ -141,7 +141,7 @@ ActiveRecord::Schema.define(version: 20151115172746) do
     t.boolean  "empleado_vcub",          default: false
     t.float    "puntaje",                default: 0.0
     t.boolean  "conductor",              default: false
-    t.boolean  "cliente",                default: false
+    t.boolean  "cliente",                default: true
     t.integer  "mobibus_id"
     t.integer  "tranvia_id"
   end
