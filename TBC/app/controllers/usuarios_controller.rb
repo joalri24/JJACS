@@ -12,9 +12,29 @@ class UsuariosController < ApplicationController
   end
 
   def actualizar
-    @user.update_attribute(:admin,params[:admin])
-    @user.update_attribute(:empleado_vcub,params[:empleado_vcub])
+    atributos = Hash.new
+
+    if params[:admin] != nil
+      atributos['admin'] = params[:admin]
+    end
+
+    if params[:empleado_vcub] != nil
+      atributos['empleado_vcub'] = params[:empleado_vcub]
+    end
+
+    if params[:conductor] != nil
+      atributos['conductor'] = params[:conductor]
+    end
+
+    if params[:cliente] != nil
+      atributos['cliente'] = params[:cliente]
+    end
+
+
+    if @user.update(atributos)
+    end
   end
+
 
   def set_usuario
     @user=User.find(params[:id])
