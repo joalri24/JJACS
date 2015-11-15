@@ -95,15 +95,4 @@
   </div>
 </nav><!-- end of top nav -->
 
-<% if user_signed_in? %>
-    <p>
-      Conectado cómo <i><%=  current_user.email %>.</i>
-      <% if current_user.admin? %>
-        Privilegios de Administrador.
-      <% end %>
-      <% if current_user.empleado_vcub? %>
-          Privilegios de Empleado Vcubs
-      <% end %>
-    </p>
-<% end %>
 

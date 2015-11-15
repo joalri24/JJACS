@@ -1,0 +1,20 @@
+<% #encoding: utf-8 %>
+<!-- Muestra los permisos que tiene la sesión actual  -->
+
+<% if user_signed_in? %>
+    <p>
+      Conectado cómo <i><%=  current_user.email %>.</i>
+      <% if current_user.admin? %>
+          Privilegios de Administrador.
+      <% end %>
+      <% if current_user.empleado_vcub? %>
+          Privilegios de Empleado Vcubs
+      <% end %>
+      <% if current_user.conductor? %>
+          Privilegios de Conductor
+      <% end %>
+      <% if current_user.cliente? %>
+          Cliente
+      <% end %>
+    </p>
+<% end %>
