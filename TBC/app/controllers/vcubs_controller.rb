@@ -5,7 +5,13 @@ class VcubsController < ApplicationController
   before_action :autenticar_con_privilegios
 
   def index
-    @vcubs=Vcub.all
+    @page = params['page']
+    if @page == nil
+      @page = 1
+    end
+
+    #@vcubs=Vcub.all
+    @vcubs= Vcub.page(@page)
     respond_to do |format|
       format.html #index.html.erb
       format.json { render json: @vcubs}

@@ -1,17 +1,15 @@
 <% #encoding: utf-8%>
 <h1>Lista de Vcubs</h1>
-
 <table>
   <thead>
   <tr>
     <th>Id</th>
-    <th>Id Vcub</th>
+    <th>Placa</th>
     <th>Prestada</th>
     <th>Usuario Actual</th>
     <th colspan="3"></th>
   </tr>
   </thead>
-
   <tbody>
   <% @vcubs.each do |vcub| %>
       <tr>
@@ -24,5 +22,5 @@
   <% end %>
   </tbody>
 </table>
-
+<%= paginate @vcubs %>
 <br>
