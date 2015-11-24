@@ -14,14 +14,22 @@ class ReservasController < ApplicationController
 
   def index
     reserva_sin_atencion
-    @reservas= Reserva.where("user_id= ? ", current_user.id)
+    @page = params['page']
+    if @page == nil
+      @page = 1
+    end
+    @reservas= Reserva.where("user_id= ? ", current_user.id).page(@page)
     @cliente=User.find(current_user.id)
   end
 
   #TODO comentar diferencia entre la accion index e index_all
   def index_all
     reserva_sin_atencion
-    @reservas= Reserva.all
+    @page = params['page']
+    if @page == nil
+      @page = 1
+    end
+    @reservas= Reserva.page(@page)
   end
 
   ##verifica si alguna de las reservas definitivamente ya no puede atenderse debido a que es la noche anterior y no se le ha asignado un mobibus##
