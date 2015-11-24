@@ -1,0 +1,25 @@
+Correcciones:
+  - Verbos infinitivos 
+  - Ojo con deviSe
+
+  - Conexión en el diagrama de componentes.
+
+  - Diagrama de información 
+
+
+
+Carreta del SAD
+  Los procesos son cortos.
+  Observaciones(paginación, checkbox en lugar de booleanos, a prueba de errores)
+  Criticas constructivas(Cuanto se demoró en crear una reserva)
+  Trabajo a futuro.
+  
+
+
+Presentación:
+  - Problema a resolver.
+  - Atributos de calidad.
+  - Principales decisiones.
+  - Implementación(Se hizo una aplicación web y un aplicación , se monto la base de datos en la nube, se utilizó un balanceador de carga)
+  - Diagrama de secuencia de hacer una reserva.
+  - Video de hacer una reserva.
