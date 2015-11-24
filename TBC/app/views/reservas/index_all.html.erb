@@ -38,7 +38,7 @@
             <%@mobibus=Mobibus.find(reserva.mobibus_id)%>
             <td><%=@mobibus.placa%></td>
         <%end%>
-        <td><%=reserva.cliente_id %></td>
+        <td><%=reserva.user.email %></td>
         <td><%=reserva.id %></td>
         <% if reserva.estado == 0 %>
              <td> <p>Aun no tiene un trayecto</p></td>

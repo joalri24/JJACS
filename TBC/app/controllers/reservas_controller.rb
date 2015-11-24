@@ -14,7 +14,7 @@ class ReservasController < ApplicationController
 
   def index
     reserva_sin_atencion
-    @reservas= Reserva.where("cliente_id= ? ", current_user.id)
+    @reservas= Reserva.where("user_id= ? ", current_user.id)
     @cliente=User.find(current_user.id)
   end
 
@@ -142,7 +142,7 @@ class ReservasController < ApplicationController
     @fechaf= @fecha + " " +@hora
     date = DateTime.parse(@fechaf)
     @formatted_date = date.strftime('%b %d %Y %H:%M:%S')
-    @reserva =Reserva.create(estado:0, direccion_origen: params[:direccion_origen], direccion_destino: params[:direccion_destino], cliente_id:params[:id], mobibus_id:0, fecha: @formatted_date)
+    @reserva =Reserva.create(estado:0, direccion_origen: params[:direccion_origen], direccion_destino: params[:direccion_destino], user_id: current_user.id , mobibus_id:0, fecha: @formatted_date)
     @reserva.save
      redirect_to action:'mostrar', id: @reserva.id, status: 301
     else
